@@ -50,14 +50,7 @@ export function SectionHeading({ children }: { children: ReactNode }) {
 }
 
 export function PageBody({ children }: { children: ReactNode }) {
-  return (
-    <div
-      className={`mx-auto max-w-6xl px-4 pb-16 ${"pt-14"}`}
-      style={{ paddingTop: undefined }}
-    >
-      {children}
-    </div>
-  );
+  return <div className="mx-auto max-w-6xl px-4 pb-16 pt-16">{children}</div>;
 }
 
 export function GoalCards({ items }: { items: string[] }) {
@@ -100,12 +93,21 @@ export function StubNote() {
   );
 }
 
+export type ChamRoute =
+  | "/"
+  | "/lang-nghe"
+  | "/hieu-minh"
+  | "/vung-vang"
+  | "/ket-noi"
+  | "/diem-tua"
+  | "/clb";
+
 export function PrevNext({
   prev,
   next,
 }: {
-  prev?: { label: string; to: string };
-  next?: { label: string; to: string };
+  prev?: { label: string; to: ChamRoute };
+  next?: { label: string; to: ChamRoute };
 }) {
   return (
     <div className="flex flex-wrap items-center justify-between gap-3">
