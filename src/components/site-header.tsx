@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, X } from "lucide-react";
+import { Menu, Users, X } from "lucide-react";
 import { LOGO_URL } from "@/lib/logo";
 import { Button } from "@/components/ui/button";
 
@@ -27,7 +27,11 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex xl:gap-2" aria-label="Điều hướng chính">
-          {NAV_ITEMS.map((item) => item.label === "Tìm điểm tựa" ? (
+          {NAV_ITEMS.map((item) => item.to === "/clb" ? (
+            <Link key={item.label} to="/clb" title={item.title} className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-club-soft px-4 py-2 text-[15px] font-bold text-club-ink transition-colors duration-300 hover:bg-club hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-club focus-visible:ring-offset-2 active:scale-95" activeProps={{ className: "!bg-club !text-primary-foreground shadow-inner" }}>
+              <Users className="h-4 w-4" aria-hidden="true" />CLB Đồng hành
+            </Link>
+          ) : item.label === "Tìm điểm tựa" ? (
             <Button key={item.label} asChild variant="secondary" className="rounded-full bg-pink-band px-4 font-bold text-plum hover:bg-pink-chip">
               <Link to="/diem-tua" hash="nguon-tro-giup" title={item.title}><span aria-hidden="true" className="text-xl">♡</span>Tìm điểm tựa</Link>
             </Button>
@@ -59,7 +63,11 @@ export function SiteHeader() {
       {open && (
         <nav className="border-t border-pink-band bg-card px-4 py-3 lg:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-1">
-            {NAV_ITEMS.map((item) => item.label === "Tìm điểm tựa" ? (
+            {NAV_ITEMS.map((item) => item.to === "/clb" ? (
+              <Link key={item.label} to="/clb" onClick={() => setOpen(false)} className="inline-flex items-center gap-2 rounded-full bg-club-soft px-4 py-3 text-base font-bold text-club-ink transition-colors duration-300 hover:bg-club hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-club" activeProps={{ className: "!bg-club !text-primary-foreground" }}>
+                <Users className="h-5 w-5" aria-hidden="true" />CLB Đồng hành
+              </Link>
+            ) : item.label === "Tìm điểm tựa" ? (
               <Button key={item.label} asChild variant="secondary" className="h-auto justify-start rounded-full bg-pink-band px-4 py-3 font-bold text-plum hover:bg-pink-chip">
                 <Link to="/diem-tua" hash="nguon-tro-giup" onClick={() => setOpen(false)}><span aria-hidden="true" className="text-xl">♡</span>Tìm điểm tựa</Link>
               </Button>
