@@ -13,6 +13,7 @@ import {
 import heroImg from "@/assets/hero-connected.jpg";
 import { MoodToday } from "@/components/home/mood-today";
 import { FiveTouchMark } from "@/components/home/five-touch-mark";
+import { ModelConnections } from "@/components/home/model-connections";
 import { KindMessages, MyJourney, SmallStepToday } from "@/components/home/signature";
 import { PracticeTools, ClubAndLibrary } from "@/components/home/explore";
 import cham1 from "@/assets/cham-1.jpg";
@@ -27,14 +28,6 @@ const INTRO = [
   { n: "3", t: "VỮNG VÀNG", d: "Luyện kỹ năng bình tĩnh và ứng phó với áp lực.", icon: Shield, to: "/vung-vang" as const, dot: "bg-teal text-primary-foreground", border: "border-teal/40", soft: "bg-mint-soft text-teal", text: "text-teal" },
   { n: "4", t: "KẾT NỐI", d: "Xây dựng quan hệ tích cực với bạn bè, gia đình, thầy cô.", icon: HeartHandshake, to: "/ket-noi" as const, dot: "bg-club-blue text-primary-foreground", border: "border-club-blue/40", soft: "bg-club-faint text-club-blue", text: "text-club-blue" },
   { n: "5", t: "ĐIỂM TỰA", d: "Biết tìm đến ai và khi nào cần giúp đỡ.", icon: LifeBuoy, to: "/diem-tua" as const, dot: "bg-green-deep text-primary-foreground", border: "border-primary/40", soft: "bg-mint text-green-deep", text: "text-green-deep" },
-];
-
-const MODEL_PARTS = [
-  { t: "LẮNG NGHE", icon: Ear, d: "Tạo không gian để học sinh được chia sẻ và được tôn trọng." },
-  { t: "THẤU HIỂU", icon: Brain, d: "Nhận diện cảm xúc, tôn trọng sự khác biệt và phát triển sự đồng cảm." },
-  { t: "VỮNG VÀNG", icon: Shield, d: "Rèn luyện kỹ năng chăm sóc bản thân, quản lý cảm xúc và ứng phó với áp lực." },
-  { t: "KẾT NỐI", icon: Users, d: "Xây dựng quan hệ tích cực và kết nối với những người có thể hỗ trợ." },
-  { t: "ĐIỂM TỰA", icon: LifeBuoy, d: "Nhận biết nguồn trợ giúp phù hợp và chủ động tìm đến khi cần." },
 ];
 
 export const Route = createFileRoute("/")({
@@ -216,17 +209,7 @@ function Index() {
             <img src={cham4} alt="Minh họa nhóm học sinh THPT trò chuyện và hỗ trợ nhau" loading="lazy" className="aspect-[4/3] w-full rounded-3xl object-cover shadow-md" />
           </div>
 
-          <ol className="relative mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            <div aria-hidden="true" className="absolute left-[10%] right-[10%] top-8 hidden h-1 rounded-full bg-gradient-to-r from-primary via-pink-chip to-primary lg:block" />
-            {MODEL_PARTS.map((c, i) => (
-              <li key={c.t} className="relative flex flex-col items-center rounded-3xl border border-border bg-card p-5 text-center shadow-sm">
-                <span className={`relative z-10 inline-flex h-12 w-12 items-center justify-center rounded-full font-display text-xl font-bold shadow ${i % 2 ? "bg-pink-band text-plum" : "bg-primary text-primary-foreground"}`}>{i + 1}</span>
-                <c.icon className="mt-3 h-7 w-7 text-primary" aria-hidden="true" />
-                <h3 className="mt-2 font-display text-lg font-bold text-green-deep">{c.t}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-foreground/75">{c.d}</p>
-              </li>
-            ))}
-          </ol>
+          <ModelConnections />
 
           <blockquote className="mx-auto mt-14 flex max-w-3xl flex-col items-center justify-center gap-3 rounded-3xl bg-pink-soft px-6 py-7 text-center sm:flex-row sm:gap-4 sm:px-10">
             <HeartHandshake className="h-10 w-10 shrink-0 text-plum" aria-hidden="true" />
