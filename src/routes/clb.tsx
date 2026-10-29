@@ -5,6 +5,9 @@ import {
   Lock, Map as MapIcon, MessageCircle, Shield, ShieldAlert, Sparkles, Stethoscope, Target, UserCheck, Users,
 } from "lucide-react";
 import clbImage from "@/assets/clb-students.jpg";
+import tierStudents from "@/assets/clb-tier-students.jpg";
+import tierAdults from "@/assets/clb-tier-adults.jpg";
+import tierNetwork from "@/assets/clb-tier-network.jpg";
 
 export const Route = createFileRoute("/clb")({
   head: () => ({
@@ -34,9 +37,9 @@ const PRINCIPLES = [
   { t: "Bảo mật có trách nhiệm", icon: Lock, d: "Giữ kín điều được chia sẻ, trừ khi có nguy cơ mất an toàn cần báo người lớn." },
 ];
 const TIERS = [
-  { t: "TẦNG 1 – HỌC SINH CHỦ ĐỘNG", icon: Users, tone: "border-club bg-club-soft", ic: "bg-club", items: ["Đề xuất chủ đề hoạt động.", "Thiết kế sản phẩm truyền thông tích cực.", "Tổ chức hoạt động trải nghiệm.", "Hỗ trợ bạn bè trong phạm vi phù hợp: lắng nghe và giới thiệu đến người lớn."] },
-  { t: "TẦNG 2 – NGƯỜI LỚN ĐỒNG HÀNH VÀ CHUYÊN GIA HỖ TRỢ", icon: UserCheck, tone: "border-club-blue bg-card", ic: "bg-club-blue", items: ["Giáo viên hoặc người phụ trách do nhà trường phân công.", "Giáo viên chủ nhiệm và thầy cô đáng tin cậy.", "Đoàn trường.", "Nhân viên y tế trường học trong phạm vi chuyên môn.", "Chuyên gia tâm lý hoặc chuyên gia sức khỏe tâm thần (Nguồn lực chuyên gia dự kiến kết nối): góp ý nội dung giáo dục, hướng dẫn kỹ năng phù hợp, hỗ trợ chuyên môn cho người phụ trách và hỗ trợ kết nối hoặc chuyển gửi khi cần."] },
-  { t: "TẦNG 3 – MẠNG LƯỚI HỖ TRỢ", icon: Stethoscope, tone: "border-club-ink bg-club-faint", ic: "bg-club-ink", items: ["Gia đình hoặc người giám hộ phù hợp.", "Cơ sở y tế.", "Dịch vụ chuyên môn đã được xác minh."] },
+  { img: tierStudents, alt: "Học sinh cùng lên ý tưởng với giấy nhớ, lập kế hoạch hoạt động câu lạc bộ", t: "TẦNG 1 – HỌC SINH CHỦ ĐỘNG", icon: Users, tone: "border-club bg-club-soft", ic: "bg-club", items: ["Đề xuất chủ đề hoạt động.", "Thiết kế sản phẩm truyền thông tích cực.", "Tổ chức hoạt động trải nghiệm.", "Hỗ trợ bạn bè trong phạm vi phù hợp: lắng nghe và giới thiệu đến người lớn."] },
+  { img: tierAdults, alt: "Giáo viên đứng phía sau hỗ trợ, học sinh chủ động thảo luận", t: "TẦNG 2 – NGƯỜI LỚN ĐỒNG HÀNH VÀ CHUYÊN GIA HỖ TRỢ", icon: UserCheck, tone: "border-club-blue bg-card", ic: "bg-club-blue", items: ["Giáo viên hoặc người phụ trách do nhà trường phân công.", "Giáo viên chủ nhiệm và thầy cô đáng tin cậy.", "Đoàn trường.", "Nhân viên y tế trường học trong phạm vi chuyên môn.", "Chuyên gia tâm lý hoặc chuyên gia sức khỏe tâm thần (Nguồn lực chuyên gia dự kiến kết nối): góp ý nội dung giáo dục, hướng dẫn kỹ năng phù hợp, hỗ trợ chuyên môn cho người phụ trách và hỗ trợ kết nối hoặc chuyển gửi khi cần."] },
+  { img: tierNetwork, alt: "Mạng lưới hỗ trợ kết nối học sinh với gia đình, người hỗ trợ chuyên môn và cơ sở y tế", t: "TẦNG 3 – MẠNG LƯỚI HỖ TRỢ", icon: Stethoscope, tone: "border-club-ink bg-club-faint", ic: "bg-club-ink", items: ["Gia đình hoặc người giám hộ phù hợp.", "Cơ sở y tế.", "Dịch vụ chuyên môn đã được xác minh."] },
 ];
 const GROUPS = [
   { t: "Góc lắng nghe", icon: Ear, d: "Không gian chia sẻ an toàn, luyện kỹ năng lắng nghe không phán xét.", to: "/lang-nghe" as const },
@@ -121,15 +124,18 @@ function ClbPage() {
 
         <section className="space-y-6">
           <H2>Cơ cấu vận hành ba tầng</H2>
-          <div className="mx-auto max-w-3xl">
-            {TIERS.map(({ t, icon: I, tone, ic, items }, i) => (
+          <div className="mx-auto max-w-4xl">
+            {TIERS.map(({ t, icon: I, tone, ic, items, img, alt }, i) => (
               <div key={t}>
-                <div className={`rounded-3xl border-2 p-6 ${tone}`}>
+                <div className={`grid items-center gap-5 rounded-3xl border-2 p-6 sm:grid-cols-[1fr_14rem] ${tone}`}>
+                  <div>
                   <div className="flex items-center gap-3">
                     <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-primary-foreground ${ic}`}><I className="h-5 w-5" aria-hidden="true" /></span>
                     <h3 className="font-display text-lg font-bold text-club-ink">{t}</h3>
                   </div>
                   <ul className="mt-3 list-disc space-y-1 pl-6 leading-relaxed">{items.map((x) => <li key={x}>{x}</li>)}</ul>
+                  </div>
+                  <img src={img} alt={alt} width={992} height={672} loading="lazy" className="aspect-[3/2] w-full rounded-2xl object-cover" />
                 </div>
                 {i < TIERS.length - 1 && (
                   <div className="flex flex-col items-center py-2 text-club-blue" aria-hidden="true"><span className="h-4 w-0.5 bg-club-soft" /><ArrowDown className="h-5 w-5" /></div>
