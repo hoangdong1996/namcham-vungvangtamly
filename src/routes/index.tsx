@@ -18,11 +18,11 @@ import cham4 from "@/assets/cham-4.jpg";
 import cham5 from "@/assets/cham-5.jpg";
 
 const INTRO = [
-  { n: "1", t: "LẮNG NGHE", d: "Nhận biết cảm xúc và dấu hiệu căng thẳng.", icon: Ear, to: "/lang-nghe" as const, bg: "bg-mint" },
-  { n: "2", t: "THẤU HIỂU", d: "Hiểu bản thân, nhận diện áp lực và nhu cầu cá nhân.", icon: Brain, to: "/hieu-minh" as const, bg: "bg-pink-soft" },
-  { n: "3", t: "VỮNG VÀNG", d: "Thực hành quản lý cảm xúc và chăm sóc bản thân.", icon: Shield, to: "/vung-vang" as const, bg: "bg-mint" },
-  { n: "4", t: "KẾT NỐI", d: "Chia sẻ với bạn bè, gia đình và người đáng tin cậy.", icon: HeartHandshake, to: "/ket-noi" as const, bg: "bg-pink-soft" },
-  { n: "5", t: "ĐIỂM TỰA", d: "Biết tìm kiếm sự giúp đỡ khi cần thiết.", icon: LifeBuoy, to: "/diem-tua" as const, bg: "bg-mint" },
+  { n: "1", t: "LẮNG NGHE", icon: Ear, to: "/lang-nghe" as const, bg: "bg-mint" },
+  { n: "2", t: "THẤU HIỂU", icon: Brain, to: "/hieu-minh" as const, bg: "bg-pink-soft" },
+  { n: "3", t: "VỮNG VÀNG", icon: Shield, to: "/vung-vang" as const, bg: "bg-mint" },
+  { n: "4", t: "KẾT NỐI", icon: HeartHandshake, to: "/ket-noi" as const, bg: "bg-pink-soft" },
+  { n: "5", t: "ĐIỂM TỰA", icon: LifeBuoy, to: "/diem-tua" as const, bg: "bg-mint" },
 ];
 
 export const Route = createFileRoute("/")({
@@ -175,7 +175,6 @@ function Index() {
                   </span>
                 </div>
                 <h3 className="mt-3 font-display text-lg font-bold leading-snug text-plum">CHẠM {c.n} – {c.t}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-foreground/80">{c.d}</p>
                 <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-primary">
                   Khám phá <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </span>
