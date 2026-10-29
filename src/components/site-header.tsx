@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, Users, X } from "lucide-react";
+import { BookOpen, Menu, Users, X } from "lucide-react";
 import { LOGO_URL } from "@/lib/logo";
 import { Button } from "@/components/ui/button";
 
@@ -12,6 +12,7 @@ export const NAV_ITEMS = [
   { label: "Chạm 4", to: "/ket-noi" as const, title: "Chạm 4 – Kết nối" },
   { label: "Chạm 5", to: "/diem-tua" as const, title: "Chạm 5 – Tìm điểm tựa" },
   { label: "CLB Đồng hành", to: "/clb" as const, title: "CLB Đồng hành" },
+  { label: "Tài liệu", to: "/tai-lieu" as const, title: "Tài liệu" },
   { label: "Tìm điểm tựa", to: "/diem-tua" as const, title: "Tìm điểm tựa" },
 ];
 
@@ -30,6 +31,10 @@ export function SiteHeader() {
           {NAV_ITEMS.map((item) => item.to === "/clb" ? (
             <Link key={item.label} to="/clb" title={item.title} className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-club-soft px-4 py-2 text-[15px] font-bold text-club-ink transition-colors duration-300 hover:bg-club hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-club focus-visible:ring-offset-2 active:scale-95" activeProps={{ className: "!bg-club !text-primary-foreground shadow-inner" }}>
               <Users className="h-4 w-4" aria-hidden="true" />CLB Đồng hành
+            </Link>
+          ) : item.to === "/tai-lieu" ? (
+            <Link key={item.label} to="/tai-lieu" title="Thư viện tài liệu" className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border border-mint bg-mint-soft px-3 py-2 text-[15px] font-bold text-green-deep transition-colors duration-200 hover:bg-mint" activeProps={{ className: "!bg-primary !text-primary-foreground !border-primary" }}>
+              <BookOpen className="h-4 w-4" aria-hidden="true" />Tài liệu
             </Link>
           ) : item.label === "Tìm điểm tựa" ? (
             <Button key={item.label} asChild variant="secondary" className="rounded-full bg-pink-band px-4 font-bold text-plum hover:bg-pink-chip">
@@ -66,6 +71,10 @@ export function SiteHeader() {
             {NAV_ITEMS.map((item) => item.to === "/clb" ? (
               <Link key={item.label} to="/clb" onClick={() => setOpen(false)} className="inline-flex items-center gap-2 rounded-full bg-club-soft px-4 py-3 text-base font-bold text-club-ink transition-colors duration-300 hover:bg-club hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-club" activeProps={{ className: "!bg-club !text-primary-foreground" }}>
                 <Users className="h-5 w-5" aria-hidden="true" />CLB Đồng hành
+              </Link>
+            ) : item.to === "/tai-lieu" ? (
+              <Link key={item.label} to="/tai-lieu" onClick={() => setOpen(false)} className="inline-flex items-center gap-2 rounded-xl px-4 py-3 text-base font-bold text-green-deep transition-colors hover:bg-mint" activeProps={{ className: "!bg-primary !text-primary-foreground" }}>
+                <BookOpen className="h-5 w-5" aria-hidden="true" />Tài liệu
               </Link>
             ) : item.label === "Tìm điểm tựa" ? (
               <Button key={item.label} asChild variant="secondary" className="h-auto justify-start rounded-full bg-pink-band px-4 py-3 font-bold text-plum hover:bg-pink-chip">
