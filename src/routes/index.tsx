@@ -231,9 +231,9 @@ function Index() {
             ))}
           </ol>
 
-          <blockquote className="mx-auto mt-12 flex max-w-3xl items-center gap-4 rounded-3xl bg-pink-soft px-6 py-6 sm:px-8">
+          <blockquote className="mx-auto mt-14 flex max-w-3xl flex-col items-center justify-center gap-3 rounded-3xl bg-pink-soft px-6 py-7 text-center sm:flex-row sm:gap-4 sm:px-10">
             <HeartHandshake className="h-10 w-10 shrink-0 text-plum" aria-hidden="true" />
-            <p className="font-display text-lg font-bold leading-snug text-plum sm:text-xl">“Mỗi lần chạm là một bước gần hơn đến sự thấu hiểu, kết nối và vững vàng tâm lý.”</p>
+            <p className="font-display text-lg font-bold leading-snug text-plum text-balance sm:text-xl">“Mỗi lần chạm là một bước gần hơn đến sự thấu hiểu, kết nối và vững vàng tâm lý.”</p>
           </blockquote>
         </div>
       </section>
