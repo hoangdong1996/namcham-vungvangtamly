@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
   Brain,
-  Compass,
   Ear,
   GraduationCap,
   HeartHandshake,
