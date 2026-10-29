@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ClbRouteImport } from './routes/clb'
+import { Route as DiemTuaRouteImport } from './routes/diem-tua'
+import { Route as HieuMinhRouteImport } from './routes/hieu-minh'
+import { Route as KetNoiRouteImport } from './routes/ket-noi'
+import { Route as LangNgheRouteImport } from './routes/lang-nghe'
+import { Route as VungVangRouteImport } from './routes/vung-vang'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ClbRoute = ClbRouteImport.update({
+  id: '/clb',
+  path: '/clb',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DiemTuaRoute = DiemTuaRouteImport.update({
+  id: '/diem-tua',
+  path: '/diem-tua',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HieuMinhRoute = HieuMinhRouteImport.update({
+  id: '/hieu-minh',
+  path: '/hieu-minh',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KetNoiRoute = KetNoiRouteImport.update({
+  id: '/ket-noi',
+  path: '/ket-noi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LangNgheRoute = LangNgheRouteImport.update({
+  id: '/lang-nghe',
+  path: '/lang-nghe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VungVangRoute = VungVangRouteImport.update({
+  id: '/vung-vang',
+  path: '/vung-vang',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/clb': typeof ClbRoute
+  '/diem-tua': typeof DiemTuaRoute
+  '/hieu-minh': typeof HieuMinhRoute
+  '/ket-noi': typeof KetNoiRoute
+  '/lang-nghe': typeof LangNgheRoute
+  '/vung-vang': typeof VungVangRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/clb': typeof ClbRoute
+  '/diem-tua': typeof DiemTuaRoute
+  '/hieu-minh': typeof HieuMinhRoute
+  '/ket-noi': typeof KetNoiRoute
+  '/lang-nghe': typeof LangNgheRoute
+  '/vung-vang': typeof VungVangRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/clb': typeof ClbRoute
+  '/diem-tua': typeof DiemTuaRoute
+  '/hieu-minh': typeof HieuMinhRoute
+  '/ket-noi': typeof KetNoiRoute
+  '/lang-nghe': typeof LangNgheRoute
+  '/vung-vang': typeof VungVangRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/clb'
+    | '/diem-tua'
+    | '/hieu-minh'
+    | '/ket-noi'
+    | '/lang-nghe'
+    | '/vung-vang'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/clb'
+    | '/diem-tua'
+    | '/hieu-minh'
+    | '/ket-noi'
+    | '/lang-nghe'
+    | '/vung-vang'
+  id:
+    | '__root__'
+    | '/'
+    | '/clb'
+    | '/diem-tua'
+    | '/hieu-minh'
+    | '/ket-noi'
+    | '/lang-nghe'
+    | '/vung-vang'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ClbRoute: typeof ClbRoute
+  DiemTuaRoute: typeof DiemTuaRoute
+  HieuMinhRoute: typeof HieuMinhRoute
+  KetNoiRoute: typeof KetNoiRoute
+  LangNgheRoute: typeof LangNgheRoute
+  VungVangRoute: typeof VungVangRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/clb': {
+      id: '/clb'
+      path: '/clb'
+      fullPath: '/clb'
+      preLoaderRoute: typeof ClbRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/diem-tua': {
+      id: '/diem-tua'
+      path: '/diem-tua'
+      fullPath: '/diem-tua'
+      preLoaderRoute: typeof DiemTuaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hieu-minh': {
+      id: '/hieu-minh'
+      path: '/hieu-minh'
+      fullPath: '/hieu-minh'
+      preLoaderRoute: typeof HieuMinhRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ket-noi': {
+      id: '/ket-noi'
+      path: '/ket-noi'
+      fullPath: '/ket-noi'
+      preLoaderRoute: typeof KetNoiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lang-nghe': {
+      id: '/lang-nghe'
+      path: '/lang-nghe'
+      fullPath: '/lang-nghe'
+      preLoaderRoute: typeof LangNgheRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vung-vang': {
+      id: '/vung-vang'
+      path: '/vung-vang'
+      fullPath: '/vung-vang'
+      preLoaderRoute: typeof VungVangRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ClbRoute: ClbRoute,
+  DiemTuaRoute: DiemTuaRoute,
+  HieuMinhRoute: HieuMinhRoute,
+  KetNoiRoute: KetNoiRoute,
+  LangNgheRoute: LangNgheRoute,
+  VungVangRoute: VungVangRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
