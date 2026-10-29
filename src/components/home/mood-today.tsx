@@ -37,7 +37,7 @@ export function MoodToday() {
             </div>
           )}
         </div>
-        <p className="mt-6 flex items-start justify-center gap-2 text-center text-xs text-foreground/65"><Frown className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />Lựa chọn của bạn không được lưu lại. Đây không phải công cụ chẩn đoán. Nếu cảm xúc kéo dài hoặc bạn thấy không an toàn, hãy <Link to="/diem-tua" hash="nguon-tro-giup" className="font-semibold text-plum underline">tìm điểm tựa</Link>.</p>
+        <p className="mx-auto mt-6 max-w-2xl text-center text-xs leading-relaxed text-foreground/65"><Frown className="mr-1 inline h-4 w-4 align-text-bottom" aria-hidden="true" />Lựa chọn của bạn không được lưu lại. Đây không phải công cụ chẩn đoán. Nếu cảm xúc kéo dài hoặc bạn thấy không an toàn, hãy <Link to="/diem-tua" hash="nguon-tro-giup" className="font-semibold text-plum underline">tìm điểm tựa</Link>.</p>
       </div>
     </section>
   );
