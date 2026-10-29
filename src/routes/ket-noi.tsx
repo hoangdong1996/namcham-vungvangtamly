@@ -1,22 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { HeartHandshake } from "lucide-react";
-import { StubChamPage } from "@/components/stub-cham-page";
+import { ChamHero, PageBody, PrevNext } from "@/components/cham";
+import { ConnectionJourney } from "@/components/cham-four/journey";
 
 export const Route = createFileRoute("/ket-noi")({
   head: () => ({
     meta: [
       { title: "Chạm 4 – Kết nối | 5 CHẠM – Vững vàng tâm lý" },
-      {
-        name: "description",
-        content:
-          "Xây dựng mối quan hệ tích cực với bạn bè, thầy cô và gia đình. Chạm 4 – Kết nối, mô hình 5 CHẠM tại Trường THPT Tây Tiền Hải.",
-      },
+      { name: "description", content: "Hành trình từ khoảng cách vô hình đến kết nối với bạn bè, gia đình và thầy cô. Chạm 4 – Kết nối, mô hình 5 CHẠM tại Trường THPT Tây Tiền Hải." },
       { property: "og:title", content: "Chạm 4 – Kết nối | 5 CHẠM" },
-      {
-        property: "og:description",
-        content:
-          "Xây dựng mối quan hệ tích cực với bạn bè, thầy cô và gia đình.",
-      },
+      { property: "og:description", content: "Hành trình từ khoảng cách vô hình đến kết nối với bạn bè, gia đình và thầy cô." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -26,25 +19,14 @@ export const Route = createFileRoute("/ket-noi")({
 
 function KetNoiPage() {
   return (
-    <main>
-      <StubChamPage
-        eyebrow="Chạm 4"
-        title="Kết nối"
-        subtitle="Xây dựng mối quan hệ tích cực với bạn bè, thầy cô và gia đình."
-        icon={HeartHandshake}
-        goals={[
-          "Giao tiếp tôn trọng và lắng nghe tích cực",
-          "Biết cách chia sẻ và đề nghị giúp đỡ",
-          "Lan tỏa sự tử tế trong lớp học",
-        ]}
-        activities={[
-          "Góc lời khen",
-          "Thử thách “1 tin nhắn yêu thương”",
-          "Vòng tròn chia sẻ",
-        ]}
-        prev={{ label: "Chạm 3 – Vững vàng", to: "/vung-vang" }}
-        next={{ label: "Chạm 5 – Điểm tựa", to: "/diem-tua" }}
-      />
+    <main className="cham-two">
+      <ChamHero eyebrow="Chạm 4" title="CHẠM 4 – KẾT NỐI" subtitle="Từ khoảng cách vô hình đến kết nối: bạn bè – gia đình – thầy cô." icon={HeartHandshake} />
+      <PageBody>
+        <div className="space-y-10">
+          <ConnectionJourney />
+          <PrevNext prev={{ label: "Chạm 3 – Vững vàng", to: "/vung-vang" }} next={{ label: "Chạm 5 – Điểm tựa", to: "/diem-tua" }} />
+        </div>
+      </PageBody>
     </main>
   );
 }
