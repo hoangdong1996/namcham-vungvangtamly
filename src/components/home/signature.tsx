@@ -44,7 +44,7 @@ export function MyJourney() {
                   <p className="font-display font-bold text-green-deep">Chạm {j.n} – {j.t}</p>
                   <p className="text-sm text-foreground/75">{j.act}</p>
                 </div>
-                <Link to={j.to} {...(j.hash ? { hash: j.hash } : {})} className="inline-flex items-center gap-1 text-sm font-bold text-primary hover:text-green-deep">Mở hoạt động <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
+                <Link to={j.to} {...(j.hash ? { hash: j.hash } : {})} className="inline-flex min-h-11 items-center gap-1 text-sm font-bold text-primary hover:text-green-deep">Mở hoạt động <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
               </li>
             );
           })}

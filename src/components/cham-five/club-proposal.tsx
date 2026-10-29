@@ -96,7 +96,7 @@ export function ClubProposal() {
           </section>
         </div>
       )}
-      <p className="text-center"><Link to="/" hash="nam-cham" className="text-sm font-semibold text-primary underline-offset-4 hover:underline">Quay lại hành trình 5 Chạm</Link></p>
+      <p className="text-center"><Link to="/" hash="nam-cham" className="inline-block py-3 text-sm font-semibold text-primary underline-offset-4 hover:underline">Quay lại hành trình 5 Chạm</Link></p>
     </div>
   );
 }
