@@ -41,7 +41,15 @@ export async function suggestSupport(text: string): Promise<Suggestion> {
     const out = await result.output;
     return { message: out.message, exercises: normalizeExercises(out.exercises), urgent: out.urgent };
   } catch (e) {
-    if (NoObjectGeneratedError.isInstance(e)) throw new Error("Chưa tạo được gợi ý, bạn thử lại sau nhé.");
+    if (NoObjectGeneratedError.isInstance(e)) {
+      console.error("support-suggest no object", e.finishReason);
+      // Usually a safety refusal on sensitive content: never leave the student without guidance.
+      return {
+        message: "Cảm ơn bạn đã tin tưởng chia sẻ. Điều bạn đang trải qua rất quan trọng, và bạn xứng đáng được một người lớn lắng nghe và giúp đỡ ngay lúc này.",
+        exercises: ["ban-do"],
+        urgent: true,
+      };
+    }
     const status = (e as { statusCode?: number }).statusCode;
     // Never log the student's text.
     console.error("support-suggest failed", status);
