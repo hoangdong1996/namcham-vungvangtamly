@@ -16,7 +16,7 @@ export const PRINT_RECOVERY = ["Đi bộ hoặc vận động", "Nghe nhạc", "
 const QUOTE = "“Hiểu mình không phải là tự trách bản thân. Đó là nhận ra điều gì đang tạo áp lực, điều gì giúp mình vững vàng và khi nào mình cần một điểm tựa.”";
 
 const Box = ({ checked }: { checked?: boolean }) => <span className="pn-box" aria-hidden="true">{checked ? "✓" : ""}</span>;
-function Lines({ text = "", n }: { text?: string; n: number }) {
+function Lines({ text = "", n }: { text?: string | undefined; n: number }) {
   return <div className="pn-write">{text && <p className="pn-filled">{text}</p>}{Array.from({ length: Math.max(n - (text ? Math.ceil(text.length / 80) : 0), 1) }, (_, i) => <div key={i} className="pn-line" />)}</div>;
 }
 function Head({ n, title }: { n: number; title: string }) {
