@@ -126,7 +126,7 @@ function Index() {
       <section className="hero-gradient overflow-hidden px-4 py-14 lg:py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-[minmax(0,52fr)_minmax(0,48fr)] md:gap-8 lg:gap-12">
           <div className="hero-copy min-w-0 text-center md:text-left">
-            <div className="inline-flex items-center gap-2 rounded-full bg-card px-4 py-2 text-sm font-semibold text-green-deep shadow-sm">
+            <div className="hero-brand inline-flex items-center gap-2 rounded-full bg-card px-4 py-2 text-sm font-semibold text-green-deep shadow-sm">
               <GraduationCap className="h-4 w-4" aria-hidden="true" />
               5 CHẠM – VỮNG VÀNG TÂM LÝ · Trường THPT Tây Tiền Hải
             </div>
@@ -138,10 +138,10 @@ function Index() {
                 <span className="block whitespace-nowrap">CÒN <span className="hero-self font-black">CHÍNH MÌNH</span></span> <span className="block whitespace-nowrap">THÌ SAO?</span>
               </span>
             </h1>
-            <p className="mx-auto mt-7 max-w-[600px] font-hero text-base font-normal leading-[1.75] text-green-deep/85 sm:text-[1.15rem] md:mx-0 lg:text-[1.2rem]">
+            <p className="hero-desc mx-auto mt-7 max-w-[600px] font-hero text-base font-normal leading-[1.75] text-green-deep/85 sm:text-[1.15rem] md:mx-0 lg:text-[1.2rem]">
               5 Chạm là hành trình giúp học sinh hiểu cảm xúc, rèn luyện khả năng ứng phó với áp lực và tìm kiếm những điểm tựa an toàn trên hành trình trưởng thành.
             </p>
-            <div className="mt-9 flex flex-wrap justify-center gap-3 font-hero md:justify-start">
+            <div className="hero-cta mt-9 flex flex-wrap justify-center gap-3 font-hero md:justify-start">
               <a href="#hanh-trinh" className="inline-flex h-14 items-center justify-center gap-2.5 rounded-full bg-primary px-7 text-[15px] font-bold text-primary-foreground shadow-md transition duration-200 hover:-translate-y-0.5 hover:bg-green-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 motion-reduce:hover:translate-y-0 sm:text-base">
                 Bắt đầu hành trình 5 Chạm <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
@@ -149,12 +149,12 @@ function Index() {
                 <HeartHandshake className="h-4 w-4" aria-hidden="true" /> Mình cần một điểm tựa
               </Link>
             </div>
-            <Link to="/clb" className="mt-5 inline-flex items-center gap-2 font-hero text-[15px] font-semibold text-club underline-offset-4 transition-colors hover:text-club-deep hover:underline">
+            <Link to="/clb" className="hero-club mt-5 inline-flex items-center gap-2 font-hero text-[15px] font-semibold text-club underline-offset-4 transition-colors hover:text-club-deep hover:underline">
               <Users className="h-4 w-4" aria-hidden="true" /> Tham gia CLB
             </Link>
 
           </div>
-          <div className="relative mx-auto w-full min-w-0 max-w-xl">
+          <div className="hero-img-wrap relative mx-auto w-full min-w-0 max-w-xl">
             <img src={heroImg} alt="Minh họa ba học sinh THPT cùng trò chuyện, được nối với nhau bằng những điểm chạm và trái tim" width={1280} height={1024} className="aspect-[5/4] h-auto w-full rounded-[2rem] object-contain shadow-lg" />
             <div className="absolute bottom-3 left-3 rounded-[1.25rem] bg-card p-2.5 shadow-md">
               <FiveTouchMark className="h-14 w-14 sm:h-16 sm:w-16" />
