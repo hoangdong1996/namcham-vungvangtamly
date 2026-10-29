@@ -12,7 +12,6 @@ export function SafetyMapImage() {
           <button aria-label="Phóng to bản đồ kết nối an toàn" className="group relative flex w-full cursor-zoom-in justify-center overflow-hidden rounded-3xl border-2 border-pink-band bg-card p-4 shadow-sm transition-shadow hover:shadow-md">
             <img src={mapAsset.url} alt={ALT} width={1199} height={1312} className="h-auto max-h-[70vh] w-auto max-w-full" />
           </button>
-          </button>
         </DialogTrigger>
         <DialogContent className="max-h-[95vh] max-w-[95vw] overflow-auto p-2 sm:max-w-5xl">
           <DialogTitle className="sr-only">{ALT}</DialogTitle>
