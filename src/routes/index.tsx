@@ -126,7 +126,7 @@ function Index() {
       <section className="hero-gradient overflow-hidden px-4 py-14 lg:py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-[minmax(0,52fr)_minmax(0,48fr)] md:gap-8 lg:gap-12">
           <div className="hero-copy min-w-0 text-center md:text-left">
-            <div className="inline-flex items-center gap-2 rounded-full bg-card px-4 py-2 text-sm font-semibold text-green-deep shadow-sm">
+            <div className="hero-brand inline-flex items-center gap-2 rounded-full bg-card px-4 py-2 text-sm font-semibold text-green-deep shadow-sm">
               <GraduationCap className="h-4 w-4" aria-hidden="true" />
               5 CHẠM – VỮNG VÀNG TÂM LÝ · Trường THPT Tây Tiền Hải
             </div>
