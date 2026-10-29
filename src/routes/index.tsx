@@ -10,7 +10,9 @@ import {
   Users,
   type LucideIcon,
 } from "lucide-react";
-import heroImg from "@/assets/hero-students.jpg";
+import heroImg from "@/assets/hero-connected.jpg";
+import { MoodToday } from "@/components/home/mood-today";
+import { PracticeTools, ClubAndLibrary } from "@/components/home/explore";
 import cham1 from "@/assets/cham-1.jpg";
 import cham2 from "@/assets/cham-2.jpg";
 import cham3 from "@/assets/cham-3.jpg";
@@ -18,11 +20,11 @@ import cham4 from "@/assets/cham-4.jpg";
 import cham5 from "@/assets/cham-5.jpg";
 
 const INTRO = [
-  { n: "1", t: "LẮNG NGHE", icon: Ear, to: "/lang-nghe" as const, bg: "bg-mint" },
-  { n: "2", t: "THẤU HIỂU", icon: Brain, to: "/hieu-minh" as const, bg: "bg-pink-soft" },
-  { n: "3", t: "VỮNG VÀNG", icon: Shield, to: "/vung-vang" as const, bg: "bg-mint" },
-  { n: "4", t: "KẾT NỐI", icon: HeartHandshake, to: "/ket-noi" as const, bg: "bg-pink-soft" },
-  { n: "5", t: "ĐIỂM TỰA", icon: LifeBuoy, to: "/diem-tua" as const, bg: "bg-mint" },
+  { n: "1", t: "LẮNG NGHE", d: "Dừng lại, gọi tên cảm xúc của chính mình.", icon: Ear, to: "/lang-nghe" as const, dot: "bg-primary text-primary-foreground", border: "border-mint", soft: "bg-mint text-primary", text: "text-primary" },
+  { n: "2", t: "THẤU HIỂU", d: "Hiểu áp lực số và những gì ảnh hưởng đến mình.", icon: Brain, to: "/hieu-minh" as const, dot: "bg-pink-band text-plum", border: "border-pink-band", soft: "bg-pink-soft text-plum", text: "text-plum" },
+  { n: "3", t: "VỮNG VÀNG", d: "Luyện kỹ năng bình tĩnh và ứng phó với áp lực.", icon: Shield, to: "/vung-vang" as const, dot: "bg-teal text-primary-foreground", border: "border-teal/40", soft: "bg-mint-soft text-teal", text: "text-teal" },
+  { n: "4", t: "KẾT NỐI", d: "Xây dựng quan hệ tích cực với bạn bè, gia đình, thầy cô.", icon: HeartHandshake, to: "/ket-noi" as const, dot: "bg-club-blue text-primary-foreground", border: "border-club-blue/40", soft: "bg-club-faint text-club-blue", text: "text-club-blue" },
+  { n: "5", t: "ĐIỂM TỰA", d: "Biết tìm đến ai và khi nào cần giúp đỡ.", icon: LifeBuoy, to: "/diem-tua" as const, dot: "bg-green-deep text-primary-foreground", border: "border-primary/40", soft: "bg-mint text-green-deep", text: "text-green-deep" },
 ];
 
 const MODEL_PARTS = [
@@ -119,78 +121,60 @@ const CHAMS: {
 function Index() {
   return (
     <main>
-      <section className="hero-gradient px-4 py-12 lg:py-16">
+      <section className="hero-gradient overflow-hidden px-4 py-14 lg:py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2">
           <div className="min-w-0 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 rounded-full bg-mint px-4 py-2 text-sm font-semibold text-green-deep">
-              <GraduationCap className="h-4 w-4" />
-              Trường THPT Tây Tiền Hải
+            <div className="inline-flex items-center gap-2 rounded-full bg-card px-4 py-2 text-sm font-semibold text-green-deep shadow-sm">
+              <GraduationCap className="h-4 w-4" aria-hidden="true" />
+              5 CHẠM – VỮNG VÀNG TÂM LÝ · Trường THPT Tây Tiền Hải
             </div>
-            <h1 className="mt-5 font-display text-4xl font-extrabold leading-tight text-primary sm:text-5xl">
-              5 CHẠM –
-              <span className="block text-plum">VỮNG VÀNG TÂM LÝ</span>
+            <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.1] text-green-deep text-balance sm:text-5xl lg:text-6xl">
+              BẠN KHÔNG CẦN PHẢI <span className="text-plum">ỔN MỌI LÚC.</span>
             </h1>
             <p className="mt-5 text-base leading-relaxed text-foreground/85 sm:text-lg">
-              Hành trình giúp học sinh nhận diện cảm xúc, chăm sóc bản thân, kết nối với mọi người
-              và chủ động tìm kiếm sự hỗ trợ khi cần.
+              Một không gian để hiểu mình hơn, học cách vượt qua áp lực và tìm thấy những điểm tựa an toàn trên hành trình trưởng thành.
             </p>
-            <p className="mt-3 text-base font-semibold italic text-green-deep">
-              Lắng nghe bản thân – Kết nối yêu thương – Vững vàng mỗi ngày
-            </p>
-            <div className="mt-7 flex flex-wrap justify-center gap-3 lg:justify-start">
-              <Link
-                to="/lang-nghe"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-bold tracking-wide text-primary-foreground shadow-md transition-colors hover:bg-green-deep"
-              >
-                BẮT ĐẦU HÀNH TRÌNH
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                to="/clb"
-                className="inline-flex items-center gap-2 rounded-full bg-pink-band px-6 py-3.5 text-sm font-semibold text-club transition-colors hover:bg-pink-chip hover:text-club-deep"
-              >
-                <Users className="h-4 w-4" />
-                Tham gia CLB
+            <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
+              <a href="#hanh-trinh" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-bold tracking-wide text-primary-foreground shadow-md transition-colors hover:bg-green-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                Khám phá 5 Chạm <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </a>
+              <Link to="/diem-tua" hash="nguon-tro-giup" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-pink-band px-7 py-3.5 text-sm font-bold text-plum transition-colors hover:bg-pink-chip focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-plum focus-visible:ring-offset-2">
+                <HeartHandshake className="h-4 w-4" aria-hidden="true" /> Tìm điểm tựa
               </Link>
             </div>
+            <Link to="/clb" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-club hover:text-club-deep">
+              <Users className="h-4 w-4" aria-hidden="true" /> Tham gia CLB
+            </Link>
           </div>
           <div className="min-w-0">
-            <img
-              src={heroImg}
-              alt="Nhóm học sinh THPT trò chuyện, lắng nghe và kết nối với nhau"
-              width={1280}
-              height={1024}
-              className="aspect-[5/4] w-full rounded-[2rem] border-4 border-card object-cover shadow-xl"
-            />
+            <img src={heroImg} alt="Minh họa ba học sinh THPT cùng trò chuyện, được nối với nhau bằng những điểm chạm và trái tim" width={1280} height={1024} className="aspect-[5/4] w-full rounded-[2rem] object-cover shadow-xl" />
           </div>
         </div>
       </section>
 
-      <section className="bg-card px-4 py-14">
+      <section id="hanh-trinh" aria-labelledby="hanh-trinh-title" className="scroll-mt-20 bg-card px-4 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-center font-display text-3xl font-bold text-primary">Hành trình 5 CHẠM</h2>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <h2 id="hanh-trinh-title" className="text-center font-display text-3xl font-bold text-primary sm:text-4xl">Hành trình 5 CHẠM</h2>
+          <ol className="relative mt-12 grid gap-6 lg:grid-cols-5 lg:gap-4">
+            <div aria-hidden="true" className="absolute left-[10%] right-[10%] top-7 hidden h-1 rounded-full bg-gradient-to-r from-primary via-pink-chip to-club-blue lg:block" />
+            <div aria-hidden="true" className="absolute bottom-6 left-7 top-6 w-1 rounded-full bg-gradient-to-b from-primary via-pink-chip to-club-blue lg:hidden" />
             {INTRO.map((c) => (
-              <Link
-                key={c.n}
-                to={c.to}
-                className={`group flex flex-col rounded-3xl border border-border p-5 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg ${c.bg}`}
-              >
-                <div className="flex items-center justify-between">
-                  <span className="font-display text-4xl font-extrabold text-primary">{c.n}</span>
-                  <span className="grid h-11 w-11 place-items-center rounded-2xl bg-card text-primary shadow-sm">
-                    <c.icon className="h-5 w-5" />
-                  </span>
-                </div>
-                <h3 className="mt-3 font-display text-lg font-bold leading-snug text-plum">CHẠM {c.n} – {c.t}</h3>
-                <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-primary">
-                  Khám phá <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </span>
-              </Link>
+              <li key={c.n} className="relative flex gap-4 lg:flex-col lg:items-center lg:text-center">
+                <span className={`relative z-10 grid h-14 w-14 shrink-0 place-items-center rounded-full font-display text-2xl font-extrabold shadow-md ring-4 ring-card ${c.dot}`}>{c.n}</span>
+                <Link to={c.to} className={`group flex flex-1 flex-col rounded-3xl border-2 bg-card p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transition-none motion-reduce:hover:translate-y-0 lg:mt-4 lg:w-full ${c.border}`}>
+                  <span className={`mx-0 grid h-11 w-11 place-items-center rounded-2xl lg:mx-auto ${c.soft}`}><c.icon className="h-5 w-5" aria-hidden="true" /></span>
+                  <h3 className="mt-3 font-display text-lg font-bold leading-snug text-foreground">CHẠM {c.n} – {c.t}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-foreground/75">{c.d}</p>
+                  <span className={`mt-auto inline-flex items-center gap-1 pt-4 text-sm font-bold lg:justify-center ${c.text}`}>Khám phá <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" /></span>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
+
+      <MoodToday />
+      <PracticeTools />
 
       {/* Mô hình 5 CHẠM */}
       <section id="mo-hinh" aria-labelledby="mo-hinh-title" className="bg-card py-16">
@@ -289,6 +273,7 @@ function Index() {
           </div>
         </div>
       </section>
+      <ClubAndLibrary />
     </main>
   );
 }
