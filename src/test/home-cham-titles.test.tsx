@@ -18,8 +18,9 @@ function renderHome() {
 // The "Hành trình 5 CHẠM" card grid on the homepage must use the exact five
 // Chạm names and keep its per-card "Khám phá" links pointing at the right pages.
 describe("Homepage – Hành trình 5 CHẠM cards", () => {
-  it("shows the exact five Chạm titles and no old names", () => {
+  it("shows the exact five Chạm titles and no old names", async () => {
     renderHome();
+    await screen.findByRole("heading", { name: "CHẠM 1 – LẮNG NGHE" });
 
     for (const title of [
       "CHẠM 1 – LẮNG NGHE",
@@ -36,8 +37,9 @@ describe("Homepage – Hành trình 5 CHẠM cards", () => {
     }
   });
 
-  it("keeps five Khám phá links pointing at their Chạm pages", () => {
+  it("keeps five Khám phá links pointing at their Chạm pages", async () => {
     renderHome();
+    await screen.findByRole("heading", { name: "CHẠM 1 – LẮNG NGHE" });
 
     const hrefs = screen
       .getAllByRole("link", { name: "Khám phá" })
