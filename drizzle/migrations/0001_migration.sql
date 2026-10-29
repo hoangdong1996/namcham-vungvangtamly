@@ -1,0 +1,3 @@
+CREATE POLICY "anyone reads my-documents" ON storage.objects FOR SELECT TO anon, authenticated USING (bucket_id = 'my-documents');
+CREATE POLICY "admin uploads my-documents" ON storage.objects FOR INSERT TO authenticated WITH CHECK (bucket_id = 'my-documents' AND public.has_role(auth.uid(), 'admin'));
+CREATE POLICY "admin deletes my-documents" ON storage.objects FOR DELETE TO authenticated USING (bucket_id = 'my-documents' AND public.has_role(auth.uid(), 'admin'));
