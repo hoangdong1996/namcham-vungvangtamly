@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ChevronDown, Compass, Users, UserCheck, Stethoscope } from "lucide-react";
 
@@ -31,8 +31,18 @@ const ROADMAP = [
 
 const Status = () => <span className="inline-block rounded-full border-2 border-dashed border-plum px-4 py-1 text-xs font-bold tracking-wider text-plum">MÔ HÌNH ĐỀ XUẤT – ĐANG ĐỂ NGỎ</span>;
 
+export const openClubProposal = () => {
+  window.dispatchEvent(new Event("open-club-proposal"));
+  setTimeout(() => document.getElementById("clb")?.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+};
+
 export function ClubProposal() {
   const [open, setOpen] = useState(false);
+  useEffect(() => {
+    const h = () => setOpen(true);
+    window.addEventListener("open-club-proposal", h);
+    return () => window.removeEventListener("open-club-proposal", h);
+  }, []);
   return (
     <div className="space-y-6 rounded-3xl bg-card p-6 shadow-sm sm:p-8">
       <div className="text-center">

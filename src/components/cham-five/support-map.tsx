@@ -4,6 +4,12 @@ import { GROUPS, type Supporter } from "./data";
 
 const ICONS = { "gia-dinh": Home, "nha-truong": School, "chuyen-mon": Stethoscope } as const;
 
+const CARDS = [
+  { title: "A. GIA ĐÌNH", btn: "Tìm hiểu điểm tựa gia đình", items: ["Bố mẹ, ông bà, anh chị hoặc người thân đáng tin cậy.", "Hướng dẫn cách mở lời và chia sẻ khó khăn."] },
+  { title: "B. NHÀ TRƯỜNG", btn: "Khám phá điểm tựa nhà trường", items: ["Bạn bè đáng tin cậy.", "Giáo viên chủ nhiệm.", "Thầy cô giáo mà học sinh tin tưởng.", "Đoàn trường.", "Nhân viên y tế trường học.", "Cán bộ hoặc bộ phận tư vấn tâm lý học đường nếu nhà trường có bố trí."] },
+  { title: "C. HỖ TRỢ CHUYÊN MÔN", btn: "Tìm hiểu hỗ trợ chuyên môn", items: ["Cơ sở y tế có dịch vụ phù hợp.", "Chuyên gia có chuyên môn và thông tin xác minh được.", "Hướng dẫn kết nối với người lớn đáng tin cậy khi cần hỗ trợ chuyên sâu."] },
+];
+
 function Detail({ p, onBack }: { p: Supporter; onBack: () => void }) {
   const [copied, setCopied] = useState(false);
   const copy = async () => {
@@ -43,6 +49,10 @@ export function SupportMap() {
 
   return (
     <div className="space-y-6">
+      <div className="text-center">
+        <h3 className="font-display text-2xl font-bold text-primary">KHÁM PHÁ CÁC ĐIỂM TỰA CỦA BẠN</h3>
+        <p className="mx-auto mt-2 max-w-3xl leading-relaxed text-foreground/85">Mỗi người có thể cần một điểm tựa khác nhau. Hãy chọn một nhóm hỗ trợ để tìm hiểu cách bắt đầu chia sẻ và những bước có thể thực hiện khi cần giúp đỡ.</p>
+      </div>
       <div className="flex justify-center">
         <button onClick={() => { setGroup(null); setPerson(null); }} className="rounded-full bg-primary px-8 py-4 font-display text-lg font-bold text-primary-foreground shadow-lg ring-8 ring-pink-band transition-transform hover:scale-105">
           TÔI CẦN ĐƯỢC LẮNG NGHE
@@ -50,19 +60,24 @@ export function SupportMap() {
       </div>
       <div className="mx-auto hidden h-6 w-2/3 border-x-2 border-t-2 border-dashed border-primary/40 md:block" aria-hidden />
       <div className="grid gap-4 md:grid-cols-3">
-        {GROUPS.map((x) => {
+        {GROUPS.map((x, k) => {
           const Icon = ICONS[x.id as keyof typeof ICONS];
           const active = group === x.id;
+          const c = CARDS[k]!;
           return (
-            <button key={x.id} aria-pressed={active} onClick={() => { setGroup(active ? null : x.id); setPerson(null); }}
-              className={`rounded-3xl border-2 p-5 text-left transition-all hover:-translate-y-1 hover:shadow-md ${active ? "border-primary bg-mint" : "border-pink-band bg-card"}`}>
+            <div key={x.id} className={`flex flex-col rounded-3xl border-2 p-5 transition-all hover:-translate-y-1 hover:shadow-md ${active ? "border-primary bg-mint" : "border-pink-band bg-card"}`}>
               <Icon className="h-8 w-8 text-primary" />
-              <h3 className="mt-3 font-display text-lg font-bold text-primary">{x.title}</h3>
-              <p className="mt-1 text-sm leading-relaxed">{x.lead}</p>
-            </button>
+              <h3 className="mt-3 font-display text-lg font-bold text-primary">{c.title}</h3>
+              <ul className="mt-2 mb-4 list-disc space-y-1 pl-5 text-sm">{c.items.map((i) => <li key={i}>{i}</li>)}</ul>
+              <button aria-pressed={active} aria-controls="diem-tua-chi-tiet" onClick={() => { setGroup(active ? null : x.id); setPerson(null); setTimeout(() => document.getElementById("diem-tua-chi-tiet")?.scrollIntoView({ behavior: "smooth", block: "nearest" }), 50); }}
+                className="mt-auto rounded-full bg-primary px-4 py-2.5 text-sm font-bold text-primary-foreground transition-transform hover:-translate-y-0.5">
+                {c.btn}
+              </button>
+            </div>
           );
         })}
       </div>
+      <div id="diem-tua-chi-tiet" className="scroll-mt-24" />
 
       {g && !person && (
         <div className="animate-in fade-in space-y-3 rounded-3xl bg-pink-soft p-5">

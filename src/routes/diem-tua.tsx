@@ -3,7 +3,8 @@ import { ArrowLeft, Ear, HandHeart, Link2, Map as MapIcon, MessageCircleHeart } 
 import type { ReactNode } from "react";
 import { SupportMap } from "@/components/cham-five/support-map";
 import { ConnectChallenge } from "@/components/cham-five/connect-challenge";
-import { ClubProposal } from "@/components/cham-five/club-proposal";
+import { ClubProposal, openClubProposal } from "@/components/cham-five/club-proposal";
+import { SupportProcess } from "@/components/cham-five/support-process";
 import { STEPS } from "@/components/cham-five/data";
 
 export const Route = createFileRoute("/diem-tua")({
@@ -55,6 +56,7 @@ function DiemTuaPage() {
 
         <Section id="ban-do" title="BẢN ĐỒ ĐIỂM TỰA – KHI CẦN, BẠN CÓ THỂ TÌM ĐẾN AI?" lead="Không phải lúc nào chúng ta cũng biết nên bắt đầu chia sẻ từ đâu. Hãy chọn điểm tựa khiến bạn cảm thấy an toàn và dễ mở lời nhất. Bạn có thể tìm đến một người trước, sau đó cùng họ tìm kiếm sự hỗ trợ phù hợp hơn nếu cần.">
           <SupportMap />
+          <SupportProcess onGuide={() => scrollTo("cam-nang")} onClub={openClubProposal} />
         </Section>
 
         <Section id="cam-nang" title="KHI BẠN MÌNH KHÔNG ỔN – MÌNH CÓ THỂ LÀM GÌ?" lead="Đồng hành cùng một người bạn không có nghĩa là phải tự mình giải quyết mọi khó khăn của bạn ấy. Điều quan trọng là biết lắng nghe, tôn trọng, hỗ trợ trong khả năng của mình và kết nối với người lớn khi cần.">
