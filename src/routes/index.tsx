@@ -18,11 +18,11 @@ import cham4 from "@/assets/cham-4.jpg";
 import cham5 from "@/assets/cham-5.jpg";
 
 const INTRO = [
-  { n: "1", t: "NHẬN DIỆN", d: "Nhận biết cảm xúc và dấu hiệu căng thẳng.", icon: Ear, to: "/lang-nghe" as const, bg: "bg-mint" },
+  { n: "1", t: "LẮNG NGHE", d: "Nhận biết cảm xúc và dấu hiệu căng thẳng.", icon: Ear, to: "/lang-nghe" as const, bg: "bg-mint" },
   { n: "2", t: "THẤU HIỂU", d: "Hiểu bản thân, nhận diện áp lực và nhu cầu cá nhân.", icon: Brain, to: "/hieu-minh" as const, bg: "bg-pink-soft" },
-  { n: "3", t: "RÈN LUYỆN", d: "Thực hành quản lý cảm xúc và chăm sóc bản thân.", icon: Shield, to: "/vung-vang" as const, bg: "bg-mint" },
+  { n: "3", t: "VỮNG VÀNG", d: "Thực hành quản lý cảm xúc và chăm sóc bản thân.", icon: Shield, to: "/vung-vang" as const, bg: "bg-mint" },
   { n: "4", t: "KẾT NỐI", d: "Chia sẻ với bạn bè, gia đình và người đáng tin cậy.", icon: HeartHandshake, to: "/ket-noi" as const, bg: "bg-pink-soft" },
-  { n: "5", t: "TÌM HỖ TRỢ", d: "Biết tìm kiếm sự giúp đỡ khi cần thiết.", icon: LifeBuoy, to: "/diem-tua" as const, bg: "bg-mint" },
+  { n: "5", t: "ĐIỂM TỰA", d: "Biết tìm kiếm sự giúp đỡ khi cần thiết.", icon: LifeBuoy, to: "/diem-tua" as const, bg: "bg-mint" },
 ];
 
 export const Route = createFileRoute("/")({
