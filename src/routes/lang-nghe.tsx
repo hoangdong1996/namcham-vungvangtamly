@@ -1,4 +1,5 @@
 import illus from "@/assets/illus-cham-1.webp";
+import { SharePressure } from "@/components/cham-one/share-pressure";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
@@ -264,6 +265,11 @@ function LangNghePage() {
                 </div>
               ))}
             </div>
+          </section>
+
+          <section className="space-y-4">
+            <SectionHeading>Chia sẻ áp lực – Nhận gợi ý</SectionHeading>
+            <SharePressure />
           </section>
 
           {/* Lời nhắn cuối */}
