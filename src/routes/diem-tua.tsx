@@ -1,12 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, Ear, HandHeart, Link2, Map as MapIcon, MessageCircleHeart } from "lucide-react";
+import { ArrowLeft, Ear, HandHeart, Link2, Map as MapIcon } from "lucide-react";
 import type { ReactNode } from "react";
 import { SupportMap } from "@/components/cham-five/support-map";
 import { ConnectChallenge } from "@/components/cham-five/connect-challenge";
 import { ClubProposal, openClubProposal } from "@/components/cham-five/club-proposal";
 import { SafetyMapImage } from "@/components/cham-five/safety-map-image";
 import { SupportProcess } from "@/components/cham-five/support-process";
-import { STEPS } from "@/components/cham-five/data";
+import { CompanionJourney } from "@/components/cham-five/companion-journey";
 
 export const Route = createFileRoute("/diem-tua")({
   head: () => ({
@@ -61,21 +61,7 @@ function DiemTuaPage() {
           <SupportProcess onGuide={() => scrollTo("cam-nang")} onClub={openClubProposal} />
         </Section>
 
-        <Section id="cam-nang" title="KHI BẠN MÌNH KHÔNG ỔN – MÌNH CÓ THỂ LÀM GÌ?" lead="Đồng hành cùng một người bạn không có nghĩa là phải tự mình giải quyết mọi khó khăn của bạn ấy. Điều quan trọng là biết lắng nghe, tôn trọng, hỗ trợ trong khả năng của mình và kết nối với người lớn khi cần.">
-          <ol className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {STEPS.map((s, k) => (
-              <li key={s.t} className="rounded-3xl bg-card p-5 shadow-sm transition-transform hover:-translate-y-1">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-pink-chip font-display text-lg font-bold text-plum">{k + 1}</span>
-                <h3 className="mt-3 font-display text-lg font-bold text-primary">Bước {k + 1}. {s.t}</h3>
-                {s.body.length > 1 ? <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">{s.body.map((b) => <li key={b}>{b}</li>)}</ul> : <p className="mt-2 text-sm leading-relaxed">{s.body[0]}</p>}
-                <div className="mt-3 rounded-2xl bg-mint p-3 text-sm"><p className="flex items-center gap-1 font-bold text-primary"><MessageCircleHeart className="h-4 w-4" />Câu gợi ý</p>{s.say.map((x) => <p key={x} className="italic">“{x}”</p>)}</div>
-                {s.avoid && <div className="mt-2 rounded-2xl bg-pink-soft p-3 text-sm"><p className="font-bold text-plum">Tránh các câu như</p>{s.avoid.map((x) => <p key={x} className="italic line-through decoration-plum/50">“{x}”</p>)}</div>}
-                {s.stress && <p className="mt-2 text-sm font-semibold text-plum">{s.stress}</p>}
-              </li>
-            ))}
-          </ol>
-          <div className="text-center"><button onClick={() => scrollTo("ban-do")} className="inline-flex items-center gap-2 rounded-full border-2 border-primary px-6 py-2.5 font-semibold text-primary transition-colors hover:bg-mint"><MapIcon className="h-4 w-4" />Xem lại Bản đồ điểm tựa</button></div>
-        </Section>
+        <CompanionJourney />
 
         <Section id="thu-thach" title="THỬ THÁCH “MỘT BƯỚC KẾT NỐI”" lead="Chọn cách phản hồi mà em thấy phù hợp nhất để thực hành kỹ năng hỗ trợ bạn bè.">
           <ConnectChallenge />

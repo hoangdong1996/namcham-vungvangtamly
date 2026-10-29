@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowLeft, Check, Copy, HeartHandshake, Home, School, Stethoscope, TriangleAlert } from "lucide-react";
 import { GROUPS, type Supporter } from "./data";
 
 const ICONS = { "gia-dinh": Home, "nha-truong": School, "chuyen-mon": Stethoscope } as const;
+
+export function openSupporter(id: string) {
+  window.dispatchEvent(new CustomEvent("open-supporter", { detail: id }));
+  setTimeout(() => document.getElementById("diem-tua-chi-tiet")?.scrollIntoView({ behavior: window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" }), 50);
+}
 
 const CARDS = [
   { title: "A. GIA ĐÌNH", btn: "Tìm hiểu điểm tựa gia đình", items: ["Bố mẹ, ông bà, anh chị hoặc người thân đáng tin cậy.", "Hướng dẫn cách mở lời và chia sẻ khó khăn."] },
@@ -47,6 +52,19 @@ export function SupportMap() {
   const [person, setPerson] = useState<Supporter | null>(null);
   const g = GROUPS.find((x) => x.id === group);
 
+  useEffect(() => {
+    const handleOpen = (event: Event) => {
+      if (!(event instanceof CustomEvent) || typeof event.detail !== "string") return;
+      const targetGroup = GROUPS.find((item) => item.people.some((p) => p.id === event.detail));
+      const targetPerson = targetGroup?.people.find((p) => p.id === event.detail);
+      if (!targetGroup || !targetPerson) return;
+      setGroup(targetGroup.id);
+      setPerson(targetPerson);
+    };
+    window.addEventListener("open-supporter", handleOpen);
+    return () => window.removeEventListener("open-supporter", handleOpen);
+  }, []);
+
   return (
     <div className="space-y-6">
       <div className="text-center">
@@ -63,7 +81,8 @@ export function SupportMap() {
         {GROUPS.map((x, k) => {
           const Icon = ICONS[x.id as keyof typeof ICONS];
           const active = group === x.id;
-          const c = CARDS[k]!;
+          const c = CARDS[k];
+          if (!c) return null;
           return (
             <div key={x.id} className={`flex flex-col rounded-3xl border-2 p-5 transition-all hover:-translate-y-1 hover:shadow-md ${active ? "border-primary bg-mint" : "border-pink-band bg-card"}`}>
               <Icon className="h-8 w-8 text-primary" />

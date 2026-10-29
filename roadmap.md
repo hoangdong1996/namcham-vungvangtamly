@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] Thiết kế lại riêng cẩm nang đồng hành Chạm 5: minh họa, năm bước mở rộng, lời nói tương tác, tình huống và nhắc nhở an toàn.
+- [x] Kiểm tra toàn bộ tương tác, liên kết bản đồ/CLB và giao diện máy tính, máy tính bảng, điện thoại.
+
 - [x] Chỉnh riêng Chạm 2: kiến thức áp lực số, bản đồ yếu tố, sổ tay 7 ngày, thử thách và tổng kết.
 - [x] Kiểm tra tương tác, quyền riêng tư trong phiên và giao diện máy tính/điện thoại — 8 test đạt; bấm thử các hoạt động, hai liên kết và việc xóa câu trả lời khi rời trang; không có lỗi hiển thị.
 

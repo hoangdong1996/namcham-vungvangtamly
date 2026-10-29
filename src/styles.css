@@ -155,6 +155,13 @@
 }
 
 /* ---------- Sổ tay in (Chạm 2) ---------- */
+.companion-reveal { animation: companion-reveal .22s ease-out; }
+@keyframes companion-reveal { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .companion-reveal { animation: none; }
+}
+
 #print-notebook { display: none; }
 #print-notebook.pn-preview { display: block; position: fixed; inset: 0; z-index: 100; overflow: auto; background: var(--muted); padding: 1rem; }
 .pn-toolbar { position: sticky; top: 0; z-index: 1; display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; padding: .75rem; margin-bottom: 1rem; background: var(--card); border-radius: .75rem; box-shadow: 0 2px 8px color-mix(in oklab, var(--foreground) 15%, transparent); }
