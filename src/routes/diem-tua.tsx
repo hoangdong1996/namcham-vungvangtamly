@@ -5,13 +5,13 @@ import { StubChamPage } from "@/components/stub-cham-page";
 export const Route = createFileRoute("/diem-tua")({
   head: () => ({
     meta: [
-      { title: "Chạm 5 – Tìm điểm tựa | 5 CHẠM – Vững vàng tâm lý" },
+      { title: "Chạm 5 – Điểm tựa | 5 CHẠM – Vững vàng tâm lý" },
       {
         name: "description",
         content:
-          "Biết khi nào cần giúp đỡ và tìm đến ai: thầy cô, chuyên viên tư vấn, gia đình. Chạm 5 – Tìm điểm tựa, mô hình 5 CHẠM tại Trường THPT Tây Tiền Hải.",
+          "Biết khi nào cần giúp đỡ và tìm đến ai: thầy cô, chuyên viên tư vấn, gia đình. Chạm 5 – Điểm tựa, mô hình 5 CHẠM tại Trường THPT Tây Tiền Hải.",
       },
-      { property: "og:title", content: "Chạm 5 – Tìm điểm tựa | 5 CHẠM" },
+      { property: "og:title", content: "Chạm 5 – Điểm tựa | 5 CHẠM" },
       {
         property: "og:description",
         content:
@@ -29,7 +29,7 @@ function DiemTuaPage() {
     <main>
       <StubChamPage
         eyebrow="Chạm 5"
-        title="Tìm điểm tựa"
+        title="Điểm tựa"
         subtitle="Biết khi nào cần giúp đỡ và tìm đến ai: thầy cô, chuyên viên tư vấn, gia đình."
         icon={LifeBuoy}
         goals={[
