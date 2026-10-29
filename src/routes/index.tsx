@@ -147,7 +147,7 @@ function Index() {
               </Link>
               <Link
                 to="/clb"
-                className="inline-flex items-center gap-2 rounded-full bg-pink-band px-6 py-3.5 text-sm font-semibold text-plum transition-colors hover:bg-pink-chip"
+                className="inline-flex items-center gap-2 rounded-full bg-pink-band px-6 py-3.5 text-sm font-semibold text-club transition-colors hover:bg-pink-chip hover:text-club-deep"
               >
                 <Users className="h-4 w-4" />
                 Tham gia CLB
