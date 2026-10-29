@@ -79,7 +79,7 @@ function LibraryPage() {
                         <p className="mt-2 flex-1 text-sm leading-relaxed text-foreground/75">{d.desc}</p>
                         <div className="mt-4 flex flex-wrap gap-2">
                           {d.view ? (
-                            <Link to={d.view.to} hash={d.view.hash} className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold text-primary-foreground transition-transform hover:-translate-y-0.5 ${isClub ? "bg-club" : "bg-primary"}`}>Xem tài liệu<ExternalLink className="h-4 w-4" aria-hidden="true" /></Link>
+                            <Link to={d.view.to} {...(d.view.hash ? { hash: d.view.hash } : {})} className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold text-primary-foreground transition-transform hover:-translate-y-0.5 ${isClub ? "bg-club" : "bg-primary"}`}>Xem tài liệu<ExternalLink className="h-4 w-4" aria-hidden="true" /></Link>
                           ) : (
                             <span className="inline-flex items-center gap-2 rounded-full bg-pink-soft px-4 py-2 text-sm font-semibold text-plum"><Clock className="h-4 w-4" aria-hidden="true" />Tài liệu sẽ được cập nhật sau</span>
                           )}

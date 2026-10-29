@@ -25,6 +25,14 @@ const INTRO = [
   { n: "5", t: "ĐIỂM TỰA", icon: LifeBuoy, to: "/diem-tua" as const, bg: "bg-mint" },
 ];
 
+const MODEL_PARTS = [
+  { t: "LẮNG NGHE", icon: Ear, d: "Tạo không gian để học sinh được chia sẻ và được tôn trọng." },
+  { t: "THẤU HIỂU", icon: Brain, d: "Nhận diện cảm xúc, tôn trọng sự khác biệt và phát triển sự đồng cảm." },
+  { t: "VỮNG VÀNG", icon: Shield, d: "Rèn luyện kỹ năng chăm sóc bản thân, quản lý cảm xúc và ứng phó với áp lực." },
+  { t: "KẾT NỐI", icon: Users, d: "Xây dựng quan hệ tích cực và kết nối với những người có thể hỗ trợ." },
+  { t: "ĐIỂM TỰA", icon: LifeBuoy, d: "Nhận biết nguồn trợ giúp phù hợp và chủ động tìm đến khi cần." },
+];
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -185,23 +193,48 @@ function Index() {
       </section>
 
       {/* Mô hình 5 CHẠM */}
-      <section className="bg-card py-16">
-        <div className="mx-auto max-w-3xl px-4 text-center">
-          <h2 className="font-display text-3xl font-bold text-primary">
-            Mô hình 5 CHẠM tại Trường THPT Tây Tiền Hải
-          </h2>
-          <p className="mt-5 text-base leading-relaxed text-foreground/80">
-            5 CHẠM là bộ giải pháp giáo dục sức khỏe tâm lý học đường, được xây
-            dựng và thử nghiệm trong khuôn khổ đề tài nghiên cứu khoa học xã hội
-            hành vi nhằm phòng ngừa nguy cơ trầm cảm ở học sinh. Thông qua năm
-            “chạm” nhẹ nhàng – lắng nghe, hiểu mình, vững vàng, kết nối và tìm
-            điểm tựa – học sinh được trang bị kỹ năng chăm sóc cảm xúc, xây dựng
-            mối quan hệ tích cực và biết tìm đến sự hỗ trợ khi cần.
-          </p>
-          <div className="mt-6 rounded-2xl bg-mint px-6 py-4 text-sm font-semibold text-green-deep">
-            Website mang tính giáo dục, không chẩn đoán hay gắn nhãn tâm lý cho
-            học sinh.
+      <section id="mo-hinh" aria-labelledby="mo-hinh-title" className="bg-card py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="text-center">
+            <span className="inline-flex items-center gap-2 rounded-full bg-mint px-4 py-1.5 text-sm font-bold text-green-deep">
+              <GraduationCap className="h-4 w-4" aria-hidden="true" />Trường THPT Tây Tiền Hải
+            </span>
+            <h2 id="mo-hinh-title" className="mt-4 font-display text-3xl font-extrabold text-primary sm:text-4xl">MÔ HÌNH 5 CHẠM</h2>
+            <p className="mt-1 font-display text-xl font-bold text-plum">5 CHẠM – VỮNG VÀNG TÂM LÝ</p>
+            <p className="mt-2 text-sm font-semibold text-foreground/70 sm:text-base">Vững vàng tâm lý – Chủ động kết nối – Biết tìm kiếm hỗ trợ</p>
           </div>
+
+          <div className="mt-10 grid items-center gap-8 lg:grid-cols-2">
+            <div className="space-y-4 text-base leading-relaxed text-foreground/85">
+              <p>
+                <strong className="text-green-deep">5 CHẠM</strong> là bộ giải pháp <strong className="text-green-deep">giáo dục sức khỏe tâm thần</strong> và hỗ trợ tâm lý học đường, được xây dựng và thử nghiệm trong khuôn khổ đề tài nghiên cứu khoa học xã hội và hành vi nhằm <strong className="text-green-deep">phòng ngừa nguy cơ trầm cảm</strong> ở học sinh Trường THPT Tây Tiền Hải.
+              </p>
+              <p>
+                Thông qua năm thành tố liên kết gồm <strong className="text-green-deep">Lắng nghe – Thấu hiểu – Vững vàng – Kết nối – Điểm tựa</strong>, mô hình hướng tới trang bị cho học sinh kiến thức và kỹ năng chăm sóc bản thân, quản lý cảm xúc, ứng phó với áp lực, xây dựng các mối quan hệ tích cực và chủ động tìm kiếm sự hỗ trợ khi cần thiết.
+              </p>
+              <div className="rounded-2xl bg-mint px-5 py-3 text-sm font-semibold text-green-deep">
+                Website mang tính giáo dục, không chẩn đoán hay gắn nhãn tâm lý cho học sinh.
+              </div>
+            </div>
+            <img src={cham4} alt="Minh họa nhóm học sinh THPT trò chuyện và hỗ trợ nhau" loading="lazy" className="aspect-[4/3] w-full rounded-3xl object-cover shadow-md" />
+          </div>
+
+          <ol className="relative mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            <div aria-hidden="true" className="absolute left-[10%] right-[10%] top-8 hidden h-1 rounded-full bg-gradient-to-r from-primary via-pink-chip to-primary lg:block" />
+            {MODEL_PARTS.map((c, i) => (
+              <li key={c.t} className="relative flex flex-col items-center rounded-3xl border border-border bg-card p-5 text-center shadow-sm">
+                <span className={`relative z-10 inline-flex h-12 w-12 items-center justify-center rounded-full font-display text-xl font-bold shadow ${i % 2 ? "bg-pink-band text-plum" : "bg-primary text-primary-foreground"}`}>{i + 1}</span>
+                <c.icon className="mt-3 h-7 w-7 text-primary" aria-hidden="true" />
+                <h3 className="mt-2 font-display text-lg font-bold text-green-deep">{c.t}</h3>
+                <p className="mt-1 text-sm leading-relaxed text-foreground/75">{c.d}</p>
+              </li>
+            ))}
+          </ol>
+
+          <blockquote className="mx-auto mt-12 flex max-w-3xl items-center gap-4 rounded-3xl bg-pink-soft px-6 py-6 sm:px-8">
+            <HeartHandshake className="h-10 w-10 shrink-0 text-plum" aria-hidden="true" />
+            <p className="font-display text-lg font-bold leading-snug text-plum sm:text-xl">“Mỗi lần chạm là một bước gần hơn đến sự thấu hiểu, kết nối và vững vàng tâm lý.”</p>
+          </blockquote>
         </div>
       </section>
 
