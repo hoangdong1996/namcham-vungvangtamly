@@ -178,6 +178,8 @@ function Index() {
         </div>
       </section>
 
+      <MyJourney />
+      <SmallStepToday />
       <MoodToday />
       <PracticeTools />
 
@@ -278,6 +280,7 @@ function Index() {
           </div>
         </div>
       </section>
+      <KindMessages />
       <ClubAndLibrary />
     </main>
   );
