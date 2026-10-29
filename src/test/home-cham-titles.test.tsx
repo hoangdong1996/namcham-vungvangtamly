@@ -41,7 +41,7 @@ describe("Homepage – Hành trình 5 CHẠM cards", () => {
     await renderHome();
 
     const hrefs = screen
-      .getAllByRole("link", { name: "Khám phá" })
+      .getAllByRole("link", { name: /Khám phá/ })
       .map((link) => link.getAttribute("href"));
 
     expect(hrefs).toEqual(["/lang-nghe", "/hieu-minh", "/vung-vang", "/ket-noi", "/diem-tua"]);
