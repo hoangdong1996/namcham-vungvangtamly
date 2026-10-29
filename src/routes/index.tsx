@@ -130,12 +130,12 @@ function Index() {
               <GraduationCap className="h-4 w-4" aria-hidden="true" />
               5 CHẠM – VỮNG VÀNG TÂM LÝ · Trường THPT Tây Tiền Hải
             </div>
-            <h1 className="mx-auto mt-7 max-w-[13ch] font-hero font-extrabold uppercase lg:mx-0" style={{ fontSize: "clamp(2.05rem, 1.2rem + 3.6vw, 4.5rem)", lineHeight: 1.14, letterSpacing: "-0.03em" }}>
+            <h1 className="mx-auto mt-7 hero-title font-hero font-extrabold uppercase">
               <span className="hero-line text-primary">
-                BẠN ĐANG KẾT NỐI <span className="whitespace-nowrap">VỚI CẢ THẾ GIỚI.</span>
+                <span className="block whitespace-nowrap">BẠN ĐANG KẾT NỐI</span> <span className="block whitespace-nowrap">VỚI CẢ THẾ GIỚI.</span>
               </span>
               <span className="hero-line hero-line-2 mt-3 text-plum sm:mt-4" style={{ fontSize: "0.86em" }}>
-                CÒN <span className="hero-self font-black">CHÍNH MÌNH</span> <span className="whitespace-nowrap">THÌ SAO?</span>
+                <span className="block whitespace-nowrap">CÒN <span className="hero-self font-black">CHÍNH MÌNH</span></span> <span className="block whitespace-nowrap">THÌ SAO?</span>
               </span>
             </h1>
             <p className="mx-auto mt-7 max-w-[36rem] font-hero text-base font-normal leading-[1.75] text-green-deep/85 sm:text-[1.15rem] lg:mx-0 lg:text-[1.2rem]">
