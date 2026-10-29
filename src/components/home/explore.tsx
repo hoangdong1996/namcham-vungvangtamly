@@ -49,7 +49,7 @@ export function ClubAndLibrary() {
             <li className="flex gap-2"><Ear className="h-4 w-4 shrink-0 text-club" aria-hidden="true" />Kỹ năng lắng nghe và đồng hành an toàn</li>
             <li className="flex gap-2"><ShieldCheck className="h-4 w-4 shrink-0 text-club" aria-hidden="true" />Quy tắc bảo mật và tìm kiếm hỗ trợ</li>
           </ul>
-          <Link to="/clb" className="mt-auto inline-flex w-fit items-center gap-2 self-start rounded-full bg-club px-6 py-3 pt-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-club-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-club focus-visible:ring-offset-2 [margin-top:1.5rem]">Khám phá CLB <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
+          <Link to="/clb" className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-club px-6 py-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-club-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-club focus-visible:ring-offset-2">Khám phá CLB <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
         </div>
         <div className="flex flex-col rounded-[2rem] border-2 border-pink-band bg-pink-soft p-7 sm:p-9">
           <h2 className="flex items-center gap-3 font-display text-3xl font-extrabold text-green-deep"><BookOpen className="h-8 w-8 text-primary" aria-hidden="true" />THƯ VIỆN TÀI LIỆU</h2>
