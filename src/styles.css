@@ -287,8 +287,12 @@
 .model-point-blue { --point-color: var(--club-blue); --point-ink: var(--primary-foreground); }
 .model-point { background: var(--point-color); color: var(--point-ink); box-shadow: 0 0 0 5px color-mix(in srgb, var(--point-color) 20%, transparent), 0 0 15px color-mix(in srgb, var(--point-color) 25%, transparent); transition: box-shadow .2s ease-out; }
 .model-point:hover, .model-point:focus-visible, .model-point:active { box-shadow: 0 0 0 8px color-mix(in srgb, var(--point-color) 30%, transparent), 0 0 20px color-mix(in srgb, var(--point-color) 40%, transparent); }
-.model-connector { left: 50%; top: 36px; width: calc(100% + 1rem); }
+.model-connector { left: 0; top: 37px; }
 .model-connector-path { stroke: var(--point-color); }
+.model-line-1 { --line-delay: 1050ms; }
+.model-line-2 { --line-delay: 1200ms; }
+.model-line-3 { --line-delay: 1350ms; }
+.model-line-4 { --line-delay: 1500ms; }
 .model-node:nth-child(1) { --point-delay: 0ms; --line-delay: 1050ms; }
 .model-node:nth-child(2) { --point-delay: 160ms; --line-delay: 1200ms; }
 .model-node:nth-child(3) { --point-delay: 320ms; --line-delay: 1350ms; }

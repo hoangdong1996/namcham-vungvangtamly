@@ -32,11 +32,11 @@ export function ModelConnections() {
 
   return (
     <ol ref={ref} data-motion={motion} aria-label="Năm điểm chạm kết nối" className="model-connections relative mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      <svg aria-hidden="true" viewBox="0 0 1000 32" preserveAspectRatio="none" className="model-connector pointer-events-none absolute z-20 hidden h-8 w-full lg:block">
+        {MODEL_PARTS.slice(0, 4).map((c, i) => <path key={c.t} d={`M ${100 + i * 200} 8 C ${164 + i * 200} 8, ${170 + i * 200} 27, ${200 + i * 200} 27 S ${250 + i * 200} 8, ${300 + i * 200} 8`} pathLength="100" className={`model-connector-path model-line-${i + 1} ${c.tone} fill-none`} strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" />)}
+      </svg>
       {MODEL_PARTS.map((c, i) => (
         <li key={c.t} className={`model-node relative flex flex-col items-center rounded-3xl border border-border bg-card p-5 text-center shadow-sm ${c.tone}`}>
-          {i < 4 && <svg aria-hidden="true" viewBox="0 0 100 32" preserveAspectRatio="none" className="model-connector pointer-events-none absolute z-20 hidden h-8 lg:block">
-            <path d="M 0 8 C 32 8, 35 27, 50 27 S 75 8, 100 8" pathLength="100" className="model-connector-path fill-none" strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" />
-          </svg>}
           <Link to={c.to} aria-label={`Chạm ${i + 1} – ${c.t}`} className="model-point relative z-30 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full font-display text-xl font-bold focus-visible:outline-none">
             {i + 1}
           </Link>
