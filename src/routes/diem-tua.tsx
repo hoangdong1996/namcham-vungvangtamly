@@ -8,6 +8,8 @@ import { SafetyMapImage } from "@/components/cham-five/safety-map-image";
 import { SupportProcess } from "@/components/cham-five/support-process";
 import { CompanionJourney } from "@/components/cham-five/companion-journey";
 import { HelpSources } from "@/components/cham-five/help-sources";
+import { ChamIllustration } from "@/components/cham";
+import illus from "@/assets/illus-cham-5.webp";
 
 export const Route = createFileRoute("/diem-tua")({
   head: () => ({
@@ -41,15 +43,18 @@ function DiemTuaPage() {
   return (
     <main className="cham-two">
       <section id="cham-5" className="hero-gradient scroll-mt-20 px-4 pb-14 pt-14 text-center">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto grid max-w-6xl items-center gap-8 md:grid-cols-2 md:gap-12 md:text-left">
+        <div>
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-plum">Chạm 5</p>
           <h1 className="mt-3 text-4xl font-extrabold text-primary sm:text-5xl">CHẠM 5 – ĐIỂM TỰA</h1>
           <p className="mt-4 font-display text-xl font-bold text-plum sm:text-2xl">“Bạn không cần phải tự mình vượt qua tất cả.”</p>
           <p className="mt-4 leading-relaxed text-foreground/85">Ai cũng có lúc cảm thấy mệt mỏi, áp lực hoặc không biết phải chia sẻ cùng ai. Tìm kiếm sự hỗ trợ không phải là yếu đuối, mà là một cách chủ động chăm sóc bản thân. Hãy cùng khám phá những điểm tựa quanh bạn và học cách đồng hành với một người đang cần được lắng nghe.</p>
-          <div className="mt-7 flex flex-wrap justify-center gap-3">
+          <div className="mt-7 flex flex-wrap justify-center gap-3 md:justify-start">
             <button onClick={() => scrollTo("ban-do")} className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-bold text-primary-foreground shadow-md transition-transform hover:-translate-y-0.5"><MapIcon className="h-5 w-5" />Tìm điểm tựa cho mình</button>
             <button onClick={() => scrollTo("cam-nang")} className="inline-flex items-center gap-2 rounded-full border-2 border-primary bg-card px-6 py-3 font-bold text-primary transition-transform hover:-translate-y-0.5"><HandHeart className="h-5 w-5" />Học cách đồng hành cùng bạn</button>
           </div>
+        </div>
+        <ChamIllustration src={illus} alt="Học sinh đứng trong vòng cung ánh sáng, phía xa thầy cô và người lớn đáng tin cậy chào đón, lắng nghe" />
         </div>
       </section>
 

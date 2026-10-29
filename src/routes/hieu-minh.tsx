@@ -1,3 +1,4 @@
+import illus from "@/assets/illus-cham-2.webp";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, BookHeart, Brain, Glasses, LockKeyhole, Smartphone, Sparkles } from "lucide-react";
 import { ChamHero, PageBody } from "@/components/cham";
@@ -31,7 +32,7 @@ const ACTIVITIES = [
 function HieuMinhPage() {
   return (
     <main className="cham-two">
-      <ChamHero eyebrow="Chạm 2" title="CHẠM 2 – THẤU HIỂU" subtitle="Hiểu áp lực số – Nhận ra điểm tựa – Chủ động chăm sóc bản thân" icon={Brain} />
+      <ChamHero image={illus} imageAlt="Học sinh tò mò quan sát những mảnh ghép cảm xúc nhiều màu đang dần sắp xếp hài hòa" eyebrow="Chạm 2" title="CHẠM 2 – THẤU HIỂU" subtitle="Hiểu áp lực số – Nhận ra điểm tựa – Chủ động chăm sóc bản thân" icon={Brain} />
       <PageBody>
         <div className="space-y-10">
           <p className="mx-auto max-w-3xl text-center leading-relaxed">Có những lúc ta cảm thấy mệt mỏi, tự ti hoặc cô đơn mà chưa hiểu rõ nguyên nhân. Có những điều trên mạng khiến ta vui vẻ, nhưng cũng có những điều làm ta vô tình so sánh mình với người khác. Chạm 2 là hành trình giúp bạn nhận diện áp lực, hiểu cảm xúc và nhu cầu của bản thân, tìm ra những nguồn lực bảo vệ mình và học cách thấu cảm với mọi người.</p>

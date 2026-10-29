@@ -314,3 +314,8 @@
 @media (prefers-reduced-motion: reduce) {
   .model-connections .model-point, .model-connections .model-node::after, .model-connections .model-connector-path { animation: none !important; transition: none; opacity: 1 !important; stroke-dashoffset: 0 !important; }
 }
+
+/* Chạm illustrations: one gentle entrance, no looping */
+.cham-illus { animation: cham-illus-in 0.9s ease-out 0.15s both; }
+@keyframes cham-illus-in { from { opacity: 0; transform: translateY(12px) scale(0.98); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .cham-illus { animation: none; } }

@@ -10,29 +10,36 @@ export function ChamHero({
   subtitle,
   icon: Icon,
   uppercaseTitle = false,
+  image,
+  imageAlt = "",
 }: {
   eyebrow: string;
   title: string;
   subtitle: string;
   icon?: LucideIcon | undefined;
   uppercaseTitle?: boolean;
+  image?: string | undefined;
+  imageAlt?: string;
 }) {
   return (
     <section className="hero-gradient px-4 pb-4 pt-14 text-center">
-      <div className="mx-auto max-w-3xl">
-        <p className="text-sm font-bold uppercase tracking-[0.2em] text-plum">
-          {eyebrow}
-        </p>
-        <h1
-          className={`mt-3 text-4xl font-extrabold text-primary sm:text-5xl ${
-            uppercaseTitle ? "uppercase" : ""
-          }`}
-        >
-          {title}
-        </h1>
-        <p className="mt-4 text-base font-medium text-foreground/80 sm:text-lg">
-          {subtitle}
-        </p>
+      <div className={image ? "mx-auto grid max-w-6xl items-center gap-8 md:grid-cols-2 md:gap-12 md:text-left" : "mx-auto max-w-3xl"}>
+        <div>
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-plum">
+            {eyebrow}
+          </p>
+          <h1
+            className={`mt-3 text-4xl font-extrabold text-primary sm:text-5xl ${
+              uppercaseTitle ? "uppercase" : ""
+            }`}
+          >
+            {title}
+          </h1>
+          <p className="mt-4 text-base font-medium text-foreground/80 sm:text-lg">
+            {subtitle}
+          </p>
+        </div>
+        {image && <ChamIllustration src={image} alt={imageAlt} />}
       </div>
       {Icon && (
         <div className="mx-auto mt-8 flex h-16 w-16 translate-y-8 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg">
@@ -40,6 +47,18 @@ export function ChamHero({
         </div>
       )}
     </section>
+  );
+}
+
+export function ChamIllustration({ src, alt }: { src: string; alt: string }) {
+  return (
+    <img
+      src={src}
+      alt={alt}
+      width={960}
+      height={730}
+      className="cham-illus mx-auto aspect-[4/3] w-full max-w-xl rounded-3xl object-cover shadow-xl"
+    />
   );
 }
 

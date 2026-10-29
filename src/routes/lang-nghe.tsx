@@ -1,3 +1,4 @@
+import illus from "@/assets/illus-cham-1.webp";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
@@ -95,7 +96,7 @@ function LangNghePage() {
 
   return (
     <main>
-      <ChamHero
+      <ChamHero image={illus} imageAlt="Học sinh ngồi bên cửa sổ lớp học trong nắng dịu, quanh bạn là những vòng tròn cảm xúc trong suốt"
         eyebrow="Chạm 1"
         title="CHẠM 1 – LẮNG NGHE"
         subtitle="Dừng lại một chút, lắng nghe điều mình đang cảm nhận."
