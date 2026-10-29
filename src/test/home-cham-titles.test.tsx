@@ -5,9 +5,10 @@ import { describe, expect, it } from "vitest";
 
 import { routeTree } from "@/routeTree.gen";
 
-function renderHome() {
+async function renderHome() {
   const queryClient = new QueryClient();
   const router = createRouter({ routeTree, context: { queryClient } });
+  await router.load("/");
   return render(
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
@@ -19,8 +20,7 @@ function renderHome() {
 // Chạm names and keep its per-card "Khám phá" links pointing at the right pages.
 describe("Homepage – Hành trình 5 CHẠM cards", () => {
   it("shows the exact five Chạm titles and no old names", async () => {
-    renderHome();
-    await screen.findByRole("heading", { name: "CHẠM 1 – LẮNG NGHE" });
+    await renderHome();
 
     for (const title of [
       "CHẠM 1 – LẮNG NGHE",
@@ -38,8 +38,7 @@ describe("Homepage – Hành trình 5 CHẠM cards", () => {
   });
 
   it("keeps five Khám phá links pointing at their Chạm pages", async () => {
-    renderHome();
-    await screen.findByRole("heading", { name: "CHẠM 1 – LẮNG NGHE" });
+    await renderHome();
 
     const hrefs = screen
       .getAllByRole("link", { name: "Khám phá" })
