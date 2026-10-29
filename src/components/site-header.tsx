@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { LOGO_URL } from "@/lib/logo";
+import { Button } from "@/components/ui/button";
 
 export const NAV_ITEMS = [
   { label: "Trang chủ", to: "/" as const, title: "Trang chủ" },
@@ -26,7 +27,11 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex xl:gap-2" aria-label="Điều hướng chính">
-          {NAV_ITEMS.map((item) => (
+          {NAV_ITEMS.map((item) => item.label === "Tìm điểm tựa" ? (
+            <Button key={item.label} asChild variant="secondary" className="rounded-full bg-pink-band px-4 font-bold text-plum hover:bg-pink-chip">
+              <Link to="/diem-tua" hash="nguon-tro-giup" title={item.title}><span aria-hidden="true" className="text-xl">♡</span>Tìm điểm tựa</Link>
+            </Button>
+          ) : (
             <Link
               key={item.label}
               to={item.to}
@@ -54,7 +59,11 @@ export function SiteHeader() {
       {open && (
         <nav className="border-t border-pink-band bg-card px-4 py-3 lg:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-1">
-            {NAV_ITEMS.map((item) => (
+            {NAV_ITEMS.map((item) => item.label === "Tìm điểm tựa" ? (
+              <Button key={item.label} asChild variant="secondary" className="h-auto justify-start rounded-full bg-pink-band px-4 py-3 font-bold text-plum hover:bg-pink-chip">
+                <Link to="/diem-tua" hash="nguon-tro-giup" onClick={() => setOpen(false)}><span aria-hidden="true" className="text-xl">♡</span>Tìm điểm tựa</Link>
+              </Button>
+            ) : (
               <Link
                 key={item.label}
                 to={item.to}
