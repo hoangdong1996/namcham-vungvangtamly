@@ -8,3 +8,4 @@
 - The help-source directory is a separate session-state component on the existing Chạm 5 route; the heart navigation uses its section anchor while Chạm 5 navigation keeps the original journey, preventing duplicate pages or replacement of activities.
 - The document library (/tai-lieu) reads entries from `src/components/library/data.ts`; open/download buttons render only when a real link or file exists, so no fake documents are shown.
 - "Tài liệu của tôi" on /tai-lieu stores files in the private `my-documents` bucket + `my_documents` table; everyone reads (signed URLs), only `admin` role (first account, via trigger) uploads/deletes, so the owner manages files without a separate page.
+- The five-touch signature mark lives in `src/components/home/five-touch-mark.tsx` (animated SVG, reduced-motion safe); reuse it instead of drawing new logos. Homepage journey progress is session-state only, so nothing personal is stored.
