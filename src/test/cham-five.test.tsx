@@ -9,7 +9,7 @@ import { ClubProposal } from "@/components/cham-five/club-proposal";
 describe("Chạm 5", () => {
   it("map opens a supporter and goes back", () => {
     render(<SupportMap />);
-    fireEvent.click(screen.getByRole("button", { name: /ĐIỂM TỰA NHÀ TRƯỜNG/ }));
+    fireEvent.click(screen.getByRole("button", { name: "Khám phá điểm tựa nhà trường" }));
     fireEvent.click(screen.getByRole("button", { name: "Nhân viên y tế trường học" }));
     expect(screen.getByRole("region", { name: "Nhân viên y tế trường học" })).toBeTruthy();
     fireEvent.click(screen.getByRole("button", { name: /Quay lại bản đồ/ }));
