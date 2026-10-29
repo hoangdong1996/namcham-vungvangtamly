@@ -7,11 +7,11 @@ import p4 from "@/assets/process-4.jpg";
 import p5 from "@/assets/process-5.jpg";
 
 const STEPS = [
-  { t: "Lắng nghe và tôn trọng", d: "Lắng nghe và tôn trọng.", m: "Cho bạn cơ hội được nói ra cảm xúc.", img: p1, alt: "Hai học sinh trò chuyện ở sân trường, một bạn chăm chú lắng nghe", icon: MessageCircleHeart, border: "border-club-blue/40 hover:border-club-blue", badge: "bg-club-blue", text: "text-club-blue" },
-  { t: "Xác định nhu cầu và mức độ an toàn", d: "Xác định nhu cầu và mức độ an toàn.", m: "Tìm hiểu điều bạn cần, không tự chẩn đoán.", img: p2, alt: "Học sinh trao đổi riêng với người lớn đáng tin cậy trong phòng yên tĩnh", icon: SearchCheck, border: "border-primary/40 hover:border-primary", badge: "bg-primary", text: "text-green-deep" },
-  { t: "Thống nhất hướng hỗ trợ", d: "Thống nhất hướng hỗ trợ.", m: "Cùng tìm bước tiếp theo phù hợp.", img: p3, alt: "Hai học sinh cùng trao đổi, giáo viên đứng bên cạnh hỗ trợ", icon: Puzzle, border: "border-club/40 hover:border-club", badge: "bg-club", text: "text-club" },
-  { t: "Kết nối hoặc chuyển gửi", d: "Kết nối hoặc chuyển gửi.", m: "Đưa bạn đến đúng nguồn hỗ trợ.", img: p4, alt: "Học sinh giới thiệu bạn mình với giáo viên chủ nhiệm và phụ huynh", icon: Network, border: "border-teal/40 hover:border-teal", badge: "bg-teal", text: "text-teal" },
-  { t: "Theo dõi và phản hồi", d: "Theo dõi và phản hồi.", m: "Tiếp tục quan tâm và điều chỉnh khi cần.", img: p5, alt: "Nhóm học sinh trò chuyện vui vẻ trong thư viện", icon: Heart, border: "border-pink-number/60 hover:border-plum", badge: "bg-plum", text: "text-plum" },
+  { t: "Lắng nghe và tôn trọng", m: "Cho bạn cơ hội được nói ra cảm xúc.", img: p1, alt: "Hai học sinh trò chuyện ở sân trường, một bạn chăm chú lắng nghe", icon: MessageCircleHeart, border: "border-club-blue/40 hover:border-club-blue", badge: "bg-club-blue", text: "text-club-blue" },
+  { t: "Xác định nhu cầu và mức độ an toàn", m: "Tìm hiểu điều bạn cần, không tự chẩn đoán.", img: p2, alt: "Học sinh trao đổi riêng với người lớn đáng tin cậy trong phòng yên tĩnh", icon: SearchCheck, border: "border-primary/40 hover:border-primary", badge: "bg-primary", text: "text-green-deep" },
+  { t: "Thống nhất hướng hỗ trợ", m: "Cùng tìm bước tiếp theo phù hợp.", img: p3, alt: "Hai học sinh cùng trao đổi, giáo viên đứng bên cạnh hỗ trợ", icon: Puzzle, border: "border-club/40 hover:border-club", badge: "bg-club", text: "text-club" },
+  { t: "Kết nối hoặc chuyển gửi", m: "Đưa bạn đến đúng nguồn hỗ trợ.", img: p4, alt: "Học sinh giới thiệu bạn mình với giáo viên chủ nhiệm và phụ huynh", icon: Network, border: "border-teal/40 hover:border-teal", badge: "bg-teal", text: "text-teal" },
+  { t: "Theo dõi và phản hồi", m: "Tiếp tục quan tâm và điều chỉnh khi cần.", img: p5, alt: "Nhóm học sinh trò chuyện vui vẻ trong thư viện", icon: Heart, border: "border-pink-number/60 hover:border-plum", badge: "bg-plum", text: "text-plum" },
 ];
 
 export function SupportJourney() {
@@ -30,17 +30,16 @@ export function SupportJourney() {
           {STEPS.map((s, i) => {
             const I = s.icon;
             return (
-              <li key={s.t} className="relative pl-14 lg:pl-0">
+              <li key={s.t} className="relative flex flex-col pl-14 lg:pl-0">
                 <span className={`absolute left-0 top-0 z-10 flex h-10 w-10 items-center justify-center rounded-full font-display text-lg font-bold text-primary-foreground ring-4 ring-background lg:left-1/2 lg:-translate-x-1/2 ${s.badge}`}>{i + 1}</span>
-                <article className={`group flex h-full flex-col overflow-hidden rounded-[20px] border-2 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md motion-reduce:transition-none motion-reduce:hover:translate-y-0 lg:mt-14 ${s.border}`}>
+                <article className={`group flex flex-1 flex-col overflow-hidden rounded-[20px] border-2 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md motion-reduce:transition-none motion-reduce:hover:translate-y-0 lg:mt-14 ${s.border}`}>
                   <div className="aspect-[4/3] overflow-hidden">
                     <img src={s.img} alt={s.alt} width={944} height={704} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none" />
                   </div>
                   <div className="flex flex-1 flex-col p-5">
                     <I aria-hidden className={`h-7 w-7 ${s.text}`} />
                     <h3 className="mt-2 font-display text-lg font-bold uppercase leading-snug text-club-ink">{s.t}</h3>
-                    <p className="mt-2 text-[15px] leading-relaxed">{s.d}</p>
-                    <p className={`mt-auto pt-3 text-[15px] font-semibold italic leading-relaxed ${s.text}`}>“{s.m}”</p>
+                    <p className={`mt-auto pt-2 text-[15px] font-semibold italic leading-relaxed ${s.text}`}>“{s.m}”</p>
                   </div>
                 </article>
               </li>
