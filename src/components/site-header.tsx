@@ -4,10 +4,10 @@ import { Menu, X } from "lucide-react";
 import { LOGO_URL } from "@/lib/logo";
 
 export const NAV_ITEMS = [
-  { label: "Trang chủ", to: "/" as const },
+  { label: "Trang chủ", to: "/" as const, hash: undefined },
   { label: "Năm chạm", to: "/" as const, hash: "nam-cham" },
-  { label: "CLB Đồng hành", to: "/clb" as const },
-  { label: "Tìm điểm tựa", to: "/diem-tua" as const },
+  { label: "CLB Đồng hành", to: "/clb" as const, hash: undefined },
+  { label: "Tìm điểm tựa", to: "/diem-tua" as const, hash: undefined },
 ];
 
 export function SiteHeader() {
