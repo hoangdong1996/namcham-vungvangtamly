@@ -1,5 +1,8 @@
 # Roadmap
 
+- [ ] Cập nhật nút ♡ Tìm điểm tựa và thêm sáu nguồn trợ giúp tại trang hiện có, giữ nguyên hành trình Chạm 5.
+- [ ] Kiểm tra sáu hướng dẫn, an toàn không cần biểu mẫu, liên kết và giao diện máy tính/điện thoại.
+
 - [x] Thiết kế lại riêng cẩm nang đồng hành Chạm 5: minh họa, năm bước mở rộng, lời nói tương tác, tình huống và nhắc nhở an toàn.
 - [x] Kiểm tra toàn bộ tương tác, liên kết bản đồ/CLB và giao diện máy tính, máy tính bảng, điện thoại.
 
