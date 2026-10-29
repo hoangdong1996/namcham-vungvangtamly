@@ -7,3 +7,4 @@
 - Chạm 5's companion journey uses its own content module and component; cross-section contact buttons dispatch the supporter ID to the existing map, so contact guidance has one source of truth.
 - The help-source directory is a separate session-state component on the existing Chạm 5 route; the heart navigation uses its section anchor while Chạm 5 navigation keeps the original journey, preventing duplicate pages or replacement of activities.
 - The document library (/tai-lieu) reads entries from `src/components/library/data.ts`; open/download buttons render only when a real link or file exists, so no fake documents are shown.
+- "Tài liệu của tôi" on /tai-lieu stores files in the private `my-documents` bucket + `my_documents` table; everyone reads (signed URLs), only `admin` role (first account, via trigger) uploads/deletes, so the owner manages files without a separate page.
