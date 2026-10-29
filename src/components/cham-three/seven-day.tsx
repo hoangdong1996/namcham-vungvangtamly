@@ -45,7 +45,7 @@ export function SevenDayChallenge() {
           <label className="block text-xs font-semibold">Mục tiêu nhỏ<Textarea aria-label={`Mục tiêu ngày ${i + 1}`} value={d.goal} onChange={(e) => upd(i, { goal: e.target.value })} className="mt-1 min-h-16 bg-card font-normal" /></label>
           <label className="block text-xs font-semibold">Hành động tôi chọn<Textarea aria-label={`Hành động ngày ${i + 1}`} value={d.action} onChange={(e) => upd(i, { action: e.target.value })} className="mt-1 min-h-14 bg-card font-normal" /></label>
           <label className="block text-xs font-semibold">Ghi chú (tự nguyện)<Textarea aria-label={`Ghi chú ngày ${i + 1}`} value={d.note} onChange={(e) => upd(i, { note: e.target.value })} className="mt-1 min-h-14 bg-card font-normal" /></label>
-          <label className="flex cursor-pointer items-center gap-2 text-sm font-semibold"><Checkbox aria-label={`Hoàn thành ngày ${i + 1}`} checked={d.done} onCheckedChange={(c) => upd(i, { done: c === true })} />Đã thực hiện</label>
+          <label className="flex min-h-11 cursor-pointer items-center gap-2 text-sm font-semibold"><Checkbox aria-label={`Hoàn thành ngày ${i + 1}`} checked={d.done} onCheckedChange={(c) => upd(i, { done: c === true })} />Đã thực hiện</label>
         </fieldset>)}
       </div>}
       <p className="text-xs text-muted-foreground">Kế hoạch chỉ nằm trong phiên hiện tại, không được lưu hay gửi lên máy chủ. Nút in mở hộp thoại in của trình duyệt (có thể chọn “Lưu dưới dạng PDF”).</p>
