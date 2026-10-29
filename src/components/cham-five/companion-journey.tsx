@@ -52,17 +52,21 @@ export function CompanionJourney() {
             const open = expanded === index;
             return <li key={step.title} className={`min-w-0 rounded-3xl border p-5 shadow-sm ${open ? "border-primary bg-mint" : "border-pink-band bg-card"}`}>
               <div className="flex items-center justify-between"><span className="font-display text-4xl font-extrabold text-pink-number">0{index + 1}</span><Icon aria-hidden className="h-8 w-8 text-primary" /></div>
-              <h4 className="mt-4 min-h-20 font-display text-lg font-bold leading-snug text-green-deep">{step.title}</h4>
+              <h4 className="mt-4 font-display text-lg font-bold leading-snug text-green-deep lg:min-h-20">{step.title}</h4>
               <p className="mt-2 text-sm leading-relaxed lg:min-h-32">“{step.message}”</p>
-              <Button variant="ghost" aria-expanded={open} aria-controls={`companion-detail-${index}`} onClick={() => setExpanded(open ? null : index)} className="mt-4 h-auto min-h-11 w-full justify-between whitespace-normal px-0 text-left text-sm font-bold text-green-deep">Khám phá cách thực hiện<ChevronDown className={`transition-transform motion-reduce:transition-none ${open ? "rotate-180" : ""}`} /></Button>
-              <div id={`companion-detail-${index}`} className="companion-reveal lg:hidden" hidden={!open}>{open && <p className="mt-2 text-sm text-plum">Bước {index + 1} đang mở bên dưới hành trình.</p>}</div>
+              <Button variant="ghost" aria-expanded={open} aria-controls="companion-expanded-content" onClick={() => {
+                setExpanded(open ? null : index);
+                if (!open && window.matchMedia?.("(max-width: 1023px)").matches) {
+                  setTimeout(() => scrollTo("companion-expanded-content"), 50);
+                }
+              }} className="mt-4 h-auto min-h-11 w-full justify-between whitespace-normal px-0 text-left text-sm font-bold text-green-deep">Khám phá cách thực hiện<ChevronDown className={`transition-transform motion-reduce:transition-none ${open ? "rotate-180" : ""}`} /></Button>
             </li>;
           })}
         </ol>
 
         {expanded !== null && COMPANION_STEPS[expanded] && (() => {
           const step = COMPANION_STEPS[expanded];
-          return <div id="companion-expanded-content" role="region" aria-label={`Hướng dẫn bước ${expanded + 1}`} className="companion-reveal mt-6 border-l-4 border-primary bg-mint-soft p-5 sm:p-8">
+          return <div id="companion-expanded-content" role="region" aria-label={`Hướng dẫn bước ${expanded + 1}`} className="companion-reveal mt-6 scroll-mt-24 border-l-4 border-primary bg-mint-soft p-5 sm:p-8">
             <h4 className="font-display text-xl font-bold text-green-deep">BƯỚC {expanded + 1} – {step.title}</h4>
             {step.details.length > 0 && <ul className="mt-4 list-disc space-y-2 pl-5 leading-relaxed">{step.details.map((detail) => <li key={detail}>{detail}</li>)}</ul>}
             {step.quote && <blockquote className="mt-5 border-l-2 border-pink-band pl-4"><p className="text-sm font-bold text-plum">{expanded === 4 ? "Hộp thông điệp" : "Em có thể nói:"}</p><p className="mt-1 italic leading-relaxed">“{step.quote}”</p></blockquote>}
