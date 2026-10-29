@@ -1,5 +1,8 @@
 # Roadmap
 
+- [ ] Bổ sung năm điểm chạm kết nối trong mô hình hiện có, chỉ chuyển động một lần và giữ liên kết.
+- [ ] Kiểm tra năm điểm, năm liên kết, điện thoại và chế độ giảm chuyển động.
+
 - [x] Cập nhật nút ♡ Tìm điểm tựa và thêm sáu nguồn trợ giúp tại trang hiện có, giữ nguyên hành trình Chạm 5.
 - [x] Kiểm tra sáu hướng dẫn, an toàn không cần biểu mẫu, liên kết và giao diện máy tính/điện thoại — 17 kiểm thử đạt; bấm thử toàn bộ sáu nguồn và các nút quay lại ở 1280px/390px, không tràn ngang hoặc lỗi trình duyệt.
 
