@@ -141,3 +141,15 @@
 @utility quote-gradient {
   background: linear-gradient(135deg, var(--pink-soft) 0%, var(--mint-soft) 100%);
 }
+
+/* Page-local brand values preserve the appearance of all other Chạm pages. */
+.cham-two {
+  --primary: #2E9D62;
+  --pink-band: #F8CFE0;
+  --ring: var(--primary);
+}
+
+.dark .cham-two {
+  --primary: oklch(0.7 0.13 152);
+  --pink-band: oklch(0.42 0.06 350);
+}
