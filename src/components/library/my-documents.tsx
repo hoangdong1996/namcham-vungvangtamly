@@ -58,7 +58,7 @@ export function MyDocuments() {
       if (file.size > MAX_BYTES) { errors.push(`${file.name}: vượt quá 20 MB`); continue; }
       const ext = file.name.split(".").pop()!.toLowerCase();
       const path = `${crypto.randomUUID()}.${ext}`;
-      const up = await supabase.storage.from(BUCKET).upload(path, file, { contentType: file.type || undefined });
+      const up = await supabase.storage.from(BUCKET).upload(path, file, file.type ? { contentType: file.type } : {});
       if (up.error) { errors.push(`${file.name}: không tải lên được`); continue; }
       const ins = await supabase.from("my_documents").insert({ name: file.name, storage_path: path, mime_type: file.type, kind: k, size_bytes: file.size });
       if (ins.error) { await supabase.storage.from(BUCKET).remove([path]); errors.push(`${file.name}: không lưu được`); continue; }
