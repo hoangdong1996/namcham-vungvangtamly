@@ -90,7 +90,7 @@ export function CompanionJourney() {
         <h3 id="companion-reminders-title" className="font-display text-2xl font-bold text-green-deep">3 ĐIỀU HÃY NHỚ</h3>
         <div className="mt-6 grid gap-6 sm:grid-cols-3">{[{ icon: Ear, title: "LẮNG NGHE", text: "Đừng vội phán xét cảm xúc của bạn." }, { icon: Link2, title: "KẾT NỐI", text: "Hãy tìm người có trách nhiệm khi cần hỗ trợ." }, { icon: ShieldCheck, title: "BẢO VỆ AN TOÀN", text: "Không tự xử lý một mình khi có nguy cơ nghiêm trọng." }].map((item) => <div key={item.title}><item.icon className="mx-auto h-8 w-8 text-primary" /><h4 className="mt-3 font-display text-lg font-bold text-green-deep">{item.title}</h4><p className="mt-2 text-sm">{item.text}</p></div>)}</div>
         <p className="mx-auto mt-7 max-w-3xl font-semibold leading-relaxed text-plum">“Bạn không cần trở thành chuyên gia để giúp đỡ một người. Hãy bắt đầu bằng sự quan tâm chân thành và biết khi nào cần tìm thêm sự hỗ trợ.”</p>
-        <div className="mt-6 flex flex-wrap justify-center gap-3"><Button variant="outline" className={`${actionClass} bg-card text-green-deep`} onClick={() => scrollTo("ban-do")}>QUAY LẠI BẢN ĐỒ ĐIỂM TỰA<ArrowRight /></Button><Button className={actionClass} onClick={openClubProposal}>KHÁM PHÁ MÔ HÌNH CLB 5 CHẠM<ArrowRight /></Button></div>
+        <div className="mt-6 flex flex-wrap justify-center gap-3"><Button variant="outline" className={`${actionClass} bg-card text-green-deep`} onClick={() => scrollTo("ban-do")}>QUAY LẠI BẢN ĐỒ ĐIỂM TỰA<ArrowRight /></Button><Button className={`${actionClass} whitespace-nowrap`} onClick={openClubProposal}>KHÁM PHÁ CLB 5 ĐỒNG HÀNH<ArrowRight /></Button></div>
       </section>
     </section>
   );
