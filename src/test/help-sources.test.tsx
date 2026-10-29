@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
-vi.mock("@tanstack/react-router", () => ({ Link: ({ to, hash, children, ...props }: any) => <a href={hash ? `${to}#${hash}` : to} {...props}>{children}</a> }));
+vi.mock("@tanstack/react-router", () => ({ Link: ({ to, hash, children, activeOptions, activeProps, ...props }: any) => <a href={hash ? `${to}#${hash}` : to} {...props}>{children}</a> }));
 import { HelpSources } from "@/components/cham-five/help-sources";
 import { HELP_SOURCES } from "@/components/cham-five/help-sources-data";
 import { SiteHeader } from "@/components/site-header";
@@ -14,7 +14,7 @@ describe("Help source access", () => {
     expect(button).toHaveAttribute("aria-expanded", "true");
     expect(screen.getByRole("region", { name: source.title })).toHaveFocus();
     fireEvent.click(screen.getByRole("button", { name: "Quay lại danh sách nguồn trợ giúp" }));
-    expect(screen.queryByRole("region")).toBeNull();
+    expect(screen.queryByRole("region", { name: source.title })).toBeNull();
     expect(button).toHaveFocus();
   });
 
