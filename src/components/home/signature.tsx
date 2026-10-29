@@ -44,7 +44,7 @@ export function MyJourney() {
                   <p className="font-display font-bold text-green-deep">Chạm {j.n} – {j.t}</p>
                   <p className="text-sm text-foreground/75">{j.act}</p>
                 </div>
-                <Link to={j.to} hash={j.hash} className="inline-flex items-center gap-1 text-sm font-bold text-primary hover:text-green-deep">Mở hoạt động <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
+                <Link to={j.to} {...(j.hash ? { hash: j.hash } : {})} className="inline-flex items-center gap-1 text-sm font-bold text-primary hover:text-green-deep">Mở hoạt động <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
               </li>
             );
           })}
@@ -64,7 +64,7 @@ const STEPS: { t: string; how: string[]; tool: string; to: ChamPath; hash: strin
 
 export function SmallStepToday() {
   const [i, setI] = useState(0);
-  const s = STEPS[i];
+  const s = STEPS[i] ?? STEPS[0]!;
   return (
     <section id="mot-buoc-nho" aria-labelledby="small-step-title" className="scroll-mt-20 bg-card px-4 py-16">
       <div className="mx-auto max-w-3xl rounded-[2rem] border-2 border-mint bg-mint-soft p-7 text-center sm:p-10">

@@ -130,23 +130,29 @@ function Index() {
               <GraduationCap className="h-4 w-4" aria-hidden="true" />
               5 CHẠM – VỮNG VÀNG TÂM LÝ · Trường THPT Tây Tiền Hải
             </div>
-            <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.1] text-green-deep text-balance sm:text-5xl lg:text-[3.4rem]">
-              BẠN ĐANG KẾT NỐI VỚI CẢ THẾ GIỚI.<br /><span className="text-plum">CÒN CHÍNH MÌNH THÌ SAO?</span>
+            <h1 className="mx-auto mt-7 hero-title font-hero font-extrabold uppercase">
+              <span className="hero-line text-primary">
+                <span className="block whitespace-nowrap">BẠN ĐANG KẾT NỐI</span> <span className="block whitespace-nowrap">VỚI CẢ THẾ GIỚI.</span>
+              </span>
+              <span className="hero-line hero-line-2 mt-3 text-plum sm:mt-4" style={{ fontSize: "0.86em" }}>
+                <span className="block whitespace-nowrap">CÒN <span className="hero-self font-black">CHÍNH MÌNH</span></span> <span className="block whitespace-nowrap">THÌ SAO?</span>
+              </span>
             </h1>
-            <p className="mt-5 text-base leading-relaxed text-foreground/85 sm:text-lg">
+            <p className="mx-auto mt-7 max-w-[36rem] font-hero text-base font-normal leading-[1.75] text-green-deep/85 sm:text-[1.15rem] lg:mx-0 lg:text-[1.2rem]">
               5 Chạm là hành trình giúp học sinh hiểu cảm xúc, rèn luyện khả năng ứng phó với áp lực và tìm kiếm những điểm tựa an toàn trên hành trình trưởng thành.
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
-              <a href="#hanh-trinh" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-bold tracking-wide text-primary-foreground shadow-md transition-colors hover:bg-green-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+            <div className="mt-9 flex flex-wrap justify-center gap-3 font-hero lg:justify-start">
+              <a href="#hanh-trinh" className="inline-flex h-14 items-center justify-center gap-2.5 rounded-full bg-primary px-7 text-[15px] font-bold text-primary-foreground shadow-md transition duration-200 hover:-translate-y-0.5 hover:bg-green-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 motion-reduce:hover:translate-y-0 sm:text-base">
                 Bắt đầu hành trình 5 Chạm <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
-              <Link to="/diem-tua" hash="nguon-tro-giup" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-pink-band px-7 py-3.5 text-sm font-bold text-plum transition-colors hover:bg-pink-chip focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-plum focus-visible:ring-offset-2">
+              <Link to="/diem-tua" hash="nguon-tro-giup" className="inline-flex h-14 items-center justify-center gap-2.5 rounded-full bg-pink-band px-7 text-[15px] font-bold text-plum transition duration-200 hover:-translate-y-0.5 hover:bg-pink-chip focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-plum focus-visible:ring-offset-2 motion-reduce:hover:translate-y-0 sm:text-base">
                 <HeartHandshake className="h-4 w-4" aria-hidden="true" /> Mình cần một điểm tựa
               </Link>
             </div>
-            <Link to="/clb" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-club hover:text-club-deep">
+            <Link to="/clb" className="mt-5 inline-flex items-center gap-2 font-hero text-[15px] font-semibold text-club underline-offset-4 transition-colors hover:text-club-deep hover:underline">
               <Users className="h-4 w-4" aria-hidden="true" /> Tham gia CLB
             </Link>
+
           </div>
           <div className="relative min-w-0">
             <img src={heroImg} alt="Minh họa ba học sinh THPT cùng trò chuyện, được nối với nhau bằng những điểm chạm và trái tim" width={1280} height={1024} className="aspect-[5/4] w-full rounded-[2rem] object-cover shadow-xl" />
