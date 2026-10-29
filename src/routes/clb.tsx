@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowDown, ArrowLeft, ArrowRight, BookOpen, ChevronDown, Ear, Handshake, HeartHandshake, Lightbulb, Link2,
-  Lock, Map as MapIcon, MessageCircle, Shield, ShieldAlert, Sparkles, Stethoscope, Target, UserCheck, Users,
+  Lock, Map as MapIcon, MessageCircle, Shield, Sparkles, Stethoscope, Target, UserCheck, Users,
 } from "lucide-react";
 import { SupportJourney } from "@/components/clb/support-journey";
 import clbImage from "@/assets/clb-students.jpg";
