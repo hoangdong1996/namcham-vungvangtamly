@@ -15,6 +15,7 @@ import { Route as DiemTuaRouteImport } from './routes/diem-tua'
 import { Route as HieuMinhRouteImport } from './routes/hieu-minh'
 import { Route as KetNoiRouteImport } from './routes/ket-noi'
 import { Route as LangNgheRouteImport } from './routes/lang-nghe'
+import { Route as TaiLieuRouteImport } from './routes/tai-lieu'
 import { Route as VungVangRouteImport } from './routes/vung-vang'
 
 const IndexRoute = IndexRouteImport.update({
@@ -47,6 +48,11 @@ const LangNgheRoute = LangNgheRouteImport.update({
   path: '/lang-nghe',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TaiLieuRoute = TaiLieuRouteImport.update({
+  id: '/tai-lieu',
+  path: '/tai-lieu',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const VungVangRoute = VungVangRouteImport.update({
   id: '/vung-vang',
   path: '/vung-vang',
@@ -60,6 +66,7 @@ export interface FileRoutesByFullPath {
   '/hieu-minh': typeof HieuMinhRoute
   '/ket-noi': typeof KetNoiRoute
   '/lang-nghe': typeof LangNgheRoute
+  '/tai-lieu': typeof TaiLieuRoute
   '/vung-vang': typeof VungVangRoute
 }
 export interface FileRoutesByTo {
@@ -69,6 +76,7 @@ export interface FileRoutesByTo {
   '/hieu-minh': typeof HieuMinhRoute
   '/ket-noi': typeof KetNoiRoute
   '/lang-nghe': typeof LangNgheRoute
+  '/tai-lieu': typeof TaiLieuRoute
   '/vung-vang': typeof VungVangRoute
 }
 export interface FileRoutesById {
@@ -79,6 +87,7 @@ export interface FileRoutesById {
   '/hieu-minh': typeof HieuMinhRoute
   '/ket-noi': typeof KetNoiRoute
   '/lang-nghe': typeof LangNgheRoute
+  '/tai-lieu': typeof TaiLieuRoute
   '/vung-vang': typeof VungVangRoute
 }
 export interface FileRouteTypes {
@@ -90,6 +99,7 @@ export interface FileRouteTypes {
     | '/hieu-minh'
     | '/ket-noi'
     | '/lang-nghe'
+    | '/tai-lieu'
     | '/vung-vang'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -99,6 +109,7 @@ export interface FileRouteTypes {
     | '/hieu-minh'
     | '/ket-noi'
     | '/lang-nghe'
+    | '/tai-lieu'
     | '/vung-vang'
   id:
     | '__root__'
@@ -108,6 +119,7 @@ export interface FileRouteTypes {
     | '/hieu-minh'
     | '/ket-noi'
     | '/lang-nghe'
+    | '/tai-lieu'
     | '/vung-vang'
   fileRoutesById: FileRoutesById
 }
@@ -118,6 +130,7 @@ export interface RootRouteChildren {
   HieuMinhRoute: typeof HieuMinhRoute
   KetNoiRoute: typeof KetNoiRoute
   LangNgheRoute: typeof LangNgheRoute
+  TaiLieuRoute: typeof TaiLieuRoute
   VungVangRoute: typeof VungVangRoute
 }
 
@@ -165,6 +178,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LangNgheRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tai-lieu': {
+      id: '/tai-lieu'
+      path: '/tai-lieu'
+      fullPath: '/tai-lieu'
+      preLoaderRoute: typeof TaiLieuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/vung-vang': {
       id: '/vung-vang'
       path: '/vung-vang'
@@ -182,6 +202,7 @@ const rootRouteChildren: RootRouteChildren = {
   HieuMinhRoute: HieuMinhRoute,
   KetNoiRoute: KetNoiRoute,
   LangNgheRoute: LangNgheRoute,
+  TaiLieuRoute: TaiLieuRoute,
   VungVangRoute: VungVangRoute,
 }
 export const routeTree = rootRouteImport
