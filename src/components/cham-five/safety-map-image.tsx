@@ -11,9 +11,6 @@ export function SafetyMapImage() {
         <DialogTrigger asChild>
           <button aria-label="Phóng to bản đồ kết nối an toàn" className="group relative block w-full cursor-zoom-in overflow-hidden rounded-3xl border-2 border-pink-band bg-card shadow-sm transition-shadow hover:shadow-md">
             <img src={mapAsset.url} alt={ALT} width={1199} height={1312} className="h-auto w-full" />
-            <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 rounded-full bg-card/90 px-3 py-1.5 text-xs font-semibold text-primary shadow">
-              <ZoomIn className="h-4 w-4" />Nhấn để phóng to
-            </span>
           </button>
         </DialogTrigger>
         <DialogContent className="max-h-[95vh] max-w-[95vw] overflow-auto p-2 sm:max-w-5xl">
@@ -22,6 +19,7 @@ export function SafetyMapImage() {
         </DialogContent>
       </Dialog>
       <figcaption className="mt-3 text-center text-sm italic text-muted-foreground">
+        <span className="mb-1 flex items-center justify-center gap-1 not-italic font-semibold text-primary"><ZoomIn className="h-4 w-4" />Nhấn vào ảnh để phóng to</span>
         Bản đồ kết nối an toàn – Những điểm tựa giúp học sinh biết tìm kiếm sự hỗ trợ khi gặp khó khăn.
       </figcaption>
     </figure>
