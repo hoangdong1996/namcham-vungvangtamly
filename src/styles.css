@@ -52,6 +52,7 @@
   --color-mint-soft: var(--mint-soft);
   --color-green-deep: var(--green-deep);
   --color-club: var(--club);
+  --color-club-deep: var(--club-deep);
   --color-club-soft: var(--club-soft);
   --color-club-faint: var(--club-faint);
   --color-club-blue: var(--club-blue);
@@ -91,6 +92,7 @@
   --mint-soft: oklch(0.965 0.02 152);
   --green-deep: oklch(0.53 0.12 152);
   --club: #8064C8;
+  --club-deep: #6848AD;
   --club-soft: #EAE3FA;
   --club-faint: #F6F2FD;
   --club-blue: #397DB8;
