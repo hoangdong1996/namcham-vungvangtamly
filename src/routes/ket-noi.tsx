@@ -1,3 +1,4 @@
+import illus from "@/assets/illus-cham-4.webp";
 import { createFileRoute } from "@tanstack/react-router";
 import { HeartHandshake } from "lucide-react";
 import { ChamHero, PageBody, PrevNext } from "@/components/cham";
@@ -20,7 +21,7 @@ export const Route = createFileRoute("/ket-noi")({
 function KetNoiPage() {
   return (
     <main className="cham-two">
-      <ChamHero eyebrow="Chạm 4" title="CHẠM 4 – KẾT NỐI" subtitle="Từ khoảng cách vô hình đến kết nối: bạn bè – gia đình – thầy cô." icon={HeartHandshake} />
+      <ChamHero image={illus} imageAlt="Nhóm học sinh trò chuyện trong sân trường, được nối với nhau bằng những điểm sáng" eyebrow="Chạm 4" title="CHẠM 4 – KẾT NỐI" subtitle="Từ khoảng cách vô hình đến kết nối: bạn bè – gia đình – thầy cô." icon={HeartHandshake} />
       <PageBody>
         <div className="space-y-10">
           <ConnectionJourney />

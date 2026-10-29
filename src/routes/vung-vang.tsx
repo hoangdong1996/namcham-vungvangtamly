@@ -1,3 +1,4 @@
+import illus from "@/assets/illus-cham-3.webp";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, BatteryCharging, CalendarCheck, CircleCheck, Dumbbell, LockKeyhole, PauseCircle, Shield } from "lucide-react";
 import { ChamHero, PageBody } from "@/components/cham";
@@ -38,7 +39,7 @@ const REMEMBER = [
 function VungVangPage() {
   return (
     <main>
-      <ChamHero eyebrow="Chạm 3" title="CHẠM 3 – VỮNG VÀNG" subtitle="Bình tĩnh trước áp lực – Linh hoạt trong ứng phó – Chủ động chăm sóc bản thân" icon={Shield} />
+      <ChamHero image={illus} imageAlt="Học sinh viết nhật ký cảm xúc bên cạnh một mầm cây xanh đang vươn lên" eyebrow="Chạm 3" title="CHẠM 3 – VỮNG VÀNG" subtitle="Bình tĩnh trước áp lực – Linh hoạt trong ứng phó – Chủ động chăm sóc bản thân" icon={Shield} />
       <PageBody>
         <div className="space-y-10">
           <p className="mx-auto max-w-3xl text-center leading-relaxed">Không phải lúc nào chúng ta cũng có thể thay đổi những điều đang xảy ra, nhưng chúng ta có thể học cách phản ứng với chúng theo hướng lành mạnh hơn. Vững vàng không có nghĩa là lúc nào cũng mạnh mẽ hay không được buồn. Vững vàng là biết dừng lại khi quá tải, lựa chọn cách ứng phó phù hợp, cho bản thân thời gian hồi phục và tìm kiếm sự giúp đỡ khi cần.</p>
