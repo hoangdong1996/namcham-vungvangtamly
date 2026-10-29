@@ -8,7 +8,7 @@ import { routeTree } from "@/routeTree.gen";
 async function renderHome() {
   const queryClient = new QueryClient();
   const router = createRouter({ routeTree, context: { queryClient } });
-  await router.load("/");
+  await router.load();
   return render(
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
