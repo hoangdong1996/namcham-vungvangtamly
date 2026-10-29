@@ -6,11 +6,12 @@ const ALT = "Bản đồ kết nối an toàn – Em không đơn độc";
 
 export function SafetyMapImage() {
   return (
-    <figure className="mx-auto max-w-4xl">
+    <figure className="mx-auto flex max-w-2xl flex-col">
       <Dialog>
         <DialogTrigger asChild>
-          <button aria-label="Phóng to bản đồ kết nối an toàn" className="group relative block w-full cursor-zoom-in overflow-hidden rounded-3xl border-2 border-pink-band bg-card shadow-sm transition-shadow hover:shadow-md">
-            <img src={mapAsset.url} alt={ALT} width={1199} height={1312} className="h-auto w-full" />
+          <button aria-label="Phóng to bản đồ kết nối an toàn" className="group relative flex w-full cursor-zoom-in justify-center overflow-hidden rounded-3xl border-2 border-pink-band bg-card p-4 shadow-sm transition-shadow hover:shadow-md">
+            <img src={mapAsset.url} alt={ALT} width={1199} height={1312} className="h-auto max-h-[70vh] w-auto max-w-full" />
+          </button>
           </button>
         </DialogTrigger>
         <DialogContent className="max-h-[95vh] max-w-[95vw] overflow-auto p-2 sm:max-w-5xl">
