@@ -1,4 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
+import { Eye, X } from "lucide-react";
+import { PrintNotebook } from "./print-notebook";
 import { Plus, Printer, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -24,6 +27,16 @@ export function SelfCareNotebook() {
   const updateDay = (i: number, c: Partial<ReturnType<typeof emptyPlan>[number]>) => setPlan((p) => p.map((d, j) => (j === i ? { ...d, ...c } : d)));
   const addPerson = (value = "") => { setPeople((p) => [...p, { id: nextId, value }]); setNextId((n) => n + 1); };
   const reset = () => { setHabits(["", "", "", ""]); setPlan(emptyPlan()); setRecovery([]); setToday(""); setPeople([{ id: nextId, value: "" }]); setNextId((n) => n + 1); setPledge(""); setFinished(false); };
+  const [preview, setPreview] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    const done = () => document.documentElement.classList.remove("pn-printing");
+    window.addEventListener("afterprint", done);
+    return () => window.removeEventListener("afterprint", done);
+  }, []);
+  const printNow = () => { document.documentElement.classList.add("pn-printing"); window.print(); };
+  const printData = { habits, plan, recovery, today, people: people.map((p) => p.value.trim()).filter(Boolean), pledge };
   const h = "mb-4 font-display text-xl font-bold text-plum";
 
   return (
@@ -82,9 +95,14 @@ export function SelfCareNotebook() {
       <div className="flex flex-wrap gap-3 print:hidden">
         {finished ? <Button variant="outline" onClick={() => setFinished(false)}>Chỉnh sửa</Button> : <Button onClick={() => setFinished(true)}>Hoàn thành sổ tay</Button>}
         <Button variant="outline" onClick={reset}>Làm lại</Button>
-        <Button variant="outline" onClick={() => window.print()}><Printer />In sổ tay</Button>
+        <Button variant="outline" onClick={() => setPreview(true)}><Eye />Xem trước bản in</Button>
+        <Button variant="outline" onClick={printNow}><Printer />In sổ tay / Lưu PDF</Button>
       </div>
-      <p className="text-xs text-muted-foreground">Nội dung chỉ nằm trong phiên hiện tại, không lưu trên máy hay gửi lên máy chủ. Nút “In sổ tay” mở hộp thoại in của trình duyệt.</p>
+      <p className="text-xs text-muted-foreground">Nội dung chỉ nằm trong phiên hiện tại, không lưu trên máy hay gửi lên máy chủ. Nút “In sổ tay / Lưu PDF” mở hộp thoại in của trình duyệt (khổ A4); chọn máy in hoặc “Lưu dưới dạng PDF”. Bản in được tạo ngay trên máy, không gửi đi đâu.</p>
+      {mounted && createPortal(<div id="print-notebook" className={preview ? "pn-preview" : ""} role={preview ? "dialog" : undefined} aria-modal={preview || undefined} aria-label="Xem trước bản in sổ tay">
+        {preview && <div className="pn-toolbar"><Button onClick={printNow}><Printer />In sổ tay / Lưu PDF</Button><Button variant="outline" onClick={() => setPreview(false)}><X />Đóng xem trước</Button></div>}
+        <PrintNotebook data={printData} />
+      </div>, document.body)}
     </ActivityShell>
   );
 }
