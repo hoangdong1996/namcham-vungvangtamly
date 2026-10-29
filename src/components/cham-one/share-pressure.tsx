@@ -51,7 +51,7 @@ export function SharePressure() {
         </div>
       </div>
 
-      {error && <p role="alert" className="rounded-2xl bg-destructive/10 p-3 text-sm text-destructive">{error}</p>}
+      {error && <p role="alert" className="rounded-2xl bg-destructive/10 p-3 text-sm text-destructive">{error} Nếu bạn đang rất khó khăn, hãy nói ngay với một người lớn tin cậy hoặc gọi <a href="tel:111" className="font-bold underline">111</a>.</p>}
 
       {result && (
         <div aria-live="polite" className="space-y-4">
