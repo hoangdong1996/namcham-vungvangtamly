@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { SupportMap } from "@/components/cham-five/support-map";
 import { ConnectChallenge } from "@/components/cham-five/connect-challenge";
 import { ClubProposal, openClubProposal } from "@/components/cham-five/club-proposal";
+import { SafetyMapImage } from "@/components/cham-five/safety-map-image";
 import { SupportProcess } from "@/components/cham-five/support-process";
 import { STEPS } from "@/components/cham-five/data";
 
@@ -55,6 +56,7 @@ function DiemTuaPage() {
         <p className="rounded-full border border-dashed border-pink-band bg-card px-5 py-3 text-center text-sm text-muted-foreground">Trang này không chẩn đoán và không thu thập thông tin của em. Mọi lựa chọn chỉ tồn tại trong lúc em đang xem.</p>
 
         <Section id="ban-do" title="BẢN ĐỒ ĐIỂM TỰA – KHI CẦN, BẠN CÓ THỂ TÌM ĐẾN AI?" lead="Không phải lúc nào chúng ta cũng biết nên bắt đầu chia sẻ từ đâu. Hãy chọn điểm tựa khiến bạn cảm thấy an toàn và dễ mở lời nhất. Bạn có thể tìm đến một người trước, sau đó cùng họ tìm kiếm sự hỗ trợ phù hợp hơn nếu cần.">
+          <SafetyMapImage />
           <SupportMap />
           <SupportProcess onGuide={() => scrollTo("cam-nang")} onClub={openClubProposal} />
         </Section>
