@@ -1,4 +1,8 @@
 import { useEffect, useState } from "react";
+import supFamily from "@/assets/support-family.jpg";
+import supSchool from "@/assets/support-school.jpg";
+import supExpert from "@/assets/support-expert.jpg";
+const SUP_IMGS = [{ src: supFamily, alt: "Cha mẹ trò chuyện gần gũi với con trong không gian gia đình ấm áp" }, { src: supSchool, alt: "Học sinh trò chuyện cùng giáo viên chủ nhiệm trong lớp học" }, { src: supExpert, alt: "Cuộc trò chuyện tư vấn thân thiện, riêng tư giữa học sinh và người hỗ trợ chuyên môn" }];
 import { ArrowLeft, Check, Copy, HeartHandshake, Home, School, Stethoscope, TriangleAlert } from "lucide-react";
 import { GROUPS, type Supporter } from "./data";
 
@@ -85,6 +89,7 @@ export function SupportMap() {
           if (!c) return null;
           return (
             <div key={x.id} className={`flex flex-col rounded-3xl border-2 p-5 transition-all hover:-translate-y-1 hover:shadow-md ${active ? "border-primary bg-mint" : "border-pink-band bg-card"}`}>
+              {SUP_IMGS[k] && <img src={SUP_IMGS[k].src} alt={SUP_IMGS[k].alt} width={992} height={672} loading="lazy" className="-mx-1 mb-3 aspect-[3/2] w-[calc(100%+0.5rem)] rounded-2xl object-cover" />}
               <Icon className="h-8 w-8 text-primary" />
               <h3 className="mt-3 font-display text-lg font-bold text-primary">{c.title}</h3>
               <ul className="mt-2 mb-4 list-disc space-y-1 pl-5 text-sm">{c.items.map((i) => <li key={i}>{i}</li>)}</ul>

@@ -1,4 +1,10 @@
 import { useState } from "react";
+import stepImg1 from "@/assets/step-1-notice.jpg";
+import stepImg2 from "@/assets/step-2-listen.jpg";
+import stepImg3 from "@/assets/step-3-walk.jpg";
+import stepImg4 from "@/assets/step-4-connect.jpg";
+import stepImg5 from "@/assets/step-5-selfcare.jpg";
+const STEP_IMGS = [stepImg1, stepImg2, stepImg3, stepImg4, stepImg5];
 import { ArrowDown, ArrowRight, Check, ChevronDown, Ear, Heart, HeartHandshake, Leaf, Link2, MessageCircleHeart, ShieldCheck, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import illustration from "@/assets/friend-companion.jpg";
@@ -51,7 +57,7 @@ export function CompanionJourney() {
             const Icon = ICONS[index] ?? Heart;
             const open = expanded === index;
             return <li key={step.title} className={`min-w-0 rounded-3xl border p-5 shadow-sm ${open ? "border-primary bg-mint" : "border-pink-band bg-card"}`}>
-              <div className="flex items-center justify-between"><span className="font-display text-4xl font-extrabold text-pink-number">0{index + 1}</span><Icon aria-hidden className="h-8 w-8 text-primary" /></div>
+              {STEP_IMGS[index] && <img src={STEP_IMGS[index]} alt={`Minh họa bước ${index + 1}: ${step.title}`} width={944} height={704} loading="lazy" className="mb-3 aspect-[4/3] w-full rounded-2xl object-cover" />}<div className="flex items-center justify-between"><span className="font-display text-4xl font-extrabold text-pink-number">0{index + 1}</span><Icon aria-hidden className="h-8 w-8 text-primary" /></div>
               <h4 className="mt-4 font-display text-lg font-bold leading-snug text-green-deep lg:min-h-20">{step.title}</h4>
               <p className="mt-2 text-sm leading-relaxed lg:min-h-32">“{step.message}”</p>
               <Button variant="ghost" aria-expanded={open} aria-controls="companion-expanded-content" onClick={() => {
