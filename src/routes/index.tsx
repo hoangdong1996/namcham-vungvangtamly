@@ -12,6 +12,8 @@ import {
 } from "lucide-react";
 import heroImg from "@/assets/hero-connected.jpg";
 import { MoodToday } from "@/components/home/mood-today";
+import { FiveTouchMark } from "@/components/home/five-touch-mark";
+import { KindMessages, MyJourney, SmallStepToday } from "@/components/home/signature";
 import { PracticeTools, ClubAndLibrary } from "@/components/home/explore";
 import cham1 from "@/assets/cham-1.jpg";
 import cham2 from "@/assets/cham-2.jpg";
@@ -128,26 +130,29 @@ function Index() {
               <GraduationCap className="h-4 w-4" aria-hidden="true" />
               5 CHẠM – VỮNG VÀNG TÂM LÝ · Trường THPT Tây Tiền Hải
             </div>
-            <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.1] text-green-deep text-balance sm:text-5xl lg:text-6xl">
-              BẠN KHÔNG CẦN PHẢI <span className="text-plum">ỔN MỌI LÚC.</span>
+            <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.1] text-green-deep text-balance sm:text-5xl lg:text-[3.4rem]">
+              BẠN ĐANG KẾT NỐI VỚI CẢ THẾ GIỚI.<br /><span className="text-plum">CÒN CHÍNH MÌNH THÌ SAO?</span>
             </h1>
             <p className="mt-5 text-base leading-relaxed text-foreground/85 sm:text-lg">
-              Một không gian để hiểu mình hơn, học cách vượt qua áp lực và tìm thấy những điểm tựa an toàn trên hành trình trưởng thành.
+              5 Chạm là hành trình giúp học sinh hiểu cảm xúc, rèn luyện khả năng ứng phó với áp lực và tìm kiếm những điểm tựa an toàn trên hành trình trưởng thành.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
               <a href="#hanh-trinh" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-bold tracking-wide text-primary-foreground shadow-md transition-colors hover:bg-green-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
-                Khám phá 5 Chạm <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                Bắt đầu hành trình 5 Chạm <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
               <Link to="/diem-tua" hash="nguon-tro-giup" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-pink-band px-7 py-3.5 text-sm font-bold text-plum transition-colors hover:bg-pink-chip focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-plum focus-visible:ring-offset-2">
-                <HeartHandshake className="h-4 w-4" aria-hidden="true" /> Tìm điểm tựa
+                <HeartHandshake className="h-4 w-4" aria-hidden="true" /> Mình cần một điểm tựa
               </Link>
             </div>
             <Link to="/clb" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-club hover:text-club-deep">
               <Users className="h-4 w-4" aria-hidden="true" /> Tham gia CLB
             </Link>
           </div>
-          <div className="min-w-0">
+          <div className="relative min-w-0">
             <img src={heroImg} alt="Minh họa ba học sinh THPT cùng trò chuyện, được nối với nhau bằng những điểm chạm và trái tim" width={1280} height={1024} className="aspect-[5/4] w-full rounded-[2rem] object-cover shadow-xl" />
+            <div className="absolute -bottom-5 -left-3 rounded-[1.5rem] bg-card p-3 shadow-lg sm:-left-6">
+              <FiveTouchMark className="h-20 w-20 sm:h-24 sm:w-24" />
+            </div>
           </div>
         </div>
       </section>
@@ -173,6 +178,8 @@ function Index() {
         </div>
       </section>
 
+      <MyJourney />
+      <SmallStepToday />
       <MoodToday />
       <PracticeTools />
 
@@ -273,6 +280,7 @@ function Index() {
           </div>
         </div>
       </section>
+      <KindMessages />
       <ClubAndLibrary />
     </main>
   );

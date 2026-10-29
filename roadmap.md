@@ -13,3 +13,9 @@
 - [x] Thêm test kiểm tra tên thẻ và liên kết đúng trang (src/test/home-cham-titles.test.tsx, 3/3 test pass)
 - [x] Chụp ảnh giao diện kiểm tra bố cục sau khi sửa — 5 thẻ một hàng, đúng tên, không có lời giới thiệu
 - [x] Xây dựng Chạm 5 – Điểm tựa: bản đồ điểm tựa, cẩm nang, thử thách, đề xuất CLB, phần kết
+
+## Creative Direction (5 CHẠM – new generation)
+- [x] Biểu tượng 5 điểm chạm + hero mới + Hành trình của tôi + Một bước nhỏ + Trạm thông điệp (mẫu)
+- [ ] Bản sắc riêng từng trang Chạm 1–5 (sóng lan, khối giao nhau, mầm cây, mạng lưới, vòng tròn mở)
+- [ ] CLB: bộ công cụ thành viên, tình huống lắng nghe
+- [ ] Thư viện: lọc theo nhu cầu sử dụng
