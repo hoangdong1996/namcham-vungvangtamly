@@ -217,9 +217,9 @@
 /* ---------- In kế hoạch 7 ngày (Chạm 3) ---------- */
 #print-plan { display: none; }
 .pp-title { font-size: 20pt; font-weight: 800; color: var(--primary); text-align: center; }
-.pp-sub { text-align: center; font-size: 10pt; margin: 2mm 0 6mm; color: var(--plum); }
+.pp-sub { text-align: center; font-size: 10pt; margin: 1mm 0 4mm; color: var(--plum); }
 .pp-daytitle { font-size: 8.5pt; font-weight: 600; }
-#print-plan .pn-table td { height: 26mm; }
+#print-plan .pn-table td { height: 23mm; padding: 1.5mm; }
 #print-plan .pn-table th:nth-child(1) { width: 20mm; }
 @media print {
   html.pp-printing body > *:not(#print-plan) { display: none !important; }
