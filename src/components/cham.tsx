@@ -14,7 +14,7 @@ export function ChamHero({
   eyebrow: string;
   title: string;
   subtitle: string;
-  icon?: LucideIcon;
+  icon?: LucideIcon | undefined;
   uppercaseTitle?: boolean;
 }) {
   return (
@@ -106,8 +106,8 @@ export function PrevNext({
   prev,
   next,
 }: {
-  prev?: { label: string; to: ChamRoute };
-  next?: { label: string; to: ChamRoute };
+  prev?: { label: string; to: ChamRoute } | undefined;
+  next?: { label: string; to: ChamRoute } | undefined;
 }) {
   return (
     <div className="flex flex-wrap items-center justify-between gap-3">

@@ -36,7 +36,7 @@ export function SiteHeader() {
             <Link
               key={item.label}
               to={item.to}
-              hash={item.hash}
+              {...(item.hash ? { hash: item.hash } : {})}
               className="text-sm font-semibold text-foreground transition-colors hover:text-primary"
               activeProps={{ className: "text-primary" }}
             >
@@ -62,7 +62,7 @@ export function SiteHeader() {
               <Link
                 key={item.label}
                 to={item.to}
-                hash={item.hash}
+                {...(item.hash ? { hash: item.hash } : {})}
                 className="rounded-xl px-3 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-mint hover:text-primary"
                 activeProps={{ className: "bg-mint text-primary" }}
                 onClick={() => setOpen(false)}
