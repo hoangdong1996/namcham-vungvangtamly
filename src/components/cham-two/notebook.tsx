@@ -28,8 +28,8 @@ export function SelfCareNotebook() {
 
   return (
     <ActivityShell id="so-tay" n={4} title="Sổ tay chăm sóc bản thân" goal="Chuyển nhận thức thành hành động cụ thể, vừa sức và có thể áp dụng trong đời sống hằng ngày.">
-      <fieldset disabled={finished} className="space-y-8 rounded-xl border-l-8 border-pink-band bg-pink-soft/50 p-4 sm:p-6">
-        <fieldset className="space-y-4">
+      <fieldset disabled={finished} className="min-w-0 space-y-8 rounded-xl border-l-8 border-pink-band bg-pink-soft/50 p-4 sm:p-6">
+        <fieldset className="min-w-0 space-y-4">
           <legend className={h}>Mục 1 – Thói quen số của tôi</legend>
           <div className="grid gap-4 md:grid-cols-2">
             {HABIT_QUESTIONS.map((q, i) => <label key={q} className="space-y-2 text-sm font-semibold"><span className="block">{q}</span><Textarea value={habits[i]} onChange={(e) => setHabits((c) => c.map((v, j) => (j === i ? e.target.value : v)))} placeholder="Tự nguyện, không bắt buộc" className="min-h-20 bg-card font-normal" /></label>)}
@@ -54,7 +54,7 @@ export function SelfCareNotebook() {
           </div>
         </div>
 
-        <fieldset className="space-y-3">
+        <fieldset className="min-w-0 space-y-3">
           <legend className={h}>Mục 3 – Điều giúp tôi hồi phục</legend>
           <div className="flex flex-wrap gap-2">{RECOVERY.map((r) => <ChoiceChip key={r} selected={recovery.includes(r)} onClick={() => { setRecovery((c) => toggleIn(c, r)); if (today === r) setToday(""); }}>{r}</ChoiceChip>)}</div>
           {recovery.length > 0 && <div className="space-y-2 rounded-lg bg-mint-soft p-4">
@@ -64,15 +64,15 @@ export function SelfCareNotebook() {
           </div>}
         </fieldset>
 
-        <fieldset className="space-y-3">
+        <fieldset className="min-w-0 space-y-3">
           <legend className={h}>Mục 4 – Những người tôi có thể tìm đến</legend>
           <p className="text-sm text-muted-foreground">Chỉ cần ghi vai trò hoặc tên. Không bắt buộc tên thật, số điện thoại hay thông tin liên hệ; thông tin không được gửi đi.</p>
-          <div className="flex flex-wrap gap-2">{PEOPLE_EXAMPLES.map((p) => <Button key={p} type="button" size="sm" variant="outline" onClick={() => addPerson(p)}><Plus />{p}</Button>)}</div>
+          <div className="flex flex-wrap gap-2">{PEOPLE_EXAMPLES.map((p) => <Button key={p} type="button" size="sm" variant="outline" className="h-auto whitespace-normal py-2 text-left" onClick={() => addPerson(p)}><Plus />{p}</Button>)}</div>
           {people.map((p, i) => <div key={p.id} className="flex items-center gap-2"><Input aria-label={`Người tin cậy ${i + 1}`} value={p.value} onChange={(e) => setPeople((c) => c.map((v) => (v.id === p.id ? { ...v, value: e.target.value } : v)))} className="bg-card" /><Button type="button" variant="ghost" size="icon" aria-label={`Xóa người tin cậy ${i + 1}`} onClick={() => setPeople((c) => c.filter((v) => v.id !== p.id))}><Trash2 /></Button></div>)}
           <Button type="button" variant="outline" onClick={() => addPerson()}><Plus />Thêm người tin cậy</Button>
         </fieldset>
 
-        <fieldset className="space-y-3">
+        <fieldset className="min-w-0 space-y-3">
           <legend className={h}>Mục 5 – Cam kết nhỏ với bản thân</legend>
           <label className="flex flex-wrap items-center gap-2 text-sm font-semibold">Trong 24 giờ tới, tôi sẽ thử<Input aria-label="Cam kết của tôi" value={pledge} onChange={(e) => setPledge(e.target.value)} className="w-full max-w-xs bg-card sm:w-64" />để chăm sóc bản thân tốt hơn.</label>
         </fieldset>
