@@ -67,7 +67,7 @@ export function CalmStop() {
       </div>
       <div className="flex flex-wrap gap-3">
         {step > 1 && <Button variant="outline" onClick={() => setStep(step - 1)}>Quay lại</Button>}
-        {(step === 3 || (step === 1)) && step !== 1 && <Button onClick={() => setStep(4)}>Tiếp tục</Button>}
+        {step === 3 && <Button onClick={() => setStep(4)}>Tiếp tục</Button>}
         <Button variant="ghost" onClick={restart}>Kết thúc</Button>
       </div>
     </ActivityShell>
