@@ -5,13 +5,13 @@ import { StubChamPage } from "@/components/stub-cham-page";
 export const Route = createFileRoute("/hieu-minh")({
   head: () => ({
     meta: [
-      { title: "Chạm 2 – Hiểu mình | 5 CHẠM – Vững vàng tâm lý" },
+      { title: "Chạm 2 – Thấu hiểu | 5 CHẠM – Vững vàng tâm lý" },
       {
         name: "description",
         content:
-          "Khám phá điểm mạnh, giá trị bản thân và những suy nghĩ ảnh hưởng đến cảm xúc. Chạm 2 – Hiểu mình, mô hình 5 CHẠM tại Trường THPT Tây Tiền Hải.",
+          "Khám phá điểm mạnh, giá trị bản thân và những suy nghĩ ảnh hưởng đến cảm xúc. Chạm 2 – Thấu hiểu, mô hình 5 CHẠM tại Trường THPT Tây Tiền Hải.",
       },
-      { property: "og:title", content: "Chạm 2 – Hiểu mình | 5 CHẠM" },
+      { property: "og:title", content: "Chạm 2 – Thấu hiểu | 5 CHẠM" },
       {
         property: "og:description",
         content:
@@ -29,7 +29,7 @@ function HieuMinhPage() {
     <main>
       <StubChamPage
         eyebrow="Chạm 2"
-        title="Hiểu mình"
+        title="Thấu hiểu"
         subtitle="Khám phá điểm mạnh, giá trị bản thân và những suy nghĩ ảnh hưởng đến cảm xúc."
         icon={Brain}
         goals={[

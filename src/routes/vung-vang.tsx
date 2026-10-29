@@ -42,7 +42,7 @@ function VungVangPage() {
           "Kế hoạch tuần cân bằng",
           "Hộp công cụ bình tĩnh",
         ]}
-        prev={{ label: "Chạm 2 – Hiểu mình", to: "/hieu-minh" }}
+        prev={{ label: "Chạm 2 – Thấu hiểu", to: "/hieu-minh" }}
         next={{ label: "Chạm 4 – Kết nối", to: "/ket-noi" }}
       />
     </main>

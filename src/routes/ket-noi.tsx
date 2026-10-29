@@ -43,7 +43,7 @@ function KetNoiPage() {
           "Vòng tròn chia sẻ",
         ]}
         prev={{ label: "Chạm 3 – Vững vàng", to: "/vung-vang" }}
-        next={{ label: "Chạm 5 – Tìm điểm tựa", to: "/diem-tua" }}
+        next={{ label: "Chạm 5 – Điểm tựa", to: "/diem-tua" }}
       />
     </main>
   );

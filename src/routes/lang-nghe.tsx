@@ -279,7 +279,7 @@ function LangNghePage() {
           <PrevNext
             prev={{ label: "Quay lại trang chủ", to: "/" }}
             next={{
-              label: "Tiếp tục Chạm 2 – Hiểu mình",
+              label: "Tiếp tục Chạm 2 – Thấu hiểu",
               to: "/hieu-minh",
             }}
           />

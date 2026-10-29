@@ -11,6 +11,11 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import heroImg from "@/assets/hero-students.jpg";
+import cham1 from "@/assets/cham-1.jpg";
+import cham2 from "@/assets/cham-2.jpg";
+import cham3 from "@/assets/cham-3.jpg";
+import cham4 from "@/assets/cham-4.jpg";
+import cham5 from "@/assets/cham-5.jpg";
 
 const INTRO = [
   { n: "1", t: "NHẬN DIỆN", d: "Nhận biết cảm xúc và dấu hiệu căng thẳng.", icon: Ear, to: "/lang-nghe" as const, bg: "bg-mint" },
@@ -48,12 +53,14 @@ const CHAMS: {
   title: string;
   description: string;
   icon: LucideIcon;
+  img: string;
   to: "/" | "/lang-nghe" | "/hieu-minh" | "/vung-vang" | "/ket-noi" | "/diem-tua";
 }[] = [
   {
     number: "01",
     label: "Chạm 1",
     title: "Lắng nghe",
+    img: cham1,
     description:
       "Học cách dừng lại, quan sát và gọi tên cảm xúc của chính mình mỗi ngày.",
     icon: Ear,
@@ -62,7 +69,8 @@ const CHAMS: {
   {
     number: "02",
     label: "Chạm 2",
-    title: "Hiểu mình",
+    title: "Thấu hiểu",
+    img: cham2,
     description:
       "Khám phá điểm mạnh, giá trị bản thân và những suy nghĩ ảnh hưởng đến cảm xúc.",
     icon: Brain,
@@ -72,8 +80,9 @@ const CHAMS: {
     number: "03",
     label: "Chạm 3",
     title: "Vững vàng",
+    img: cham3,
     description:
-      "Rèn kỹ năng ứng phó với áp lực học tập, thi cử và những thay đổi trong cuộc sống.",
+      "Rèn kỹ năng ứng phó với áp lực thời đại số và những thay đổi trong cuộc sống.",
     icon: Shield,
     to: "/vung-vang",
   },
@@ -81,6 +90,7 @@ const CHAMS: {
     number: "04",
     label: "Chạm 4",
     title: "Kết nối",
+    img: cham4,
     description:
       "Xây dựng mối quan hệ tích cực với bạn bè, thầy cô và gia đình.",
     icon: HeartHandshake,
@@ -89,9 +99,10 @@ const CHAMS: {
   {
     number: "05",
     label: "Chạm 5",
-    title: "Tìm điểm tựa",
+    title: "Điểm tựa",
+    img: cham5,
     description:
-      "Biết khi nào cần giúp đỡ và tìm đến ai: thầy cô, chuyên viên tư vấn, gia đình.",
+      "Biết khi nào cần giúp đỡ và tìm đến ai: thầy cô, chuyên viên tư vấn, gia đình và các nguồn hỗ trợ phù hợp.",
     icon: LifeBuoy,
     to: "/diem-tua",
   },
@@ -198,42 +209,44 @@ function Index() {
       {/* Năm chạm yêu thương */}
       <section id="nam-cham" className="bg-pink-soft py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <div className="text-center">
-            <h2 className="font-display text-3xl font-bold text-primary">
-              Năm chạm yêu thương
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="font-display text-3xl font-extrabold uppercase tracking-wide text-primary sm:text-4xl">
+              HÀNH TRÌNH 5 CHẠM
             </h2>
-            <p className="mt-3 text-base text-foreground/80">
-              Mỗi chạm là một bước nhỏ giúp em vững vàng hơn mỗi ngày.
+            <p className="mt-4 text-base font-medium text-foreground/80 sm:text-lg">
+              Mỗi bước thấu hiểu bản thân là một bước tiến tới sức khỏe tâm lý vững vàng.
             </p>
           </div>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 flex flex-wrap justify-center gap-6">
             {CHAMS.map((cham) => (
               <article
                 key={cham.number}
-                className="flex flex-col overflow-hidden rounded-3xl bg-card shadow-sm"
+                className="flex w-full flex-col overflow-hidden rounded-3xl bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
               >
-                <div className="flex items-center justify-between bg-pink-band px-5 py-5">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-card text-primary">
-                    <cham.icon className="h-5 w-5" />
-                  </span>
-                  <span className="font-display text-4xl font-extrabold text-pink-number">
+                <div className="relative bg-pink-band">
+                  <img
+                    src={cham.img}
+                    alt={`Minh họa ${cham.label} – ${cham.title}`}
+                    width={1024}
+                    height={768}
+                    loading="lazy"
+                    className="aspect-[4/3] w-full object-contain"
+                  />
+                  <span className="absolute right-3 top-3 rounded-2xl bg-card/90 px-3 py-1 font-display text-2xl font-extrabold text-primary shadow-sm">
                     {cham.number}
                   </span>
                 </div>
                 <div className="flex flex-1 flex-col p-5">
-                  <p className="text-xs font-bold uppercase tracking-widest text-foreground/60">
-                    {cham.label}
-                  </p>
-                  <h3 className="mt-1 font-display text-xl font-bold text-primary">
-                    {cham.title}
+                  <h3 className="font-display text-xl font-extrabold uppercase text-primary">
+                    {cham.label} – {cham.title}
                   </h3>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-foreground/80">
                     {cham.description}
                   </p>
                   <Link
                     to={cham.to}
-                    className="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-green-deep"
+                    className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-green-deep"
                   >
                     Tìm hiểu
                     <ArrowRight className="h-4 w-4" />
