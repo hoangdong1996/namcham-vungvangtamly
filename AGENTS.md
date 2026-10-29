@@ -1,10 +1,5 @@
-<!-- LOVABLE:BEGIN -->
-> [!IMPORTANT]
-> This project is connected to [Lovable](https://lovable.dev). Avoid rewriting
-> published git history — force pushing, or rebasing/amending/squashing commits
-> that are already pushed — as it rewrites history on Lovable's side and the
-> user will likely lose their project history.
->
-> Commits you push to the connected branch sync back to Lovable and show up in
-> the editor, so keep the branch in a working state.
-<!-- LOVABLE:END -->
+# Project rules
+
+- The 5 CHẠM logo is served from the Lovable CDN asset (`/__l5e/assets-v1/...`), referenced only through `src/lib/logo.ts` with its pointer JSON at `src/assets/logo-5-cham.asset.json`; never re-upload, copy, or hotlink the logo elsewhere. The favicon is a 64px square crop at `public/favicon.png`.
+- This project replicates the "5 CHẠM – Vững vàng tâm lý" school site (Trường THPT Tây Tiền Hải). All user-facing copy is Vietnamese and must match the original site's wording; page titles follow the pattern "Chạm N – <Tên> | 5 CHẠM – Vững vàng tâm lý".
+- Design tokens (green `--primary`, plum `--plum`, pink `--pink-band`/`--pink-chip`, mint `--mint`) live in `src/styles.css`; fonts are Baloo 2 (display) + Quicksand (body) loaded via `<link>` in `src/routes/__root.tsx`. Never hardcode colors in components.
