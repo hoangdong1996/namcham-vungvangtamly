@@ -2,8 +2,9 @@ import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowDown, ArrowLeft, ArrowRight, BookOpen, ChevronDown, Ear, Handshake, HeartHandshake, Lightbulb, Link2,
-  Lock, Map as MapIcon, MessageCircle, Shield, ShieldAlert, Sparkles, Stethoscope, Target, UserCheck, Users,
+  Lock, Map as MapIcon, MessageCircle, Shield, Sparkles, Stethoscope, Target, UserCheck, Users,
 } from "lucide-react";
+import { SupportJourney } from "@/components/clb/support-journey";
 import clbImage from "@/assets/clb-students.jpg";
 import tierStudents from "@/assets/clb-tier-students.jpg";
 import tierAdults from "@/assets/clb-tier-adults.jpg";
@@ -56,7 +57,6 @@ const STEPS = [
   { t: "Thu thập phản hồi", d: "Lắng nghe ý kiến người tham gia theo cách ẩn danh, tôn trọng." },
   { t: "Đánh giá và điều chỉnh", d: "Rút kinh nghiệm và cải tiến cho các hoạt động tiếp theo." },
 ];
-const SUPPORT = ["Lắng nghe và tôn trọng.", "Xác định nhu cầu và mức độ an toàn.", "Thống nhất hướng hỗ trợ.", "Kết nối hoặc chuyển gửi.", "Theo dõi và phản hồi."];
 const ROADMAP = ["Khảo sát nhu cầu.", "Hoàn thiện đề xuất.", "Chuẩn bị đội ngũ và nguồn lực.", "Thử nghiệm hoạt động.", "Đánh giá và điều chỉnh."];
 const CRITERIA = ["Mức độ tham gia.", "Kiến thức về sức khỏe tâm lý.", "Kỹ năng tự chăm sóc.", "Khả năng xác định nguồn hỗ trợ.", "Cảm nhận an toàn.", "Phản hồi và cải tiến."];
 const RESOURCES = [
@@ -176,25 +176,7 @@ function ClbPage() {
         </section>
 
         <section className="space-y-6">
-          <H2>Quy trình kết nối hỗ trợ</H2>
-          <div className="grid gap-6 lg:grid-cols-[2fr_1fr]">
-            <ol className="grid gap-3 sm:grid-cols-5">
-              {SUPPORT.map((s, i) => (
-                <li key={s} className="rounded-2xl border-2 border-club-soft bg-card p-4 text-center">
-                  <span className="mx-auto flex h-9 w-9 items-center justify-center rounded-full bg-club-blue font-bold text-primary-foreground">{i + 1}</span>
-                  <p className="mt-2 font-semibold text-club-ink">{s}</p>
-                </li>
-              ))}
-            </ol>
-            <aside className="rounded-2xl border-2 border-destructive bg-card p-5" aria-labelledby="clb-khan-cap">
-              <h3 id="clb-khan-cap" className="flex items-center gap-2 font-display text-lg font-bold text-destructive"><ShieldAlert className="h-5 w-5" />Khi có nguy cơ mất an toàn</h3>
-              <ul className="mt-2 list-disc space-y-1 pl-5 leading-relaxed">
-                <li>Báo ngay cho thầy cô, cha mẹ hoặc người lớn đáng tin cậy gần nhất.</li>
-                <li>Gọi <strong>115</strong> (cấp cứu) hoặc <strong>111</strong> (bảo vệ trẻ em).</li>
-                <li>Không để bạn ở một mình; thành viên CLB không tự chẩn đoán, điều trị hay tự xử lý.</li>
-              </ul>
-            </aside>
-          </div>
+          <SupportJourney />
         </section>
 
         <section className="space-y-6">

@@ -56,6 +56,7 @@
   --color-club-faint: var(--club-faint);
   --color-club-blue: var(--club-blue);
   --color-club-ink: var(--club-ink);
+  --color-teal: var(--teal);
 }
 
 :root {
@@ -94,6 +95,7 @@
   --club-faint: #F6F2FD;
   --club-blue: #397DB8;
   --club-ink: #44356E;
+  --teal: #2A9D9A;
 }
 
 .dark {
