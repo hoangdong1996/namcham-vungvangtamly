@@ -74,7 +74,7 @@ describe("Hành trình đồng hành an toàn", () => {
     render(<><CompanionJourney /><ClubProposal /></>);
     expect(screen.getByRole("complementary")).toBeVisible();
     expect(screen.queryByRole("region", { name: "Hướng dẫn bước 4" })).toBeNull();
-    act(() => fireEvent.click(screen.getByRole("button", { name: "KHÁM PHÁ MÔ HÌNH CLB 5 CHẠM" })));
+    act(() => fireEvent.click(screen.getByRole("button", { name: "KHÁM PHÁ CLB 5 ĐỒNG HÀNH" })));
     expect(screen.getByRole("button", { name: /TÌM HIỂU ĐỀ XUẤT CÂU LẠC BỘ/ })).toHaveAttribute("aria-expanded", "true");
   });
 });
