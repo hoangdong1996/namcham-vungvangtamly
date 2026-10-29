@@ -24,7 +24,7 @@ export function MyJourney() {
           <h2 id="my-journey-title" className="font-display text-3xl font-extrabold text-primary sm:text-4xl">Hành trình 5 Chạm của tôi</h2>
           <p className="mt-3 text-foreground/80">Đánh dấu những hoạt động bạn đã thử. Mỗi điểm sáng lên là một bước bạn đã đi.</p>
           <div className="mx-auto mt-6 w-48 lg:mx-0">
-            <FiveTouchMark animate={false} label={`Đã hoàn thành ${done.length} trên 5 Chạm`} className={`w-full transition-opacity ${done.length ? "opacity-100" : "opacity-40"}`} />
+            <FiveTouchMark animate={false} label={`Đã hoàn thành ${done.length} trên 5 Chạm`} lit={done} className="w-full" />
           </div>
           <p className="mt-3 font-display text-2xl font-bold text-green-deep" aria-live="polite">{done.length}/5 Chạm · {pct}%</p>
           <p className="mt-3 flex items-start gap-2 rounded-2xl bg-card px-4 py-3 text-left text-sm text-foreground/75">
