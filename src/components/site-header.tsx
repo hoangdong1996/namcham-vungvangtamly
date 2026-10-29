@@ -4,41 +4,36 @@ import { Menu, X } from "lucide-react";
 import { LOGO_URL } from "@/lib/logo";
 
 export const NAV_ITEMS = [
-  { label: "Trang chủ", to: "/" as const, hash: undefined },
-  { label: "Năm chạm", to: "/" as const, hash: "nam-cham" },
-  { label: "CLB Đồng hành", to: "/clb" as const, hash: undefined },
-  { label: "Tìm điểm tựa", to: "/diem-tua" as const, hash: undefined },
+  { label: "Trang chủ", to: "/" as const, title: "Trang chủ" },
+  { label: "Chạm 1", to: "/lang-nghe" as const, title: "Chạm 1 – Lắng nghe" },
+  { label: "Chạm 2", to: "/hieu-minh" as const, title: "Chạm 2 – Hiểu mình" },
+  { label: "Chạm 3", to: "/vung-vang" as const, title: "Chạm 3 – Vững vàng" },
+  { label: "Chạm 4", to: "/ket-noi" as const, title: "Chạm 4 – Kết nối" },
+  { label: "Chạm 5", to: "/diem-tua" as const, title: "Chạm 5 – Tìm điểm tựa" },
+  { label: "CLB Đồng hành", to: "/clb" as const, title: "CLB Đồng hành" },
+  { label: "Tìm điểm tựa", to: "/diem-tua" as const, title: "Tìm điểm tựa" },
 ];
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-pink-band bg-white/95 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        <Link
-          to="/"
-          className="flex items-center gap-2.5"
-          onClick={() => setOpen(false)}
-        >
-          <img
-            src={LOGO_URL}
-            alt="Logo 5 CHẠM – Vững vàng tâm lý"
-            className="h-11 w-11 rounded-lg object-contain"
-          />
-          <span className="font-display text-lg font-bold tracking-wide text-primary">
-            5 CHẠM
-          </span>
+    <header className="sticky top-0 z-50 border-b border-pink-band bg-card/95 backdrop-blur">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4">
+        <Link to="/" className="flex shrink-0 items-center gap-2" onClick={() => setOpen(false)}>
+          <img src={LOGO_URL} alt="Logo 5 CHẠM – Vững vàng tâm lý" className="h-10 w-10 rounded-lg object-contain" />
+          <span className="font-display text-lg font-bold tracking-wide text-primary">5 CHẠM</span>
         </Link>
 
-        <nav className="hidden items-center gap-7 md:flex">
+        <nav className="hidden items-center gap-1 lg:flex xl:gap-2" aria-label="Điều hướng chính">
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.label}
               to={item.to}
-              {...(item.hash ? { hash: item.hash } : {})}
-              className="text-sm font-semibold text-foreground transition-colors hover:text-primary"
-              activeProps={{ className: "text-primary" }}
+              title={item.title}
+              activeOptions={{ exact: true }}
+              className="whitespace-nowrap rounded-full px-3 py-2 text-[15px] font-semibold text-foreground transition-colors duration-200 hover:bg-mint hover:text-primary"
+              activeProps={{ className: "bg-mint text-green-deep underline decoration-2 underline-offset-[6px]" }}
             >
               {item.label}
             </Link>
@@ -48,7 +43,8 @@ export function SiteHeader() {
         <button
           type="button"
           aria-label={open ? "Đóng menu" : "Mở menu"}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full text-foreground transition-colors hover:bg-mint md:hidden"
+          aria-expanded={open}
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full text-foreground transition-colors hover:bg-mint lg:hidden"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -56,18 +52,18 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <nav className="border-t border-pink-band bg-white px-4 py-3 md:hidden">
-          <div className="mx-auto flex max-w-6xl flex-col gap-1">
+        <nav className="border-t border-pink-band bg-card px-4 py-3 lg:hidden">
+          <div className="mx-auto flex max-w-7xl flex-col gap-1">
             {NAV_ITEMS.map((item) => (
               <Link
                 key={item.label}
                 to={item.to}
-                {...(item.hash ? { hash: item.hash } : {})}
-                className="rounded-xl px-3 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-mint hover:text-primary"
-                activeProps={{ className: "bg-mint text-primary" }}
+                activeOptions={{ exact: true }}
+                className="rounded-xl px-4 py-3 text-base font-semibold text-foreground transition-colors hover:bg-mint hover:text-primary"
+                activeProps={{ className: "bg-mint text-green-deep" }}
                 onClick={() => setOpen(false)}
               >
-                {item.label}
+                {item.title}
               </Link>
             ))}
           </div>

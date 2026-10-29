@@ -11,7 +11,15 @@ import {
   Users,
   type LucideIcon,
 } from "lucide-react";
-import { LOGO_URL } from "@/lib/logo";
+import heroImg from "@/assets/hero-students.jpg";
+
+const INTRO = [
+  { n: "1", t: "NHẬN DIỆN", d: "Nhận biết cảm xúc và dấu hiệu căng thẳng.", icon: Ear, to: "/lang-nghe" as const, bg: "bg-mint" },
+  { n: "2", t: "THẤU HIỂU", d: "Hiểu bản thân, nhận diện áp lực và nhu cầu cá nhân.", icon: Brain, to: "/hieu-minh" as const, bg: "bg-pink-soft" },
+  { n: "3", t: "RÈN LUYỆN", d: "Thực hành quản lý cảm xúc và chăm sóc bản thân.", icon: Shield, to: "/vung-vang" as const, bg: "bg-mint" },
+  { n: "4", t: "KẾT NỐI", d: "Chia sẻ với bạn bè, gia đình và người đáng tin cậy.", icon: HeartHandshake, to: "/ket-noi" as const, bg: "bg-pink-soft" },
+  { n: "5", t: "TÌM HỖ TRỢ", d: "Biết tìm kiếm sự giúp đỡ khi cần thiết.", icon: LifeBuoy, to: "/diem-tua" as const, bg: "bg-mint" },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -93,58 +101,76 @@ const CHAMS: {
 function Index() {
   return (
     <main>
-      {/* Hero */}
-      <section className="hero-gradient px-4 pb-16 pt-12 text-center">
-        <div className="mx-auto max-w-3xl">
-          <div className="mx-auto max-w-md rounded-3xl bg-card p-4 shadow-xl">
-            <img
-              src={LOGO_URL}
-              alt="Logo 5 CHẠM – Vững vàng tâm lý"
-              className="mx-auto w-full rounded-2xl"
-            />
-          </div>
-
-          <div className="mt-7 inline-flex items-center gap-2 rounded-full bg-mint px-4 py-2 text-sm font-semibold text-green-deep">
-            <GraduationCap className="h-4 w-4" />
-            Trường THPT Tây Tiền Hải
-          </div>
-
-          <h1 className="mt-5 font-display text-5xl font-extrabold leading-tight text-primary sm:text-6xl">
-            5 CHẠM
-            <span className="mt-1 block text-3xl text-plum sm:text-4xl">
-              VỮNG VÀNG TÂM LÝ
-            </span>
-          </h1>
-
-          <div className="mx-auto mt-6 max-w-xl rounded-2xl border-l-4 border-primary bg-card px-6 py-4 text-left">
-            <p className="text-base font-semibold italic text-foreground/90">
+      <section className="hero-gradient px-4 py-12 lg:py-16">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2">
+          <div className="min-w-0 text-center lg:text-left">
+            <div className="inline-flex items-center gap-2 rounded-full bg-mint px-4 py-2 text-sm font-semibold text-green-deep">
+              <GraduationCap className="h-4 w-4" />
+              Trường THPT Tây Tiền Hải
+            </div>
+            <h1 className="mt-5 font-display text-4xl font-extrabold leading-tight text-primary sm:text-5xl">
+              5 CHẠM –
+              <span className="block text-plum">VỮNG VÀNG TÂM LÝ</span>
+            </h1>
+            <p className="mt-5 text-base leading-relaxed text-foreground/85 sm:text-lg">
+              Hành trình giúp học sinh nhận diện cảm xúc, chăm sóc bản thân, kết nối với mọi người
+              và chủ động tìm kiếm sự hỗ trợ khi cần.
+            </p>
+            <p className="mt-3 text-base font-semibold italic text-green-deep">
               Lắng nghe bản thân – Kết nối yêu thương – Vững vàng mỗi ngày
             </p>
+            <div className="mt-7 flex flex-wrap justify-center gap-3 lg:justify-start">
+              <Link
+                to="/lang-nghe"
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-bold tracking-wide text-primary-foreground shadow-md transition-colors hover:bg-green-deep"
+              >
+                BẮT ĐẦU HÀNH TRÌNH
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                to="/clb"
+                className="inline-flex items-center gap-2 rounded-full bg-pink-band px-6 py-3.5 text-sm font-semibold text-plum transition-colors hover:bg-pink-chip"
+              >
+                <Users className="h-4 w-4" />
+                Tham gia CLB
+              </Link>
+            </div>
           </div>
+          <div className="min-w-0">
+            <img
+              src={heroImg}
+              alt="Nhóm học sinh THPT trò chuyện, lắng nghe và kết nối với nhau"
+              width={1280}
+              height={1024}
+              className="aspect-[5/4] w-full rounded-[2rem] border-4 border-card object-cover shadow-xl"
+            />
+          </div>
+        </div>
+      </section>
 
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              to="/"
-              hash="nam-cham"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-green-deep"
-            >
-              <Compass className="h-4 w-4" />
-              Khám phá 5 CHẠM
-            </Link>
-            <Link
-              to="/clb"
-              className="inline-flex items-center gap-2 rounded-full bg-pink-band px-6 py-3 text-sm font-semibold text-plum transition-colors hover:bg-pink-chip"
-            >
-              <Users className="h-4 w-4" />
-              Tham gia CLB
-            </Link>
-            <Link
-              to="/diem-tua"
-              className="inline-flex items-center gap-2 rounded-full border border-primary bg-card px-6 py-3 text-sm font-semibold text-primary transition-colors hover:bg-mint"
-            >
-              <LifeBuoy className="h-4 w-4" />
-              Tìm kiếm sự hỗ trợ
-            </Link>
+      <section className="bg-card px-4 py-14">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="text-center font-display text-3xl font-bold text-primary">Hành trình 5 CHẠM</h2>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {INTRO.map((c) => (
+              <Link
+                key={c.n}
+                to={c.to}
+                className={`group flex flex-col rounded-3xl border border-border p-5 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg ${c.bg}`}
+              >
+                <div className="flex items-center justify-between">
+                  <span className="font-display text-4xl font-extrabold text-primary">{c.n}</span>
+                  <span className="grid h-11 w-11 place-items-center rounded-2xl bg-card text-primary shadow-sm">
+                    <c.icon className="h-5 w-5" />
+                  </span>
+                </div>
+                <h3 className="mt-3 font-display text-lg font-bold leading-snug text-plum">CHẠM {c.n} – {c.t}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-foreground/80">{c.d}</p>
+                <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-primary">
+                  Khám phá <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
