@@ -7,6 +7,7 @@ import { ClubProposal, openClubProposal } from "@/components/cham-five/club-prop
 import { SafetyMapImage } from "@/components/cham-five/safety-map-image";
 import { SupportProcess } from "@/components/cham-five/support-process";
 import { CompanionJourney } from "@/components/cham-five/companion-journey";
+import { HelpSources } from "@/components/cham-five/help-sources";
 
 export const Route = createFileRoute("/diem-tua")({
   head: () => ({
@@ -39,7 +40,7 @@ function Section({ id, title, lead, children }: { id: string; title: string; lea
 function DiemTuaPage() {
   return (
     <main className="cham-two">
-      <section className="hero-gradient px-4 pb-14 pt-14 text-center">
+      <section id="cham-5" className="hero-gradient scroll-mt-20 px-4 pb-14 pt-14 text-center">
         <div className="mx-auto max-w-3xl">
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-plum">Chạm 5</p>
           <h1 className="mt-3 text-4xl font-extrabold text-primary sm:text-5xl">CHẠM 5 – ĐIỂM TỰA</h1>
@@ -51,6 +52,8 @@ function DiemTuaPage() {
           </div>
         </div>
       </section>
+
+      <HelpSources />
 
       <div className="mx-auto max-w-6xl space-y-16 px-4 py-14">
         <p className="rounded-full border border-dashed border-pink-band bg-card px-5 py-3 text-center text-sm text-muted-foreground">Trang này không chẩn đoán và không thu thập thông tin của em. Mọi lựa chọn chỉ tồn tại trong lúc em đang xem.</p>
