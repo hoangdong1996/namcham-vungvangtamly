@@ -265,5 +265,5 @@
 .hero-self { position: relative; white-space: nowrap; }
 .hero-self::after { content: ""; position: absolute; left: 2%; right: 2%; bottom: -0.08em; height: 0.09em; border-radius: 999px; background: var(--pink-chip); }
 @media (prefers-reduced-motion: reduce) { .hero-line { animation: none; opacity: 1; transform: none; } }
-.hero-title { font-size: clamp(1.85rem, 0.6rem + 6.4vw, 3.75rem); line-height: 1.14; letter-spacing: -0.03em; }
-@media (min-width: 1024px) { .hero-title { font-size: clamp(3.1rem, 0.4rem + 4.2vw, 4.6rem); letter-spacing: -0.035em; } }
+.hero-copy { container-type: inline-size; }
+.hero-title { font-size: clamp(1.75rem, 10.4cqi, 4.25rem); line-height: 1.13; letter-spacing: -0.03em; padding-top: 0.06em; }
