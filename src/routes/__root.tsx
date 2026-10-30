@@ -17,8 +17,7 @@ import { SiteFooter } from "@/components/site-footer";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen flex-col bg-background">
-      <SiteHeader />
+    <div className="flex min-h-[60vh] flex-col bg-background">
       <div className="flex flex-1 items-center justify-center px-4">
         <div className="max-w-md text-center">
           <h1 className="text-7xl font-bold text-primary">404</h1>
@@ -38,7 +37,6 @@ function NotFoundComponent() {
           </div>
         </div>
       </div>
-      <SiteFooter />
     </div>
   );
 }
@@ -51,8 +49,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   }, [error]);
 
   return (
-    <div className="flex min-h-screen flex-col bg-background">
-      <SiteHeader />
+    <div className="flex min-h-[60vh] flex-col bg-background">
       <div className="flex flex-1 items-center justify-center px-4">
         <div className="max-w-md text-center">
           <h1 className="font-display text-xl font-semibold tracking-tight text-foreground">
@@ -80,7 +77,6 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
           </div>
         </div>
       </div>
-      <SiteFooter />
     </div>
   );
 }
