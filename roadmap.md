@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Cập nhật kế hoạch THE LAST TOUCH theo bản thiết kế cuối cùng; chỉ lập kế hoạch, chưa sửa mã nguồn.
+
 - [x] Bổ sung năm điểm chạm kết nối trong mô hình hiện có, chỉ chuyển động một lần và giữ liên kết.
 - [x] Kiểm tra năm điểm, năm liên kết, điện thoại và chế độ giảm chuyển động — kiểm thử đạt, bấm cả năm liên kết ở 1280px và 390px.
 
