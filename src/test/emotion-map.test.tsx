@@ -7,8 +7,8 @@ function openPractice() {
   fireEvent.click(screen.getByRole("button", { name: /Bản đồ cảm xúc của tôi/ }));
 }
 function selectAndSubmit() {
-  fireEvent.click(screen.getByRole("button", { name: "Lo lắng", exact: true }));
-  fireEvent.click(screen.getByRole("button", { name: "Học tập", exact: true }));
+  fireEvent.click(screen.getByRole("button", { name: "Lo lắng" }));
+  fireEvent.click(screen.getByRole("button", { name: "Học tập" }));
   fireEvent.click(screen.getByRole("button", { name: "Tạo bản đồ cảm xúc" }));
 }
 
@@ -19,10 +19,10 @@ describe("Chạm 1 emotion map", () => {
     render(<EmotionMap />); openPractice();
     expect(MAP_EMOTIONS.map((entry) => entry.label)).toEqual(["Vui vẻ", "Bình yên", "Hào hứng", "Lo lắng", "Buồn bã", "Tức giận", "Cô đơn", "Mệt mỏi", "Cảm xúc khác"]);
     for (const entry of MAP_EMOTIONS) {
-      fireEvent.click(screen.getByRole("button", { name: entry.label, exact: true }));
-      expect(screen.getByRole("button", { name: entry.label, exact: true })).toHaveAttribute("aria-pressed", "true");
+      fireEvent.click(screen.getByRole("button", { name: entry.label }));
+      expect(screen.getByRole("button", { name: entry.label })).toHaveAttribute("aria-pressed", "true");
     }
-    expect(screen.getByRole("button", { name: "Vui vẻ", exact: true })).toHaveAttribute("aria-pressed", "false");
+    expect(screen.getByRole("button", { name: "Vui vẻ" })).toHaveAttribute("aria-pressed", "false");
   });
 
   it("supports intensity 1–5 and shows the concrete chosen value", () => {
@@ -39,9 +39,9 @@ describe("Chạm 1 emotion map", () => {
   it("requires emotion and causes, supports all six causes, and optional sharing", () => {
     render(<EmotionMap />); openPractice();
     expect(screen.getByRole("button", { name: "Tạo bản đồ cảm xúc" })).toBeDisabled();
-    fireEvent.click(screen.getByRole("button", { name: "Bình yên", exact: true }));
+    fireEvent.click(screen.getByRole("button", { name: "Bình yên" }));
     expect(screen.getByRole("button", { name: "Tạo bản đồ cảm xúc" })).toBeDisabled();
-    for (const cause of ["Học tập", "Gia đình", "Bạn bè", "Mạng xã hội", "Bản thân", "Chưa xác định"]) fireEvent.click(screen.getByRole("button", { name: cause, exact: true }));
+    for (const cause of ["Học tập", "Gia đình", "Bạn bè", "Mạng xã hội", "Bản thân", "Chưa xác định"]) fireEvent.click(screen.getByRole("button", { name: cause }));
     fireEvent.click(screen.getByRole("button", { name: "Tạo bản đồ cảm xúc" }));
     const map = screen.getByRole("region", { name: "Bản đồ cảm xúc đã tạo" });
     for (const cause of ["Học tập", "Gia đình", "Bạn bè", "Mạng xã hội", "Bản thân", "Chưa xác định"]) expect(within(map).getByText(cause)).toBeInTheDocument();
@@ -63,8 +63,8 @@ describe("Chạm 1 emotion map", () => {
     fireEvent.click(screen.getByRole("button", { name: "Làm lại" }));
     expect(screen.getByRole("textbox")).toHaveValue("");
     expect(screen.getByRole("slider")).toHaveValue("3");
-    expect(screen.getByRole("button", { name: "Lo lắng", exact: true })).toHaveAttribute("aria-pressed", "false");
-    expect(screen.getByRole("button", { name: "Học tập", exact: true })).toHaveAttribute("aria-pressed", "false");
+    expect(screen.getByRole("button", { name: "Lo lắng" })).toHaveAttribute("aria-pressed", "false");
+    expect(screen.getByRole("button", { name: "Học tập" })).toHaveAttribute("aria-pressed", "false");
     selectAndSubmit();
     fireEvent.click(screen.getByRole("button", { name: "Quay về Chạm 1" }));
     openPractice();
