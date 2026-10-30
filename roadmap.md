@@ -1,6 +1,7 @@
 # Roadmap
 
-- [ ] Kiểm tra cấu trúc và lập kế hoạch Góc đồng hành /dong-hanh, ba lối vào trang chủ, hoạt động cha mẹ/giáo viên/mạng lưới và tài liệu thật; chưa sửa website, chờ phê duyệt.
+- [x] Kế hoạch Góc đồng hành được duyệt; triển khai /dong-hanh, ba lối vào trang chủ trước LastTouch, liên kết Footer, bảy ngày, năm tình huống, ba vòng hỗ trợ và tài liệu thật.
+- [x] Kiểm thử 15 lựa chọn tình huống, bảy dấu chọn/reset/bàn phím, ba nhóm hỗ trợ, bộ lọc/tài liệu và chín trang ở 1280/390px; không POST hoặc lưu câu trả lời, không tràn/ảnh hỏng/lỗi trình duyệt; 54 kiểm thử đạt. Chưa có tài liệu riêng cha mẹ/giáo viên; AI gửi thật và quản lý tệp đăng nhập không thử lại vì không thay đổi.
 
 - [x] Đồng bộ hướng dẫn nguy cơ cao, bỏ gọi nhanh 111/115 toàn website; sửa lỗi mạng AI và minh bạch quyền riêng tư, giữ thiết kế/chức năng khác.
 - [x] Năm tình huống AI thật thành công; lỗi kết nối mô phỏng gửi đúng một lần mỗi lần bấm, 8 trang ở 1280/390px không có tel/tràn ngang, nội dung mất khi tải lại; 50 kiểm thử đạt. Lưu giữ ngoài ứng dụng chưa xác minh, nhật ký AI trả bản đã che thông tin.

@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ClbRouteImport } from './routes/clb'
 import { Route as DiemTuaRouteImport } from './routes/diem-tua'
+import { Route as DongHanhRouteImport } from './routes/dong-hanh'
 import { Route as HieuMinhRouteImport } from './routes/hieu-minh'
 import { Route as KetNoiRouteImport } from './routes/ket-noi'
 import { Route as LangNgheRouteImport } from './routes/lang-nghe'
@@ -31,6 +32,11 @@ const ClbRoute = ClbRouteImport.update({
 const DiemTuaRoute = DiemTuaRouteImport.update({
   id: '/diem-tua',
   path: '/diem-tua',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DongHanhRoute = DongHanhRouteImport.update({
+  id: '/dong-hanh',
+  path: '/dong-hanh',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HieuMinhRoute = HieuMinhRouteImport.update({
@@ -63,6 +69,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/clb': typeof ClbRoute
   '/diem-tua': typeof DiemTuaRoute
+  '/dong-hanh': typeof DongHanhRoute
   '/hieu-minh': typeof HieuMinhRoute
   '/ket-noi': typeof KetNoiRoute
   '/lang-nghe': typeof LangNgheRoute
@@ -73,6 +80,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/clb': typeof ClbRoute
   '/diem-tua': typeof DiemTuaRoute
+  '/dong-hanh': typeof DongHanhRoute
   '/hieu-minh': typeof HieuMinhRoute
   '/ket-noi': typeof KetNoiRoute
   '/lang-nghe': typeof LangNgheRoute
@@ -84,6 +92,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/clb': typeof ClbRoute
   '/diem-tua': typeof DiemTuaRoute
+  '/dong-hanh': typeof DongHanhRoute
   '/hieu-minh': typeof HieuMinhRoute
   '/ket-noi': typeof KetNoiRoute
   '/lang-nghe': typeof LangNgheRoute
@@ -96,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/clb'
     | '/diem-tua'
+    | '/dong-hanh'
     | '/hieu-minh'
     | '/ket-noi'
     | '/lang-nghe'
@@ -106,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/clb'
     | '/diem-tua'
+    | '/dong-hanh'
     | '/hieu-minh'
     | '/ket-noi'
     | '/lang-nghe'
@@ -116,6 +127,7 @@ export interface FileRouteTypes {
     | '/'
     | '/clb'
     | '/diem-tua'
+    | '/dong-hanh'
     | '/hieu-minh'
     | '/ket-noi'
     | '/lang-nghe'
@@ -127,6 +139,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ClbRoute: typeof ClbRoute
   DiemTuaRoute: typeof DiemTuaRoute
+  DongHanhRoute: typeof DongHanhRoute
   HieuMinhRoute: typeof HieuMinhRoute
   KetNoiRoute: typeof KetNoiRoute
   LangNgheRoute: typeof LangNgheRoute
@@ -155,6 +168,13 @@ declare module '@tanstack/react-router' {
       path: '/diem-tua'
       fullPath: '/diem-tua'
       preLoaderRoute: typeof DiemTuaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dong-hanh': {
+      id: '/dong-hanh'
+      path: '/dong-hanh'
+      fullPath: '/dong-hanh'
+      preLoaderRoute: typeof DongHanhRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/hieu-minh': {
@@ -199,6 +219,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ClbRoute: ClbRoute,
   DiemTuaRoute: DiemTuaRoute,
+  DongHanhRoute: DongHanhRoute,
   HieuMinhRoute: HieuMinhRoute,
   KetNoiRoute: KetNoiRoute,
   LangNgheRoute: LangNgheRoute,
