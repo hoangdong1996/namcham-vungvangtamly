@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] Kiểm thử lại AI Chạm 1 bằng tình huống thường và khủng hoảng thật; lỗi mạng và lỗi AI mô phỏng, quyền riêng tư trong ứng dụng, các liên kết trợ giúp.
+- [x] Ghi nhận giới hạn: nhật ký AI còn bản đã che thông tin; chưa xác minh lưu giữ ngoài ứng dụng hoặc thực hiện cuộc gọi 111/115; lỗi mạng hiện thông báo tiếng Anh.
+
 - [x] Cập nhật kế hoạch THE LAST TOUCH theo bản thiết kế cuối cùng; chỉ lập kế hoạch, chưa sửa mã nguồn.
 - [x] Triển khai bốn phân cảnh riêng trang chủ và Footer chung; hòm thư chưa kích hoạt gửi.
 - [x] Kiểm tra năm liên kết, nhập/xóa hòm thư không gửi, tám trang và 404, 360/390/768px, bàn phím và giảm chuyển động; 42 kiểm thử đạt. AI gửi thật, video phát, in PDF, quản lý tệp có đăng nhập và màn hình lỗi chưa thử lại trong lần này.
