@@ -12,6 +12,7 @@ const FOOTER_LINKS = [
   { name: "Chạm 5 – Điểm tựa", to: "/diem-tua" },
   { name: "CLB Đồng hành", to: "/clb" },
   { name: "Tài liệu", to: "/tai-lieu" },
+  { name: "Góc đồng hành", to: "/dong-hanh" },
 ] as const;
 
 export function SiteFooter() {

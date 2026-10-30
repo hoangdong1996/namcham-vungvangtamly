@@ -165,6 +165,13 @@
   background: linear-gradient(135deg, var(--pink-soft) 0%, var(--mint-soft) 100%);
 }
 
+.adult-hero-shade {
+  background: linear-gradient(90deg, color-mix(in oklab, var(--lt-green) 94%, transparent), color-mix(in oklab, var(--lt-green) 76%, transparent) 48%, color-mix(in oklab, var(--lt-green) 12%, transparent));
+}
+@media (max-width: 767px) {
+  .adult-hero-shade { background: color-mix(in oklab, var(--lt-green) 86%, transparent); }
+}
+
 @utility quote-gradient {
   background: linear-gradient(135deg, var(--pink-soft) 0%, var(--mint-soft) 100%);
 }
