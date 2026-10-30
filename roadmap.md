@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Kiểm tra cấu trúc và lập kế hoạch Góc đồng hành /dong-hanh, ba lối vào trang chủ, hoạt động cha mẹ/giáo viên/mạng lưới và tài liệu thật; chưa sửa website, chờ phê duyệt.
+
 - [x] Đồng bộ hướng dẫn nguy cơ cao, bỏ gọi nhanh 111/115 toàn website; sửa lỗi mạng AI và minh bạch quyền riêng tư, giữ thiết kế/chức năng khác.
 - [x] Năm tình huống AI thật thành công; lỗi kết nối mô phỏng gửi đúng một lần mỗi lần bấm, 8 trang ở 1280/390px không có tel/tràn ngang, nội dung mất khi tải lại; 50 kiểm thử đạt. Lưu giữ ngoài ứng dụng chưa xác minh, nhật ký AI trả bản đã che thông tin.
 
