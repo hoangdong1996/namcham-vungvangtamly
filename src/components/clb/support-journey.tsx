@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Heart, MessageCircleHeart, Network, Phone, Puzzle, SearchCheck, ShieldAlert, UserRound, Users } from "lucide-react";
+import { ArrowRight, Heart, MessageCircleHeart, Network, Puzzle, SearchCheck, ShieldAlert, UserRound, Users } from "lucide-react";
+import { DIRECT_SUPPORT_GUIDANCE } from "@/lib/support-safety";
 import p1 from "@/assets/process-1.jpg";
 import p2 from "@/assets/process-2.jpg";
 import p3 from "@/assets/process-3.jpg";
@@ -51,8 +52,7 @@ export function SupportJourney() {
       <aside aria-labelledby="clb-khan-cap" className="mx-auto max-w-4xl rounded-[20px] border-2 border-destructive/60 bg-pink-soft p-6 shadow-sm">
         <h3 id="clb-khan-cap" className="flex items-center gap-2 font-display text-xl font-bold uppercase text-destructive"><ShieldAlert aria-hidden className="h-6 w-6" />Khi có nguy cơ mất an toàn</h3>
         <ul className="mt-4 space-y-3 leading-relaxed">
-          <li className="flex gap-3"><UserRound aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-destructive" />Báo ngay cho thầy cô, cha mẹ hoặc người lớn đáng tin cậy gần nhất.</li>
-          <li className="flex gap-3"><Phone aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-destructive" /><span>Gọi <strong>115</strong> khi cần cấp cứu hoặc có nguy cơ nguy hiểm tức thời; <strong>111</strong> là Tổng đài điện thoại quốc gia bảo vệ trẻ em trong phạm vi hỗ trợ phù hợp.</span></li>
+          <li className="flex gap-3"><UserRound aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-destructive" /><span>{DIRECT_SUPPORT_GUIDANCE}</span></li>
           <li className="flex gap-3"><Users aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-destructive" />Không để bạn ở một mình khi có nguy cơ nguy hiểm tức thời; thành viên câu lạc bộ không tự chẩn đoán, điều trị hay tự xử lý.</li>
         </ul>
         <Link to="/diem-tua" hash="nguon-tro-giup" className="mt-5 inline-flex items-center gap-2 rounded-full bg-pink-band px-5 py-2.5 text-sm font-bold text-plum transition-colors hover:bg-pink-chip">

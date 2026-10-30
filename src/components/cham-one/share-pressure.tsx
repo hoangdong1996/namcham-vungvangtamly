@@ -1,26 +1,28 @@
 import { Link } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
-import { ArrowRight, HeartHandshake, Lock, Phone, Sparkles } from "lucide-react";
+import { ArrowRight, HeartHandshake, Lock, RotateCcw, ShieldAlert, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { EXERCISES, MAX_SHARE_LENGTH, type Suggestion } from "@/lib/support-suggest/catalog";
 import { getSupportSuggestion } from "@/lib/support-suggest/suggest.functions";
+import { AI_PRIVACY_NOTICE, DIRECT_SUPPORT_GUIDANCE, presentSupportError } from "@/lib/support-safety";
 
 /** Student shares a worry; AI suggests on-site exercises. Text lives only in component state. */
 export function SharePressure() {
   const suggest = useServerFn(getSupportSuggestion);
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<ReturnType<typeof presentSupportError> | null>(null);
   const [result, setResult] = useState<Suggestion | null>(null);
 
   async function submit() {
+    if (loading || text.trim().length < 3) return;
     setLoading(true); setError(null); setResult(null);
     try {
       setResult(await suggest({ data: { text } }));
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Chưa tạo được gợi ý lúc này.");
+      setError(presentSupportError(e));
     } finally {
       setLoading(false);
     }
@@ -35,11 +37,11 @@ export function SharePressure() {
       </p>
       <p className="flex items-start gap-2 rounded-2xl bg-mint/40 p-3 text-sm text-foreground/80">
         <Lock className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
-        Nội dung bạn viết không được lưu lại và sẽ mất khi bạn rời trang. Đừng ghi họ tên, số điện thoại hay thông tin riêng của bạn hoặc người khác. Đây không phải công cụ chẩn đoán.
+        <span>{AI_PRIVACY_NOTICE} Website không lưu lịch sử chia sẻ; nội dung trên trang sẽ mất khi rời trang hoặc tải lại. Chưa xác minh được việc lưu giữ tại dịch vụ AI bên ngoài. Đây không phải công cụ chẩn đoán hay thay thế chuyên gia tâm lý hoặc bác sĩ.</span>
       </p>
       <label htmlFor="share-pressure" className="sr-only">Điều đang khiến bạn áp lực</label>
       <Textarea id="share-pressure" value={text} maxLength={MAX_SHARE_LENGTH} rows={4}
-        onChange={(e) => setText(e.target.value)}
+        onChange={(e) => { setText(e.target.value); setError(null); }}
         placeholder="Ví dụ: Sắp thi mà mình thấy học mãi không vào, tối nào cũng lo đến mất ngủ…" />
       <div className="flex flex-wrap items-center justify-between gap-3">
         <span className="text-xs text-foreground/60">{text.length}/{MAX_SHARE_LENGTH}</span>
@@ -51,14 +53,14 @@ export function SharePressure() {
         </div>
       </div>
 
-      {error && <p role="alert" className="rounded-2xl bg-destructive/10 p-3 text-sm text-destructive">{error} Nếu bạn đang rất khó khăn, hãy nói ngay với một người lớn tin cậy hoặc gọi <a href="tel:111" className="font-bold underline">111</a>.</p>}
+      {error && <div role="alert" className="space-y-3 rounded-2xl bg-destructive/10 p-3 text-sm text-destructive"><p>{error.message}</p><p>{DIRECT_SUPPORT_GUIDANCE}</p>{error.retryable && <Button variant="outline" onClick={submit} disabled={loading || text.trim().length < 3}><RotateCcw aria-hidden="true" />Thử lại</Button>}<Link to="/diem-tua" hash="nguon-tro-giup" className="inline-flex min-h-11 items-center gap-2 font-semibold underline">Tìm điểm tựa<ArrowRight className="h-4 w-4" aria-hidden="true" /></Link></div>}
 
       {result && (
         <div aria-live="polite" className="space-y-4">
           {result.urgent && (
             <div role="alert" className="rounded-2xl border-2 border-destructive bg-destructive/10 p-4">
-              <p className="flex items-center gap-2 font-bold text-destructive"><Phone className="h-4 w-4" aria-hidden="true" />Bạn không phải đối mặt một mình</p>
-              <p className="mt-1 text-sm">Hãy nói ngay với bố mẹ, thầy cô hoặc một người lớn bạn tin tưởng. Nếu đang gặp nguy hiểm, gọi <a href="tel:111" className="font-bold underline">111</a> (Tổng đài bảo vệ trẻ em) hoặc <a href="tel:115" className="font-bold underline">115</a> (Cấp cứu).</p>
+              <p className="flex items-center gap-2 font-bold text-destructive"><ShieldAlert className="h-4 w-4" aria-hidden="true" />Bạn không phải đối mặt một mình</p>
+              <p className="mt-1 text-sm">{DIRECT_SUPPORT_GUIDANCE}</p>
             </div>
           )}
           <p className="rounded-2xl bg-pink-chip/40 p-4 leading-relaxed">{result.message}</p>
