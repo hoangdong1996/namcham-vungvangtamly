@@ -1,7 +1,7 @@
 # Roadmap
 
-- [ ] Đồng bộ hướng dẫn nguy cơ cao, bỏ gọi nhanh 111/115 toàn website; sửa lỗi mạng AI và minh bạch quyền riêng tư, giữ thiết kế/chức năng khác.
-- [ ] Kiểm thử thật năm tình huống AI; lỗi kết nối mô phỏng, không lưu nội dung trong ứng dụng, máy tính/điện thoại và không còn liên kết gọi nhanh; ghi rõ giới hạn bên ngoài.
+- [x] Đồng bộ hướng dẫn nguy cơ cao, bỏ gọi nhanh 111/115 toàn website; sửa lỗi mạng AI và minh bạch quyền riêng tư, giữ thiết kế/chức năng khác.
+- [x] Năm tình huống AI thật thành công; lỗi kết nối mô phỏng gửi đúng một lần mỗi lần bấm, 8 trang ở 1280/390px không có tel/tràn ngang, nội dung mất khi tải lại; 50 kiểm thử đạt. Lưu giữ ngoài ứng dụng chưa xác minh, nhật ký AI trả bản đã che thông tin.
 
 - [x] Kiểm thử lại AI Chạm 1 bằng tình huống thường và khủng hoảng thật; lỗi mạng và lỗi AI mô phỏng, quyền riêng tư trong ứng dụng, các liên kết trợ giúp.
 - [x] Ghi nhận giới hạn: nhật ký AI còn bản đã che thông tin; chưa xác minh lưu giữ ngoài ứng dụng hoặc thực hiện cuộc gọi 111/115; lỗi mạng hiện thông báo tiếng Anh.
