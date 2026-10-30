@@ -126,8 +126,8 @@ function Index() {
               5 CHẠM – VỮNG VÀNG TÂM LÝ · Trường THPT Tây Tiền Hải
             </div>
             <h1 className="mx-auto mt-7 hero-title font-hero font-extrabold uppercase md:mx-0">
-              <span className="hero-line text-primary">
-                <span className="block whitespace-nowrap">BẠN ĐANG KẾT NỐI</span> <span className="block whitespace-nowrap">VỚI CẢ THẾ GIỚI.</span>
+              <span className="hero-line text-primary" style={{ lineHeight: 1.2 }}>
+                <span className="block whitespace-nowrap">BẠN ĐANG KẾT NỐI</span> <span className="block whitespace-nowrap">VỚI CẢ THẾ GIỚI…</span>
               </span>
               <span className="hero-line hero-line-2 mt-5 text-plum sm:mt-6" style={{ fontSize: "0.86em" }}>
                 <span className="block whitespace-nowrap">CÒN <span className="hero-self font-black">CHÍNH MÌNH</span></span> <span className="block whitespace-nowrap">THÌ SAO?</span>
