@@ -1,5 +1,6 @@
 import illus from "@/assets/illus-cham-1.webp";
 import { SharePressure } from "@/components/cham-one/share-pressure";
+import { EmotionMap } from "@/components/cham-one/emotion-map";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
@@ -12,7 +13,6 @@ import {
   Flame,
   Heart,
   Leaf,
-  Map,
   MessageCircleQuestion,
   NotebookPen,
   PieChart,
@@ -87,7 +87,6 @@ const SUGGESTED_ACTIVITIES: { label: string; icon: LucideIcon }[] = [
 
 function LangNghePage() {
   const [selected, setSelected] = useState<string[]>([]);
-  const [mapOpened, setMapOpened] = useState(false);
   const [paused, setPaused] = useState(false);
 
   const toggleEmotion = (label: string) =>
@@ -179,29 +178,7 @@ function LangNghePage() {
           {/* Hoạt động 2 */}
           <section className="space-y-4">
             <SectionHeading>Hoạt động 2: Bản đồ cảm xúc của tôi</SectionHeading>
-            <button
-              type="button"
-              onClick={() => setMapOpened(true)}
-              className="flex w-full items-center gap-4 rounded-3xl bg-primary p-6 text-left text-primary-foreground shadow-sm transition-colors hover:bg-green-deep"
-            >
-              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-pink-band text-plum">
-                <Map className="h-6 w-6" />
-              </span>
-              <span>
-                <span className="block font-display text-lg font-bold">
-                  Bản đồ cảm xúc của tôi
-                </span>
-                <span className="mt-1 block text-sm leading-relaxed text-primary-foreground/90">
-                  Nhấn vào đây để bắt đầu vẽ bản đồ cảm xúc của riêng bạn – chỉ
-                  mất vài phút!
-                </span>
-              </span>
-            </button>
-            {mapOpened && (
-              <div className="rounded-2xl bg-mint px-5 py-3 text-sm font-semibold text-green-deep">
-                Bản đồ cảm xúc sẽ được cập nhật trong phiên bản tiếp theo.
-              </div>
-            )}
+            <EmotionMap />
           </section>
 
           {/* Hoạt động 3 */}

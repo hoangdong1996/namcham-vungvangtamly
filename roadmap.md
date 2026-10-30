@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] Hoàn thiện Bản đồ cảm xúc Chạm 1: lựa chọn, mức độ 1–5, nguyên nhân, chia sẻ tùy chọn, bản đồ và gợi ý; không gửi/lưu dữ liệu.
+- [x] Kiểm thử từ đầu đến cuối ở 1280/390px: chín cảm xúc, sáu nhóm nguyên nhân, mức độ 5, chia sẻ tùy chọn, làm lại/quay về, tải lại xóa dữ liệu; không yêu cầu mạng, thay đổi bộ nhớ hoặc tràn ngang. Tám kiểm thử hoạt động/AI đạt.
+
 - [x] Kế hoạch Góc đồng hành được duyệt; triển khai /dong-hanh, ba lối vào trang chủ trước LastTouch, liên kết Footer, bảy ngày, năm tình huống, ba vòng hỗ trợ và tài liệu thật.
 - [x] Kiểm thử 15 lựa chọn tình huống, bảy dấu chọn/reset/bàn phím, ba nhóm hỗ trợ, bộ lọc/tài liệu và chín trang ở 1280/390px; không POST hoặc lưu câu trả lời, không tràn/ảnh hỏng/lỗi trình duyệt; 54 kiểm thử đạt. Chưa có tài liệu riêng cha mẹ/giáo viên; AI gửi thật và quản lý tệp đăng nhập không thử lại vì không thay đổi.
 

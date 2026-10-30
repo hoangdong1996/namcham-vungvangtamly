@@ -14,3 +14,4 @@
 - The homepage ending is isolated in `src/components/home/last-touch*` and `open-letter.tsx`; its local choices/draft never use persistence or network and delivery is disabled, keeping the existing activities and shared Footer independent.
 - Root error and not-found content rely on the existing shared shell for Header/Footer rather than rendering another pair, preventing duplicate navigation and Footer on unavailable pages.
 - Adult learning lives in `src/components/adult-companion` on `/dong-hanh`; its homepage entry precedes LastTouch, all practice is component-state only and resources reference existing library entries rather than duplicating storage, preserving student activities and document permissions.
+- The Chạm 1 emotion map is an isolated local component with a pure suggestion catalog; closing unmounts its practice state, preventing disclosure persistence and keeping AI and other activities independent.
