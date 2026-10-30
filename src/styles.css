@@ -295,7 +295,7 @@
   .hero-line, .hero-brand, .hero-desc, .hero-cta, .hero-club, .hero-img-wrap { animation: none; opacity: 1; transform: none; }
 }
 .hero-copy { container-type: inline-size; }
-.hero-title { font-size: clamp(1.75rem, 10.4cqi, 4.25rem); line-height: 1.13; letter-spacing: -0.03em; padding-top: 0.06em; }
+.hero-title { font-size: clamp(1.75rem, 10.4cqi, 4.25rem); line-height: 1.15; letter-spacing: -0.03em; padding-top: 0.14em; }
 
 /* Five model points: ordered reveal, then four soft connections, never loop. */
 .model-point-green { --point-color: var(--model-green); --point-ink: var(--primary-foreground); }
