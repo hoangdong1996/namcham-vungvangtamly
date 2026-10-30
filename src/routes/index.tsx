@@ -16,6 +16,7 @@ import { FiveTouchMark } from "@/components/home/five-touch-mark";
 import { ModelConnections } from "@/components/home/model-connections";
 import { KindMessages, MyJourney, SmallStepToday } from "@/components/home/signature";
 import { PracticeTools, ClubAndLibrary } from "@/components/home/explore";
+import { LastTouch } from "@/components/home/last-touch";
 import cham1 from "@/assets/cham-1.jpg";
 import cham2 from "@/assets/cham-2.jpg";
 import cham3 from "@/assets/cham-3.jpg";
@@ -271,6 +272,7 @@ function Index() {
       </section>
       <KindMessages />
       <ClubAndLibrary />
+      <LastTouch />
     </main>
   );
 }

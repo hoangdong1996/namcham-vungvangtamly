@@ -1,6 +1,8 @@
 # Roadmap
 
 - [x] Cập nhật kế hoạch THE LAST TOUCH theo bản thiết kế cuối cùng; chỉ lập kế hoạch, chưa sửa mã nguồn.
+- [x] Triển khai bốn phân cảnh riêng trang chủ và Footer chung; hòm thư chưa kích hoạt gửi.
+- [x] Kiểm tra năm liên kết, nhập/xóa hòm thư không gửi, tám trang và 404, 360/390/768px, bàn phím và giảm chuyển động; 42 kiểm thử đạt. AI gửi thật, video phát, in PDF, quản lý tệp có đăng nhập và màn hình lỗi chưa thử lại trong lần này.
 
 - [x] Bổ sung năm điểm chạm kết nối trong mô hình hiện có, chỉ chuyển động một lần và giữ liên kết.
 - [x] Kiểm tra năm điểm, năm liên kết, điện thoại và chế độ giảm chuyển động — kiểm thử đạt, bấm cả năm liên kết ở 1280px và 390px.
