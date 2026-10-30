@@ -129,7 +129,7 @@ function Index() {
               <span className="hero-line text-primary">
                 <span className="block whitespace-nowrap">BẠN ĐANG KẾT NỐI</span> <span className="block whitespace-nowrap">VỚI CẢ THẾ GIỚI.</span>
               </span>
-              <span className="hero-line hero-line-2 mt-3 text-plum sm:mt-4" style={{ fontSize: "0.86em" }}>
+              <span className="hero-line hero-line-2 mt-5 text-plum sm:mt-6" style={{ fontSize: "0.86em" }}>
                 <span className="block whitespace-nowrap">CÒN <span className="hero-self font-black">CHÍNH MÌNH</span></span> <span className="block whitespace-nowrap">THÌ SAO?</span>
               </span>
             </h1>
