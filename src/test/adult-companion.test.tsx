@@ -15,12 +15,12 @@ describe("Adult companion rules", () => {
     boxes.forEach(box => fireEvent.click(box));
     expect(screen.getByRole("progressbar")).toHaveAttribute("aria-valuenow", "7");
     expect(listeningProgress([true, true, true, true, true, true, true])).toEqual({ completed: 7, percent: 100 });
-    fireEvent.click(boxes[0]);
+    fireEvent.click(screen.getByRole("checkbox", { name: "Ngày 1: Dành thời gian trò chuyện cùng con." }));
     expect(screen.getByRole("progressbar")).toHaveAttribute("aria-valuenow", "6");
     fireEvent.click(screen.getByRole("button", { name: "Bắt đầu lại" }));
     expect(screen.getByRole("progressbar")).toHaveAttribute("aria-valuenow", "0");
     expect(storage).not.toHaveBeenCalled();
-    fireEvent.click(boxes[1]);
+    fireEvent.click(screen.getByRole("checkbox", { name: "Ngày 2: Lắng nghe con mà không ngắt lời." }));
     view.unmount(); render(<ListeningWeek />);
     expect(screen.getByRole("progressbar")).toHaveAttribute("aria-valuenow", "0");
   });
