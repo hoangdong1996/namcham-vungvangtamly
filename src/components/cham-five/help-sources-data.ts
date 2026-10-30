@@ -1,3 +1,5 @@
+import { DIRECT_SUPPORT_GUIDANCE } from "@/lib/support-safety";
+
 export const HELP_SOURCES = [
   {
     id: "ban-be", title: "BẠN BÈ ĐÁNG TIN CẬY", button: "Cách chia sẻ với bạn bè",
@@ -29,8 +31,8 @@ export const HELP_SOURCES = [
   },
   {
     id: "khan-cap", title: "HỖ TRỢ KHI KHẨN CẤP", button: "Xem hướng dẫn an toàn",
-    description: "Nếu bạn hoặc người khác đang có nguy cơ bị tổn thương ngay lập tức, hãy báo ngay cho người lớn đáng tin cậy ở gần hoặc liên hệ dịch vụ khẩn cấp phù hợp.",
-    guidance: ["Báo ngay cho người lớn đáng tin cậy đang ở gần, như người thân, thầy cô hoặc nhân viên y tế. Nói rõ rằng có nguy cơ bị tổn thương ngay lập tức và cần giúp đỡ ngay.", "Nếu có thể làm an toàn, đến nơi có người lớn hỗ trợ và tránh xa nơi hoặc vật có thể gây tổn thương. Không tự đối mặt với tình huống nguy hiểm.", "Nhờ người lớn liên hệ dịch vụ khẩn cấp phù hợp hoặc đưa đến cơ sở y tế gần nhất. Nếu đang ở cạnh người gặp nguy hiểm, ở cùng họ khi an toàn và không hứa giữ bí mật về nguy cơ gây tổn thương."],
+    description: "Nếu bạn hoặc người khác đang có nguy cơ bị tổn thương ngay lập tức, hãy báo ngay cho người lớn đáng tin cậy ở gần để được hỗ trợ trực tiếp.",
+    guidance: [DIRECT_SUPPORT_GUIDANCE, "Nếu có thể làm an toàn, đến nơi có người lớn hỗ trợ và tránh xa nơi hoặc vật có thể gây tổn thương. Không tự đối mặt với tình huống nguy hiểm.", "Nếu đang ở cạnh người gặp nguy hiểm, ở cùng họ khi an toàn và không hứa giữ bí mật về nguy cơ gây tổn thương. Nhờ người lớn có trách nhiệm hỗ trợ ngay."],
   },
 ] as const;
 

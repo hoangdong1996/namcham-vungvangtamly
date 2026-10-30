@@ -4,6 +4,7 @@ import { ArrowUpRight, Heart, Lightbulb, LockKeyhole, MessageCircle, Send, Trash
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { LETTER_CATEGORIES, LETTER_RECEPTION_ENABLED } from "./last-touch-data";
+import { DIRECT_SUPPORT_GUIDANCE } from "@/lib/support-safety";
 
 const CATEGORY_ICONS = [Heart, MessageCircle, Lightbulb, Send];
 
@@ -54,7 +55,7 @@ export function OpenLetter() {
           </div>
         </div>
         <aside className="lt-letter-safety" aria-label="An toàn khi cần hỗ trợ">
-          <div><strong>Đây không phải kênh hỗ trợ khẩn cấp.</strong><p className="mt-2 text-sm leading-relaxed">Nếu bạn có ý nghĩ tự làm hại bản thân hoặc đang gặp nguy hiểm, hãy báo ngay cho người lớn đáng tin cậy ở gần. Gọi 111 (Tổng đài bảo vệ trẻ em) hoặc 115 khi cần cấp cứu y tế.</p></div>
+          <div><strong>Đây không phải kênh hỗ trợ khẩn cấp.</strong><p className="mt-2 text-sm leading-relaxed">{DIRECT_SUPPORT_GUIDANCE}</p></div>
           <Button asChild variant="link" className="h-auto shrink-0 whitespace-normal text-lt-green"><Link to="/diem-tua" hash="nguon-tro-giup">Tìm nguồn trợ giúp<ArrowUpRight aria-hidden="true" /></Link></Button>
         </aside>
       </div>

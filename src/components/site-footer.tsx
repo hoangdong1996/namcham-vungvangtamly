@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, HeartHandshake } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LOGO_URL } from "@/lib/logo";
+import { DIRECT_SUPPORT_GUIDANCE } from "@/lib/support-safety";
 
 const FOOTER_LINKS = [
   { name: "Chạm 1 – Lắng nghe", to: "/lang-nghe" },
@@ -22,7 +23,7 @@ export function SiteFooter() {
           <nav aria-label="Tiếp nối hành trình"><h2 className="font-hero text-sm font-bold">TIẾP NỐI HÀNH TRÌNH</h2><ul className="lt-footer-links">{FOOTER_LINKS.map(link => <li key={link.to}><Link to={link.to}>{link.name}<ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" /></Link></li>)}</ul></nav>
           <div><h2 className="font-hero text-sm font-bold">TÌM KIẾM HỖ TRỢ</h2><p className="mt-4 text-sm leading-relaxed">Bạn không cần phải tự mình vượt qua mọi khó khăn.</p><Button variant="secondary" asChild className="mt-5 h-auto whitespace-normal bg-lt-pink px-5 py-3 text-lt-green hover:bg-pink-chip"><Link to="/diem-tua" hash="nguon-tro-giup"><HeartHandshake aria-hidden="true" />Tìm điểm tựa<ArrowUpRight aria-hidden="true" /></Link></Button></div>
         </div>
-        <div className="lt-footer-safety"><p>Nội dung website phục vụ mục tiêu nâng cao nhận thức, kỹ năng chăm sóc sức khỏe tinh thần và tìm kiếm hỗ trợ; không thay thế đánh giá, tư vấn hoặc điều trị chuyên môn.</p><p className="mt-3">Website không chẩn đoán hay gắn nhãn tâm lý cho học sinh. Nếu em đang gặp nguy hiểm, hãy báo ngay cho thầy cô, gia đình hoặc người lớn đáng tin cậy ở gần; gọi <strong>111</strong> (Tổng đài bảo vệ trẻ em) hoặc <strong>115</strong> khi cần cấp cứu y tế.</p></div>
+        <div className="lt-footer-safety"><p>Nội dung website phục vụ mục tiêu nâng cao nhận thức, kỹ năng chăm sóc sức khỏe tinh thần và tìm kiếm hỗ trợ; không thay thế đánh giá, tư vấn hoặc điều trị chuyên môn.</p><p className="mt-3">Website không chẩn đoán hay gắn nhãn tâm lý cho học sinh. {DIRECT_SUPPORT_GUIDANCE}</p></div>
       </div>
     </footer>
   );
