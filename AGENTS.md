@@ -12,3 +12,4 @@
 - The existing model card row is isolated in `src/components/home/model-connections.tsx`; a disconnecting IntersectionObserver gates its one-shot animation, preserving card layout and typed Chạm navigation independently of the signature logo.
 - The Chạm 1 AI pressure-share (`src/lib/support-suggest`, `src/components/cham-one`) suggests only catalog exercise IDs and never stores or logs student text; a content-filtered reply falls back to urgent adult/hotline guidance so a student is never left without help.
 - The homepage ending is isolated in `src/components/home/last-touch*` and `open-letter.tsx`; its local choices/draft never use persistence or network and delivery is disabled, keeping the existing activities and shared Footer independent.
+- Root error and not-found content rely on the existing shared shell for Header/Footer rather than rendering another pair, preventing duplicate navigation and Footer on unavailable pages.
