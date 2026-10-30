@@ -46,7 +46,7 @@ function EmotionMapPractice({ onClose }: { onClose: () => void }) {
     <div className="overflow-hidden rounded-3xl border border-pink-band bg-card" aria-label="Thực hành bản đồ cảm xúc">
       <div className="border-b border-pink-band bg-mint-soft px-5 py-6 sm:px-8">
         <p className="mb-2 text-xs font-bold uppercase text-primary">Một khoảng dừng cho chính mình</p>
-        <h3 ref={heading} tabIndex={-1} className="font-display text-2xl font-bold text-green-deep outline-none">{complete ? "BẢN ĐỒ CẢM XÚC CỦA TÔI" : "Lúc này, mình đang cảm thấy…"}</h3>
+        <h3 ref={heading} tabIndex={-1} className="scroll-mt-24 font-display text-2xl font-bold text-green-deep outline-none">{complete ? "BẢN ĐỒ CẢM XÚC CỦA TÔI" : "Lúc này, mình đang cảm thấy…"}</h3>
         <p className="mt-2 flex items-start gap-2 text-sm leading-relaxed text-foreground/80"><ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />Lựa chọn và chia sẻ chỉ được xử lý trên trang này, không gửi đến AI hoặc dịch vụ bên ngoài, không lưu lại. Tải lại trang sẽ xóa dữ liệu. Không nhập họ tên, lớp hoặc thông tin nhận diện của mình hay người khác.</p>
       </div>
       {complete && emotion ? (
