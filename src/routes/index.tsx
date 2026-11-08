@@ -17,6 +17,7 @@ import { ModelConnections } from "@/components/home/model-connections";
 import { KindMessages, MyJourney, SmallStepToday } from "@/components/home/signature";
 import { PracticeTools, ClubAndLibrary } from "@/components/home/explore";
 import { LastTouch } from "@/components/home/last-touch";
+import { WebsiteRating } from "@/components/rating/website-rating";
 import { AdultHomepageEntry } from "@/components/adult-companion/role-entry";
 import cham1 from "@/assets/cham-1.jpg";
 import cham2 from "@/assets/cham-2.jpg";
@@ -275,6 +276,7 @@ function Index() {
       <ClubAndLibrary />
       <AdultHomepageEntry />
       <LastTouch />
+      <WebsiteRating />
     </main>
   );
 }
