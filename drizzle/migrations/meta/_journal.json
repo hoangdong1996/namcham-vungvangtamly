@@ -43,6 +43,13 @@
       "when": 1794126291060,
       "tag": "0005_fix_public_library_file_policy",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1794151672339,
+      "tag": "0006_website_ratings",
+      "breakpoints": true
     }
   ]
 }
