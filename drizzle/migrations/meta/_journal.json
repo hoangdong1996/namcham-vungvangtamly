@@ -29,6 +29,20 @@
       "when": 1794126042238,
       "tag": "0003_owner_only_my_documents",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1794126171954,
+      "tag": "0004_split_public_library",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1794126291060,
+      "tag": "0005_fix_public_library_file_policy",
+      "breakpoints": true
     }
   ]
 }

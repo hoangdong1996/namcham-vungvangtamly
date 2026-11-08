@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { BookOpen, Clock, Download, ExternalLink, FileText, FlaskConical, HeartHandshake, LifeBuoy, NotebookPen, Search, Smartphone, Users } from "lucide-react";
-import { MyDocuments } from "@/components/library/my-documents";
+import { MyDocuments, PublicLibrary } from "@/components/library/my-documents";
 import { DOC_GROUPS, LIBRARY_DOCS, type DocGroupId } from "@/components/library/data";
 
 export const Route = createFileRoute("/tai-lieu")({
@@ -41,6 +41,7 @@ function LibraryPage() {
       </section>
 
       <div className="mx-auto max-w-7xl px-4 py-10">
+        <div className="mb-10"><PublicLibrary /></div>
         <div className="mb-10"><MyDocuments /></div>
         <div className="flex flex-col gap-4 rounded-3xl border border-border bg-card p-4 shadow-sm sm:p-5">
           <label className="relative block">

@@ -1,0 +1,2 @@
+DROP POLICY IF EXISTS "public library files readable" ON storage.objects;
+CREATE POLICY "public library files readable" ON storage.objects FOR SELECT TO anon, authenticated USING (bucket_id = 'public-library' AND EXISTS (SELECT 1 FROM public.public_documents d WHERE d.storage_path = storage.objects.name));

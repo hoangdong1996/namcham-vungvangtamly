@@ -47,6 +47,39 @@ export type Database = {
         }
         Relationships: []
       }
+      public_documents: {
+        Row: {
+          created_at: string
+          id: string
+          kind: string
+          mime_type: string
+          name: string
+          size_bytes: number
+          storage_path: string
+          uploaded_by: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          kind?: string
+          mime_type?: string
+          name: string
+          size_bytes?: number
+          storage_path: string
+          uploaded_by?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          kind?: string
+          mime_type?: string
+          name?: string
+          size_bytes?: number
+          storage_path?: string
+          uploaded_by?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           id: string

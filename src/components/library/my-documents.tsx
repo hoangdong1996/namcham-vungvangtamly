@@ -5,10 +5,25 @@ import { supabase } from "@/integrations/supabase/client";
 import { ACCEPT, KIND_LABELS, MAX_BYTES, detectKind, formatSize, type FileKind } from "./file-kinds";
 
 type Doc = { id: string; name: string; storage_path: string; mime_type: string; kind: string; size_bytes: number; created_at: string };
-const BUCKET = "my-documents";
+type Mode = "public" | "private";
+const CFG = {
+  public: { table: "public_documents", bucket: "public-library", id: "thu-vien-cong-khai", title: "Thư viện công khai", desc: "Tài liệu mọi người đều xem và tải được. Chỉ quản trị viên thêm, sửa, xóa." },
+  private: { table: "my_documents", bucket: "my-documents", id: "tai-lieu-cua-toi", title: "Tài liệu của tôi", desc: "Không gian riêng tư: chỉ bạn xem được các tài liệu do bạn tải lên." },
+} as const;
+const SIGNED_TTL = 300;
 const KIND_ICON: Record<FileKind, typeof FileText> = { pdf: FileText, word: FileText, powerpoint: Presentation, image: ImageIcon };
 
+export function PublicLibrary() {
+  return <DocArea mode="public" />;
+}
+
 export function MyDocuments() {
+  return <DocArea mode="private" />;
+}
+
+function DocArea({ mode }: { mode: Mode }) {
+  const C = CFG[mode];
+  const BUCKET = C.bucket;
   const [docs, setDocs] = useState<Doc[]>([]);
   const [loading, setLoading] = useState(true);
   const [q, setQ] = useState("");
@@ -20,16 +35,20 @@ export function MyDocuments() {
   const [preview, setPreview] = useState<{ doc: Doc; url: string } | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
 
-  const load = useCallback(async () => {
-    const { data } = await supabase.from("my_documents").select("*").order("created_at", { ascending: false });
+  const canManage = mode === "public" ? isAdmin : !!user;
+  const load = useCallback(async (uid?: string | null) => {
+    if (mode === "private" && !uid) { setDocs([]); setLoading(false); return; }
+    let qy = supabase.from(C.table).select("*").order("created_at", { ascending: false });
+    if (mode === "private") qy = qy.eq("uploaded_by", uid!);
+    const { data } = await qy;
     setDocs((data as Doc[]) ?? []);
     setLoading(false);
-  }, []);
+  }, [mode, C.table]);
 
   useEffect(() => {
-    load();
     const check = async (u: User | null) => {
       setUser(u);
+      load(u?.id ?? null);
       if (!u) return setIsAdmin(false);
       const { data } = await supabase.from("user_roles").select("role").eq("user_id", u.id).eq("role", "admin").maybeSingle();
       setIsAdmin(!!data);
@@ -57,39 +76,46 @@ export function MyDocuments() {
       if (!k) { errors.push(`${file.name}: định dạng không hỗ trợ`); continue; }
       if (file.size > MAX_BYTES) { errors.push(`${file.name}: vượt quá 20 MB`); continue; }
       const ext = file.name.split(".").pop()!.toLowerCase();
-      const path = `${crypto.randomUUID()}.${ext}`;
+      const path = mode === "private" ? `${user.id}/${crypto.randomUUID()}.${ext}` : `${crypto.randomUUID()}.${ext}`;
       const up = await supabase.storage.from(BUCKET).upload(path, file, file.type ? { contentType: file.type } : {});
       if (up.error) { errors.push(`${file.name}: không tải lên được`); continue; }
-      const ins = await supabase.from("my_documents").insert({ name: file.name, storage_path: path, mime_type: file.type, kind: k, size_bytes: file.size });
+      const ins = await supabase.from(C.table).insert({ name: file.name, storage_path: path, mime_type: file.type, kind: k, size_bytes: file.size });
       if (ins.error) { await supabase.storage.from(BUCKET).remove([path]); errors.push(`${file.name}: không lưu được`); continue; }
       ok++;
     }
     setUploading(false);
     if (fileRef.current) fileRef.current.value = "";
     setMsg(errors.length ? { ok: false, text: `${ok ? `Đã tải lên ${ok} tệp. ` : ""}${errors.join("; ")}` } : { ok: true, text: `Đã tải lên ${ok} tệp.` });
-    load();
+    load(user.id);
+  }
+
+  async function rename(doc: Doc) {
+    const name = window.prompt("Tên mới cho tài liệu", doc.name)?.trim();
+    if (!name || name === doc.name) return;
+    await supabase.from(C.table).update({ name }).eq("id", doc.id);
+    load(user?.id);
   }
 
   async function open(doc: Doc) {
-    const { data } = await supabase.storage.from(BUCKET).createSignedUrl(doc.storage_path, 3600);
+    const { data } = await supabase.storage.from(BUCKET).createSignedUrl(doc.storage_path, SIGNED_TTL);
     if (data?.signedUrl) setPreview({ doc, url: data.signedUrl });
   }
 
   async function remove(doc: Doc) {
     if (!window.confirm(`Xóa tài liệu "${doc.name}"?`)) return;
     await supabase.storage.from(BUCKET).remove([doc.storage_path]);
-    await supabase.from("my_documents").delete().eq("id", doc.id);
-    load();
+    await supabase.from(C.table).delete().eq("id", doc.id);
+    load(user?.id);
   }
 
   return (
-    <section id="tai-lieu-cua-toi" aria-labelledby="tai-lieu-cua-toi-title" className="rounded-[2rem] border-2 border-pink-band bg-pink-soft/60 p-5 shadow-sm sm:p-8">
+    <section id={C.id} aria-labelledby={`${C.id}-title`} className="rounded-[2rem] border-2 border-pink-band bg-pink-soft/60 p-5 shadow-sm sm:p-8">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div className="flex items-start gap-3">
           <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-mint text-primary"><FolderHeart className="h-6 w-6" aria-hidden="true" /></span>
           <div>
-            <h2 id="tai-lieu-cua-toi-title" className="font-display text-2xl font-bold text-green-deep">Tài liệu của tôi</h2>
-            <p className="text-foreground/75">Không gian quản lý các tài liệu do tôi bổ sung và sử dụng trong quá trình nghiên cứu</p>
+            <h2 id={`${C.id}-title`} className="font-display text-2xl font-bold text-green-deep">{C.title}</h2>
+            <p className="text-foreground/75">{C.desc}</p>
           </div>
         </div>
         {user && (
@@ -98,26 +124,24 @@ export function MyDocuments() {
       </div>
 
       <div className="mt-5">
-        {isAdmin ? (
+        {canManage ? (
           <div className="rounded-3xl border-2 border-dashed border-primary/50 bg-card p-5 text-center">
-            <input ref={fileRef} id="my-doc-file" type="file" multiple accept={ACCEPT} className="sr-only" onChange={(e) => upload(e.target.files)} />
-            <label htmlFor="my-doc-file" className={`inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary px-5 py-2.5 font-bold text-primary-foreground transition-transform hover:-translate-y-0.5 ${uploading ? "pointer-events-none opacity-70" : ""}`}>
+            <input ref={fileRef} id={`${C.id}-file`} type="file" multiple accept={ACCEPT} className="sr-only" onChange={(e) => upload(e.target.files)} />
+            <label htmlFor={`${C.id}-file`} className={`inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary px-5 py-2.5 font-bold text-primary-foreground transition-transform hover:-translate-y-0.5 ${uploading ? "pointer-events-none opacity-70" : ""}`}>
               {uploading ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <Upload className="h-4 w-4" aria-hidden="true" />}
               {uploading ? "Đang tải lên…" : "Tải lên tài liệu mới"}
             </label>
             <p className="mt-2 text-sm text-foreground/70">PDF, Word, PowerPoint, hình ảnh (JPG, PNG, GIF, WEBP) – tối đa 20 MB mỗi tệp</p>
             {msg && <p role="status" className={`mt-2 text-sm font-semibold ${msg.ok ? "text-primary" : "text-destructive"}`}>{msg.text}</p>}
           </div>
-        ) : user ? (
-          <p className="rounded-2xl bg-card px-4 py-3 text-sm text-foreground/75">Tài khoản này chỉ được xem tài liệu. Chỉ người quản lý mục mới tải lên được.</p>
-        ) : (
+        ) : mode === "public" ? null : (
           <OwnerSignIn />
         )}
       </div>
 
       <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
         <label className="relative block flex-1">
-          <span className="sr-only">Tìm trong tài liệu của tôi</span>
+          <span className="sr-only">Tìm trong {C.title.toLowerCase()}</span>
           <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" aria-hidden="true" />
           <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Tìm theo tên tệp…" className="w-full rounded-full border border-input bg-background py-2.5 pl-12 pr-4 outline-none focus-visible:ring-2 focus-visible:ring-primary" />
         </label>
@@ -131,7 +155,7 @@ export function MyDocuments() {
       {loading ? (
         <p className="mt-5 text-center text-foreground/70"><Loader2 className="inline h-4 w-4 animate-spin" aria-hidden="true" /> Đang tải danh sách…</p>
       ) : shown.length === 0 ? (
-        <p className="mt-5 rounded-2xl border border-dashed border-border bg-card px-5 py-6 text-center text-foreground/70">{docs.length ? "Không có tệp phù hợp." : "Chưa có tài liệu nào được tải lên."}</p>
+        <p className="mt-5 rounded-2xl border border-dashed border-border bg-card px-5 py-6 text-center text-foreground/70">{docs.length ? "Không có tệp phù hợp." : mode === "private" && !user ? "Đăng nhập để xem tài liệu riêng của bạn." : "Chưa có tài liệu nào được tải lên."}</p>
       ) : (
         <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {shown.map((d) => {
@@ -147,7 +171,8 @@ export function MyDocuments() {
                 </div>
                 <div className="mt-3 flex gap-2">
                   <button type="button" onClick={() => open(d)} className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-1.5 text-sm font-bold text-primary-foreground"><Eye className="h-4 w-4" aria-hidden="true" />Xem trước</button>
-                  {isAdmin && <button type="button" onClick={() => remove(d)} aria-label={`Xóa ${d.name}`} className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1.5 text-sm text-destructive hover:bg-muted"><Trash2 className="h-4 w-4" aria-hidden="true" />Xóa</button>}
+                  {canManage && <button type="button" onClick={() => rename(d)} aria-label={`Đổi tên ${d.name}`} className="rounded-full border border-border px-3 py-1.5 text-sm hover:bg-muted">Đổi tên</button>}
+                  {canManage && <button type="button" onClick={() => remove(d)} aria-label={`Xóa ${d.name}`} className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1.5 text-sm text-destructive hover:bg-muted"><Trash2 className="h-4 w-4" aria-hidden="true" />Xóa</button>}
                 </div>
               </li>
             );
@@ -212,13 +237,13 @@ function OwnerSignIn() {
 
   return (
     <form onSubmit={submit} className="rounded-3xl bg-card p-4 sm:p-5">
-      <p className="text-sm text-foreground/75">Mọi người đều xem được tài liệu bên dưới. Người quản lý mục đăng nhập để tải lên tài liệu mới.</p>
+      <p className="text-sm text-foreground/75">Đăng nhập để tải lên và xem tài liệu riêng của bạn. Người khác không xem được các tài liệu này.</p>
       <div className="mt-3 flex flex-col gap-2 sm:flex-row">
         <input type="email" required autoComplete="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="flex-1 rounded-full border border-input bg-background px-4 py-2 outline-none focus-visible:ring-2 focus-visible:ring-primary" />
         <input type="password" required minLength={6} autoComplete={mode === "in" ? "current-password" : "new-password"} placeholder="Mật khẩu" value={password} onChange={(e) => setPassword(e.target.value)} className="flex-1 rounded-full border border-input bg-background px-4 py-2 outline-none focus-visible:ring-2 focus-visible:ring-primary" />
         <button type="submit" disabled={busy} className="rounded-full bg-primary px-5 py-2 font-bold text-primary-foreground disabled:opacity-70">{mode === "in" ? "Đăng nhập" : "Tạo tài khoản"}</button>
       </div>
-      <button type="button" onClick={() => setMode(mode === "in" ? "up" : "in")} className="mt-2 text-sm font-semibold text-plum underline-offset-2 hover:underline">{mode === "in" ? "Chưa có tài khoản quản lý? Tạo tài khoản" : "Đã có tài khoản? Đăng nhập"}</button>
+      <button type="button" onClick={() => setMode(mode === "in" ? "up" : "in")} className="mt-2 text-sm font-semibold text-plum underline-offset-2 hover:underline">{mode === "in" ? "Chưa có tài khoản? Tạo tài khoản" : "Đã có tài khoản? Đăng nhập"}</button>
       {note && <p role="status" className="mt-2 text-sm text-foreground/80">{note}</p>}
     </form>
   );
