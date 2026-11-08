@@ -55,7 +55,7 @@ export function RatingAdminStats() {
             {[5, 4, 3, 2, 1].map((s) => (
               <li key={s} className="flex items-center gap-3 text-sm">
                 <span className="w-12 shrink-0 font-bold">{s} sao</span>
-                <span className="h-4 flex-1 overflow-hidden rounded-full bg-muted"><span className="block h-full rounded-full bg-star transition-[width] duration-500" style={{ width: `${(counts[s - 1] / max) * 100}%` }} /></span>
+                <span className="h-4 flex-1 overflow-hidden rounded-full bg-muted"><span className="block h-full rounded-full bg-star transition-[width] duration-500" style={{ width: `${((counts[s - 1] ?? 0) / max) * 100}%` }} /></span>
                 <span className="w-10 shrink-0 text-right font-semibold">{counts[s - 1]}</span>
               </li>
             ))}
