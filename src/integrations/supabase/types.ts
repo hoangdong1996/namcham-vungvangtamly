@@ -98,6 +98,27 @@ export type Database = {
         }
         Relationships: []
       }
+      website_ratings: {
+        Row: {
+          created_at: string
+          id: string
+          rating: number
+          session_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          rating: number
+          session_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          rating?: number
+          session_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -109,6 +130,28 @@ export type Database = {
           _user_id: string
         }
         Returns: boolean
+      }
+      submit_website_rating: {
+        Args: { _rating: number; _session_id: string }
+        Returns: string
+      }
+      website_rating_admin_stats: {
+        Args: { _since?: string }
+        Returns: {
+          stars: number
+          total: number
+        }[]
+      }
+      website_rating_session_used: {
+        Args: { _session_id: string }
+        Returns: boolean
+      }
+      website_rating_summary: {
+        Args: never
+        Returns: {
+          average: number
+          total: number
+        }[]
       }
     }
     Enums: {
