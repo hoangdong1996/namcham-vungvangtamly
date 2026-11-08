@@ -22,6 +22,13 @@
       "when": 1794125842660,
       "tag": "0002_restrict_my_documents_read",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1794126042238,
+      "tag": "0003_owner_only_my_documents",
+      "breakpoints": true
     }
   ]
 }
