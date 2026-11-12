@@ -14,7 +14,7 @@ export const Route = createFileRoute("/clb")({
   head: () => ({
     meta: [
       { title: "CLB 5 Đồng hành | 5 CHẠM – Vững vàng tâm lý" },
-      { name: "description", content: "CLB 5 Đồng hành – mô hình câu lạc bộ hỗ trợ tâm lý học đường được đề xuất tại Trường THPT Tây Tiền Hải." },
+      { name: "description", content: "CLB 5 Đồng hành – mô hình câu lạc bộ hỗ trợ tâm lý học đường được đề xuất tại Trường THPT." },
       { property: "og:title", content: "CLB 5 Đồng hành | 5 CHẠM" },
       { property: "og:description", content: "Học sinh làm chủ hoạt động – Người lớn đồng hành – Chuyên gia hỗ trợ đúng lúc." },
       { property: "og:type", content: "website" },

@@ -27,11 +27,11 @@ const soon = (id: string, group: DocGroupId, title: string, desc: string, format
 export const LIBRARY_DOCS: LibraryDoc[] = [
   soon("gioi-thieu", "nghien-cuu", "Giới thiệu đề tài nghiên cứu", "Mục tiêu, phạm vi và ý nghĩa của đề tài."),
   soon("ly-luan", "nghien-cuu", "Cơ sở lý luận", "Sức khỏe tinh thần học đường và nguy cơ trầm cảm ở học sinh THPT."),
-  soon("thuc-tien", "nghien-cuu", "Cơ sở thực tiễn tại Trường THPT Tây Tiền Hải", "Kết quả được trình bày dạng tổng hợp, bảo vệ danh tính học sinh."),
+  soon("thuc-tien", "nghien-cuu", "Cơ sở thực tiễn tại Trường THPT", "Kết quả được trình bày dạng tổng hợp, bảo vệ danh tính học sinh."),
   soon("phuong-phap", "nghien-cuu", "Phương pháp khảo sát và đánh giá", "Cách thức thu thập và phân tích dữ liệu của đề tài."),
   soon("giai-phap", "nghien-cuu", "Mô hình, quy trình và bộ giải pháp phòng ngừa", "Tổng hợp mô hình 5 CHẠM và các giải pháp đề xuất."),
 
-  { id: "so-tay-cham-soc", group: "so-tay", title: "SỔ TAY CHĂM SÓC BẢN THÂN – HỌC SINH THPT TÂY TIỀN HẢI", desc: "Gợi ý những hoạt động đơn giản giúp học sinh nhận diện cảm xúc, chăm sóc bản thân, cân bằng học tập và cuộc sống.", format: "Công cụ trực tuyến · In được", visible: true, view: { to: "/hieu-minh", hash: "so-tay" } },
+  { id: "so-tay-cham-soc", group: "so-tay", title: "SỔ TAY CHĂM SÓC BẢN THÂN – HỌC SINH THPT", desc: "Gợi ý những hoạt động đơn giản giúp học sinh nhận diện cảm xúc, chăm sóc bản thân, cân bằng học tập và cuộc sống.", format: "Công cụ trực tuyến · In được", visible: true, view: { to: "/hieu-minh", hash: "so-tay" } },
 
   soon("ban-do-ap-luc", "phieu", "Phiếu “Bản đồ áp lực của tôi”", "Ghi lại các nguồn áp lực và mức độ ảnh hưởng để nhìn rõ hơn.", "Phiếu"),
   { id: "nhan-dien-cam-xuc", group: "phieu", title: "Phiếu nhận diện cảm xúc", desc: "Thực hành “Gương cảm xúc”: gọi tên cảm xúc và điều mình cần.", format: "Công cụ trực tuyến", visible: true, view: { to: "/hieu-minh" } },

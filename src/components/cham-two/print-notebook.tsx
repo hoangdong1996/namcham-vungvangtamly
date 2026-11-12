@@ -37,7 +37,7 @@ export function PrintNotebook({ data }: { data: PrintData }) {
         <div className="pn-fields">
           {["Tên hoặc biệt danh (nếu muốn)", "Lớp (nếu muốn)", "Ngày bắt đầu thực hành"].map((f) => <div key={f} className="pn-field"><span>{f}:</span><span className="pn-line pn-grow" /></div>)}
         </div>
-        <p className="pn-school">Trường THPT Tây Tiền Hải</p>
+        <p className="pn-school">Trường THPT</p>
       </section>
 
       <section className="pn-page">
@@ -94,7 +94,7 @@ export function PrintNotebook({ data }: { data: PrintData }) {
         <Head n={7} title="Cam kết nhỏ với bản thân" />
         {[["Trong 24 giờ tới, tôi sẽ thử…", data.pledge], ["Khi gặp khó khăn, tôi có thể…", ""], ["Một điều tôi trân trọng ở bản thân là…", ""]].map(([q, t]) => <div key={q} className="pn-q"><p className="pn-qt">{q}</p><Lines text={t} n={3} /></div>)}
         <blockquote className="pn-final">{QUOTE}</blockquote>
-        <p className="pn-school">5 CHẠM – VỮNG VÀNG TÂM LÝ · Trường THPT Tây Tiền Hải</p>
+        <p className="pn-school">5 CHẠM – VỮNG VÀNG TÂM LÝ · Trường THPT</p>
       </section>
     </div>
   );

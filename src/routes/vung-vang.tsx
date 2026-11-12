@@ -12,7 +12,7 @@ export const Route = createFileRoute("/vung-vang")({
   head: () => ({
     meta: [
       { title: "Chạm 3 – Vững vàng | 5 CHẠM – Vững vàng tâm lý" },
-      { name: "description", content: "Bình tĩnh trước áp lực, linh hoạt trong ứng phó và chủ động chăm sóc bản thân với 4 hoạt động thực hành cho học sinh Trường THPT Tây Tiền Hải." },
+      { name: "description", content: "Bình tĩnh trước áp lực, linh hoạt trong ứng phó và chủ động chăm sóc bản thân với 4 hoạt động thực hành cho học sinh Trường THPT." },
       { property: "og:title", content: "Chạm 3 – Vững vàng | 5 CHẠM" },
       { property: "og:description", content: "Nút dừng bình tĩnh, Phòng tập ứng phó, Trạm hồi phục 5 phút và Thử thách 7 ngày vững vàng." },
       { property: "og:type", content: "website" },
