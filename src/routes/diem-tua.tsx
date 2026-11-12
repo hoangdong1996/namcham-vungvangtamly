@@ -15,7 +15,7 @@ export const Route = createFileRoute("/diem-tua")({
   head: () => ({
     meta: [
       { title: "Chạm 5 – Điểm tựa | 5 CHẠM – Vững vàng tâm lý" },
-      { name: "description", content: "Bạn không cần phải tự mình vượt qua tất cả. Bản đồ điểm tựa, cẩm nang “Khi bạn mình không ổn” và mô hình CLB đang được đề xuất tại Trường THPT Tây Tiền Hải." },
+      { name: "description", content: "Bạn không cần phải tự mình vượt qua tất cả. Bản đồ điểm tựa, cẩm nang “Khi bạn mình không ổn” và mô hình CLB đang được đề xuất tại Trường THPT." },
       { property: "og:title", content: "Chạm 5 – Điểm tựa | 5 CHẠM" },
       { property: "og:description", content: "Khi cần, bạn có thể tìm đến ai? Khám phá những điểm tựa quanh bạn và học cách đồng hành cùng bạn bè." },
       { property: "og:type", content: "website" },

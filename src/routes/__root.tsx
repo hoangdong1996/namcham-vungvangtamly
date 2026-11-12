@@ -90,7 +90,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Giáo dục sức khỏe tâm lý học đường – Trường THPT Tây Tiền Hải. Lắng nghe bản thân – Kết nối yêu thương – Vững vàng mỗi ngày.",
+          "Giáo dục sức khỏe tâm lý học đường – Trường THPT. Lắng nghe bản thân – Kết nối yêu thương – Vững vàng mỗi ngày.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

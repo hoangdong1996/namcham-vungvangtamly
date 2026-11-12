@@ -12,7 +12,7 @@ export const Route = createFileRoute("/hieu-minh")({
   head: () => ({
     meta: [
       { title: "Chạm 2 – Thấu hiểu | 5 CHẠM – Vững vàng tâm lý" },
-      { name: "description", content: "Hiểu áp lực số, nhận ra điểm tựa và chủ động chăm sóc bản thân với 4 hoạt động tương tác dành cho học sinh Trường THPT Tây Tiền Hải." },
+      { name: "description", content: "Hiểu áp lực số, nhận ra điểm tựa và chủ động chăm sóc bản thân với 4 hoạt động tương tác dành cho học sinh Trường THPT." },
       { property: "og:title", content: "Chạm 2 – Thấu hiểu | 5 CHẠM" },
       { property: "og:description", content: "Gương cảm xúc, Phía sau màn hình, Đổi chiếc kính và Sổ tay chăm sóc bản thân – không chấm điểm, không lưu câu trả lời." },
       { property: "og:type", content: "website" },

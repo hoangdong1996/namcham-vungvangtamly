@@ -36,7 +36,7 @@ export const Route = createFileRoute("/lang-nghe")({
       {
         name: "description",
         content:
-          "Dừng lại một chút, lắng nghe điều mình đang cảm nhận. Chạm 1 – Lắng nghe, mô hình 5 CHẠM tại Trường THPT Tây Tiền Hải.",
+          "Dừng lại một chút, lắng nghe điều mình đang cảm nhận. Chạm 1 – Lắng nghe, mô hình 5 CHẠM tại Trường THPT.",
       },
       { property: "og:title", content: "Chạm 1 – Lắng nghe | 5 CHẠM" },
       {

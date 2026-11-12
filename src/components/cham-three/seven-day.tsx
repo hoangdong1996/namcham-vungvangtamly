@@ -51,7 +51,7 @@ export function SevenDayChallenge() {
       <p className="text-xs text-muted-foreground">Kế hoạch chỉ nằm trong phiên hiện tại, không được lưu hay gửi lên máy chủ. Nút in mở hộp thoại in của trình duyệt (có thể chọn “Lưu dưới dạng PDF”).</p>
       {mounted && createPortal(<div id="print-plan" className="pn-doc">
         <h1 className="pp-title">THỬ THÁCH 7 NGÀY VỮNG VÀNG</h1>
-        <p className="pp-sub">Chạm 3 – Vững vàng · 5 CHẠM – VỮNG VÀNG TÂM LÝ · Trường THPT Tây Tiền Hải</p>
+        <p className="pp-sub">Chạm 3 – Vững vàng · 5 CHẠM – VỮNG VÀNG TÂM LÝ · Trường THPT</p>
         <table className="pn-table">
           <thead><tr><th>Ngày</th><th>Mục tiêu nhỏ</th><th>Hành động tôi chọn</th><th>Xong</th><th>Ghi chú</th></tr></thead>
           <tbody>{plan.map((d, i) => <tr key={i}><td className="pn-day">{i + 1}<br /><span className="pp-daytitle">{DAYS[i]!.t}</span></td><td>{d.goal}</td><td>{d.action}</td><td className="pn-center"><span className="pn-box">{d.done ? "✓" : ""}</span></td><td>{d.note}</td></tr>)}</tbody>

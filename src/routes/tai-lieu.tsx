@@ -8,7 +8,7 @@ export const Route = createFileRoute("/tai-lieu")({
   head: () => ({
     meta: [
       { title: "Thư viện tài liệu | 5 CHẠM – Vững vàng tâm lý" },
-      { name: "description", content: "Cơ sở khoa học, công cụ thực hành và sản phẩm nghiên cứu chăm sóc sức khỏe tinh thần cho học sinh THPT Tây Tiền Hải." },
+      { name: "description", content: "Cơ sở khoa học, công cụ thực hành và sản phẩm nghiên cứu chăm sóc sức khỏe tinh thần cho học sinh THPT." },
       { property: "og:title", content: "Thư viện tài liệu | 5 CHẠM" },
       { property: "og:description", content: "Cơ sở khoa học – Công cụ thực hành – Sản phẩm nghiên cứu." },
       { property: "og:type", content: "website" },
@@ -37,7 +37,7 @@ function LibraryPage() {
         <span className="inline-flex items-center gap-2 rounded-full bg-card px-4 py-1.5 text-sm font-bold text-primary shadow-sm"><BookOpen className="h-4 w-4" aria-hidden="true" />Tài liệu</span>
         <h1 className="mt-4 font-display text-4xl font-extrabold text-green-deep sm:text-5xl">THƯ VIỆN TÀI LIỆU</h1>
         <p className="mt-2 font-display text-lg font-bold text-plum sm:text-xl">Cơ sở khoa học – Công cụ thực hành – Sản phẩm nghiên cứu</p>
-        <p className="mx-auto mt-4 max-w-3xl leading-relaxed text-foreground/80">“Không gian tổng hợp các tài liệu, công cụ thực hành và sản phẩm phục vụ hoạt động chăm sóc sức khỏe tinh thần, phòng ngừa nguy cơ trầm cảm và hỗ trợ tâm lý học đường cho học sinh THPT Tây Tiền Hải.”</p>
+        <p className="mx-auto mt-4 max-w-3xl leading-relaxed text-foreground/80">“Không gian tổng hợp các tài liệu, công cụ thực hành và sản phẩm phục vụ hoạt động chăm sóc sức khỏe tinh thần, phòng ngừa nguy cơ trầm cảm và hỗ trợ tâm lý học đường cho học sinh THPT.”</p>
       </section>
 
       <div className="mx-auto max-w-7xl px-4 py-10">

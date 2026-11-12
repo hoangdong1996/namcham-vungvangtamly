@@ -40,13 +40,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Lắng nghe bản thân – Kết nối yêu thương – Vững vàng mỗi ngày. Mô hình 5 CHẠM về giáo dục sức khỏe tâm lý học đường tại Trường THPT Tây Tiền Hải.",
+          "Lắng nghe bản thân – Kết nối yêu thương – Vững vàng mỗi ngày. Mô hình 5 CHẠM về giáo dục sức khỏe tâm lý học đường tại Trường THPT.",
       },
       { property: "og:title", content: "5 CHẠM – Vững vàng tâm lý" },
       {
         property: "og:description",
         content:
-          "Lắng nghe bản thân – Kết nối yêu thương – Vững vàng mỗi ngày. Website giáo dục sức khỏe tâm lý học đường – Trường THPT Tây Tiền Hải.",
+          "Lắng nghe bản thân – Kết nối yêu thương – Vững vàng mỗi ngày. Website giáo dục sức khỏe tâm lý học đường – Trường THPT.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -124,7 +124,7 @@ function Index() {
           <div className="hero-copy min-w-0 text-center md:text-left">
             <div className="hero-brand inline-flex items-center gap-2 rounded-full bg-card px-4 py-2 text-sm font-semibold text-green-deep shadow-sm">
               <GraduationCap className="h-4 w-4" aria-hidden="true" />
-              5 CHẠM – VỮNG VÀNG TÂM LÝ · Trường THPT Tây Tiền Hải
+              5 CHẠM – VỮNG VÀNG TÂM LÝ · Trường THPT
             </div>
             <h1 className="mx-auto mt-7 hero-title font-hero font-extrabold uppercase md:mx-0">
               <span className="hero-line text-primary" style={{ lineHeight: 1.2 }}>
@@ -190,7 +190,7 @@ function Index() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center">
             <span className="inline-flex items-center gap-2 rounded-full bg-mint px-4 py-1.5 text-sm font-bold text-green-deep">
-              <GraduationCap className="h-4 w-4" aria-hidden="true" />Trường THPT Tây Tiền Hải
+              <GraduationCap className="h-4 w-4" aria-hidden="true" />Trường THPT
             </span>
             <h2 id="mo-hinh-title" className="mt-4 font-display text-3xl font-extrabold text-primary sm:text-4xl">MÔ HÌNH 5 CHẠM</h2>
             <p className="mt-1 font-display text-xl font-bold text-plum">5 CHẠM – VỮNG VÀNG TÂM LÝ</p>
@@ -200,7 +200,7 @@ function Index() {
           <div className="mt-10 grid items-center gap-8 lg:grid-cols-2">
             <div className="space-y-4 text-base leading-relaxed text-foreground/85">
               <p>
-                <strong className="text-green-deep">5 CHẠM</strong> là bộ giải pháp <strong className="text-green-deep">giáo dục sức khỏe tâm thần</strong> và hỗ trợ tâm lý học đường, được xây dựng và thử nghiệm trong khuôn khổ đề tài nghiên cứu khoa học xã hội và hành vi nhằm <strong className="text-green-deep">phòng ngừa nguy cơ trầm cảm</strong> ở học sinh Trường THPT Tây Tiền Hải.
+                <strong className="text-green-deep">5 CHẠM</strong> là bộ giải pháp <strong className="text-green-deep">giáo dục sức khỏe tâm thần</strong> và hỗ trợ tâm lý học đường, được xây dựng và thử nghiệm trong khuôn khổ đề tài nghiên cứu khoa học xã hội và hành vi nhằm <strong className="text-green-deep">phòng ngừa nguy cơ trầm cảm</strong> ở học sinh Trường THPT.
               </p>
               <p>
                 Thông qua năm thành tố liên kết gồm <strong className="text-green-deep">Lắng nghe – Thấu hiểu – Vững vàng – Kết nối – Điểm tựa</strong>, mô hình hướng tới trang bị cho học sinh kiến thức và kỹ năng chăm sóc bản thân, quản lý cảm xúc, ứng phó với áp lực, xây dựng các mối quan hệ tích cực và chủ động tìm kiếm sự hỗ trợ khi cần thiết.
