@@ -50,6 +50,13 @@
       "when": 1794151672339,
       "tag": "0006_website_ratings",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1794469202137,
+      "tag": "0007_drop_public_library_anon_read",
+      "breakpoints": true
     }
   ]
 }

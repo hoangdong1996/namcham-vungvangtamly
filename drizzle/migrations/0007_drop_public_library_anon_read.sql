@@ -1,0 +1,1 @@
+DROP POLICY IF EXISTS "public library files readable" ON storage.objects;
