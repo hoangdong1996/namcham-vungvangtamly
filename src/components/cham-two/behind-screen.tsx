@@ -52,7 +52,7 @@ export function BehindScreen() {
           </div>
         )}
       </article>
-      <div className="flex justify-between gap-3">
+      <div className="flex flex-wrap justify-between gap-3">
         <Button variant="outline" disabled={index === 0} onClick={() => setIndex(index - 1)}><ChevronLeft />Tình huống trước</Button>
         <Button variant="outline" disabled={index === SCENARIOS.length - 1} onClick={() => setIndex(index + 1)}>Tình huống tiếp<ChevronRight /></Button>
       </div>

@@ -154,7 +154,7 @@ function StageView({ stage, index, onNext }: { stage: Stage; index: number; onNe
       {done && (
         <div className="animate-in fade-in space-y-4 text-center duration-500">
           {stage.bridge && <p className="mx-auto max-w-2xl border-l-4 border-primary bg-mint-soft p-4 text-left italic leading-relaxed">“{stage.bridge}”</p>}
-          <Button size="lg" onClick={onNext}>{index < STAGES.length - 1 ? `Sang chặng ${index + 2} – ${STAGES[index + 1]!.name}` : "Đến điểm kết nối"} <ArrowRight /></Button>
+          <Button size="lg" className="h-auto max-w-full whitespace-normal py-3" onClick={onNext}>{index < STAGES.length - 1 ? `Sang chặng ${index + 2} – ${STAGES[index + 1]!.name}` : "Đến điểm kết nối"} <ArrowRight /></Button>
         </div>
       )}
     </div>
@@ -194,8 +194,8 @@ export function ConnectionJourney() {
           </p>
           <p className="italic text-muted-foreground">Bạn không cần thay đổi tất cả trong một ngày. Hãy bắt đầu từ một lời hỏi han, một lần lắng nghe trọn vẹn hoặc một câu nói chân thành.</p>
           <div className="flex flex-wrap justify-center gap-3">
-            <Button asChild size="lg"><Link to="/diem-tua">TIẾP TỤC ĐẾN CHẠM 5 – ĐIỂM TỰA <ArrowRight /></Link></Button>
-            <Button variant="outline" size="lg" onClick={restart}><RotateCcw /> TRẢI NGHIỆM LẠI HÀNH TRÌNH</Button>
+            <Button asChild size="lg" className="h-auto max-w-full whitespace-normal py-3"><Link to="/diem-tua">TIẾP TỤC ĐẾN CHẠM 5 – ĐIỂM TỰA <ArrowRight /></Link></Button>
+            <Button variant="outline" size="lg" className="h-auto max-w-full whitespace-normal py-3" onClick={restart}><RotateCcw /> TRẢI NGHIỆM LẠI HÀNH TRÌNH</Button>
           </div>
         </div>
       )}
