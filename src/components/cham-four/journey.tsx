@@ -154,7 +154,7 @@ function StageView({ stage, index, onNext }: { stage: Stage; index: number; onNe
       {done && (
         <div className="animate-in fade-in space-y-4 text-center duration-500">
           {stage.bridge && <p className="mx-auto max-w-2xl border-l-4 border-primary bg-mint-soft p-4 text-left italic leading-relaxed">“{stage.bridge}”</p>}
-          <Button size="lg" onClick={onNext}>{index < STAGES.length - 1 ? `Sang chặng ${index + 2} – ${STAGES[index + 1]!.name}` : "Đến điểm kết nối"} <ArrowRight /></Button>
+          <Button size="lg" className="h-auto max-w-full whitespace-normal py-3" onClick={onNext}>{index < STAGES.length - 1 ? `Sang chặng ${index + 2} – ${STAGES[index + 1]!.name}` : "Đến điểm kết nối"} <ArrowRight /></Button>
         </div>
       )}
     </div>
