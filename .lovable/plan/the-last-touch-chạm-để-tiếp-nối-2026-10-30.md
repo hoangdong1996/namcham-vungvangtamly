@@ -96,7 +96,7 @@ Minh họa học sinh cùng bước đi, ánh sáng ấm và các nét nối g�
 
 Thay Footer hiện tại bằng bố cục tối giản, hiện đại, đồng bộ với phần kết; không làm thành một đoạn kể chuyện dài trên trang con.
 
-- **Nhận diện:** logo hiện có; “5 CHẠM – VỮNG VÀNG TÂM LÝ”; Trường THPT Tây Tiền Hải.
+- **Nhận diện:** logo hiện có; “5 CHẠM – VỮNG VÀNG TÂM LÝ”; Trường THPT.
 - **Tiếp nối hành trình:** Chạm 1 – Lắng nghe, Chạm 2 – Thấu hiểu, Chạm 3 – Vững vàng, Chạm 4 – Kết nối, Chạm 5 – Điểm tựa, CLB Đồng hành, Tài liệu; đúng các trang hiện có.
 - **Tìm kiếm hỗ trợ:** nút Tìm điểm tựa đến `/diem-tua#nguon-tro-giup`.
 - **Thông tin an toàn:** “Nội dung website phục vụ mục tiêu nâng cao nhận thức, kỹ năng chăm sóc sức khỏe tinh thần và tìm kiếm hỗ trợ; không thay thế đánh giá, tư vấn hoặc điều trị chuyên môn.” Giữ thông điệp không chẩn đoán/gắn nhãn và hướng dẫn tìm người lớn đáng tin cậy; 111 là Tổng đài bảo vệ trẻ em, 115 là cấp cứu y tế.
