@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } fro
 import { Eye, FileText, FolderHeart, Image as ImageIcon, Loader2, LogOut, Presentation, Search, Trash2, Upload, X } from "lucide-react";
 import type { User } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
+import { getPublicDocUrl } from "@/lib/library/public-doc.functions";
 import { ACCEPT, KIND_LABELS, MAX_BYTES, detectKind, formatSize, type FileKind } from "./file-kinds";
 
 type Doc = { id: string; name: string; storage_path: string; mime_type: string; kind: string; size_bytes: number; created_at: string };
@@ -97,8 +98,10 @@ function DocArea({ mode }: { mode: Mode }) {
   }
 
   async function open(doc: Doc) {
-    const { data } = await supabase.storage.from(BUCKET).createSignedUrl(doc.storage_path, SIGNED_TTL);
-    if (data?.signedUrl) setPreview({ doc, url: data.signedUrl });
+    const url = mode === "public"
+      ? (await getPublicDocUrl({ data: { id: doc.id } }).catch(() => ({ url: null }))).url
+      : (await supabase.storage.from(BUCKET).createSignedUrl(doc.storage_path, SIGNED_TTL)).data?.signedUrl;
+    if (url) setPreview({ doc, url });
   }
 
   async function remove(doc: Doc) {
