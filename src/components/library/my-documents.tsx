@@ -160,14 +160,14 @@ function DocArea({ mode }: { mode: Mode }) {
       ) : shown.length === 0 ? (
         <p className="mt-5 rounded-2xl border border-dashed border-border bg-card px-5 py-6 text-center text-foreground/70">{docs.length ? "Không có tệp phù hợp." : mode === "private" && !user ? "Đăng nhập để xem tài liệu riêng của bạn." : "Chưa có tài liệu nào được tải lên."}</p>
       ) : (
-        <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {shown.map((d) => {
             const Icon = KIND_ICON[d.kind as FileKind] ?? FileText;
             return (
-              <li key={d.id} className="flex flex-col rounded-3xl border border-border bg-card p-4 shadow-sm">
+              <li key={d.id} className="flex min-w-0 flex-col rounded-3xl border border-border bg-card p-4 shadow-sm">
                 <div className="flex items-start gap-3">
                   <Icon className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-                  <div className="min-w-0">
+                  <div className="min-w-0 flex-1">
                     <p className="break-words font-semibold leading-snug">{d.name}</p>
                     <p className="mt-1 text-xs text-foreground/65">{KIND_LABELS[d.kind as FileKind] ?? d.kind} · {formatSize(d.size_bytes)} · {new Date(d.created_at).toLocaleDateString("vi-VN")}</p>
                   </div>
