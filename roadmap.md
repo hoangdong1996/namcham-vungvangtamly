@@ -1,10 +1,10 @@
 # Roadmap
 
 ## Kiểm thử đầy đủ ngày 12/11/2026
-- [ ] Thử các hoạt động, trạng thái mở rộng, liên kết và in ở máy tính/điện thoại; sửa tràn viền phát hiện được.
-- [ ] Thử AI thật và lỗi kết nối; xác minh không tự gửi lại và không lưu chia sẻ trong trình duyệt.
-- [ ] Thử phiên đăng nhập, quản lý tài liệu bằng tệp thử riêng, đánh giá và thống kê; không sửa/xóa tài liệu thật, dọn dữ liệu thử.
-- [ ] Chạy kiểm thử tự động và xác nhận lại các lỗi đã sửa.
+- [x] Thử chín trang ở 1280/390/360/320px; hoàn thành ba chặng, bản đồ cảm xúc, bài thở, tám trạm hồi phục, kế hoạch bảy ngày và xuất bản in. Sửa hai nhóm nút tràn ở màn hình nhỏ, thử lại không tràn.
+- [x] Bốn lượt AI thật bằng nội dung giả định (thường/khủng hoảng) đạt; lỗi mạng chỉ gửi lại khi bấm, tải lại xóa chia sẻ, không lưu chia sẻ trong trình duyệt.
+- [x] Phiên đăng nhập quản trị và đăng xuất đạt; tải lên/tải lại/xem/tải xuống/đổi tên/xóa bốn tệp thử công khai/riêng tư đạt; gửi một đánh giá thử, tải lại chặn lặp, ba bộ lọc thống kê đạt. Đã dọn tệp thử và lượt đánh giá thử, không sửa tài liệu thật. Không thử mật khẩu thật hoặc tạo tài khoản mới; hộp thoại máy in vật lý chưa kiểm chứng trên thiết bị thật.
+- [x] 63/63 kiểm thử đạt; hai bài thử tràn trước sửa thất bại, sau sửa đều đạt; không lỗi trình duyệt hoặc ảnh hỏng trong lần kiểm tra. Kiểm tra thông tin chia sẻ của cả chín trang đầy đủ.
 
 - [x] Hoàn thiện Bản đồ cảm xúc Chạm 1: lựa chọn, mức độ 1–5, nguyên nhân, chia sẻ tùy chọn, bản đồ và gợi ý; không gửi/lưu dữ liệu.
 - [x] Kiểm thử từ đầu đến cuối ở 1280/390px: chín cảm xúc, sáu nhóm nguyên nhân, mức độ 5, chia sẻ tùy chọn, làm lại/quay về, tải lại xóa dữ liệu; không yêu cầu mạng, thay đổi bộ nhớ hoặc tràn ngang. Tám kiểm thử hoạt động/AI đạt.
