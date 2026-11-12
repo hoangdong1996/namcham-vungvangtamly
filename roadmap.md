@@ -1,5 +1,11 @@
 # Roadmap
 
+## Kiểm thử đầy đủ ngày 12/11/2026
+- [ ] Thử các hoạt động, trạng thái mở rộng, liên kết và in ở máy tính/điện thoại; sửa tràn viền phát hiện được.
+- [ ] Thử AI thật và lỗi kết nối; xác minh không tự gửi lại và không lưu chia sẻ trong trình duyệt.
+- [ ] Thử phiên đăng nhập, quản lý tài liệu bằng tệp thử riêng, đánh giá và thống kê; không sửa/xóa tài liệu thật, dọn dữ liệu thử.
+- [ ] Chạy kiểm thử tự động và xác nhận lại các lỗi đã sửa.
+
 - [x] Hoàn thiện Bản đồ cảm xúc Chạm 1: lựa chọn, mức độ 1–5, nguyên nhân, chia sẻ tùy chọn, bản đồ và gợi ý; không gửi/lưu dữ liệu.
 - [x] Kiểm thử từ đầu đến cuối ở 1280/390px: chín cảm xúc, sáu nhóm nguyên nhân, mức độ 5, chia sẻ tùy chọn, làm lại/quay về, tải lại xóa dữ liệu; không yêu cầu mạng, thay đổi bộ nhớ hoặc tràn ngang. Tám kiểm thử hoạt động/AI đạt.
 
