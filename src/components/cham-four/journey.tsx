@@ -194,8 +194,8 @@ export function ConnectionJourney() {
           </p>
           <p className="italic text-muted-foreground">Bạn không cần thay đổi tất cả trong một ngày. Hãy bắt đầu từ một lời hỏi han, một lần lắng nghe trọn vẹn hoặc một câu nói chân thành.</p>
           <div className="flex flex-wrap justify-center gap-3">
-            <Button asChild size="lg"><Link to="/diem-tua">TIẾP TỤC ĐẾN CHẠM 5 – ĐIỂM TỰA <ArrowRight /></Link></Button>
-            <Button variant="outline" size="lg" onClick={restart}><RotateCcw /> TRẢI NGHIỆM LẠI HÀNH TRÌNH</Button>
+            <Button asChild size="lg" className="h-auto max-w-full whitespace-normal py-3"><Link to="/diem-tua">TIẾP TỤC ĐẾN CHẠM 5 – ĐIỂM TỰA <ArrowRight /></Link></Button>
+            <Button variant="outline" size="lg" className="h-auto max-w-full whitespace-normal py-3" onClick={restart}><RotateCcw /> TRẢI NGHIỆM LẠI HÀNH TRÌNH</Button>
           </div>
         </div>
       )}
